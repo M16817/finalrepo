@@ -54,22 +54,24 @@ app.use(bodyParser.json());
   }
  
 
-     if(req.body.result.action=== 'createinstance'){
-        firstapp.logIncident('Incident 56310','',function(err,res)
-        {
-          console.log(res["result"]["number"]);
-          success=res["result"]["number"];
-        });
-        console.log('Received the request & it is:::'+JSON.stringify(req.body));
+    //  if(req.body.result.action=== 'createinstance'){
+    //     firstapp.logIncident('Incident 56310','',function(err,res)
+    //     {
+    //       console.log(res["result"]["number"]);
+    //       success=res["result"]["number"];
+    //     });
+    //     console.log('Received the request & it is:::'+JSON.stringify(req.body));
 
-      var resagent='Your incident id is generated with Incident number : '+success;
-     console.log('request are'+resagent);
-      return res.json({
-        speech:resagent,
-        displayText: resagent,
-        source:'Service now'
-                });
-      } 
+    //   var resagent='Your incident id is generated with Incident number : '+success;
+    //  console.log('request are'+resagent);
+    //   return res.json({
+    //     speech:resagent,
+    //     displayText: resagent,
+    //     source:'Service now'
+    //             });
+    //   } 
+
+    
     });
 
 
