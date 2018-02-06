@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
    app.post('/',function(req,res){ 
 
-    if (req.body.action.result ==='network')
+    if (req.body.action ==='network')
 {
         var facebookResponse={
 
