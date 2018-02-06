@@ -33,7 +33,6 @@ app.use(bodyParser.json());
           "DNS",
           "IP",
           "NETWORK"
-
         ]
       },
       {
