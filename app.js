@@ -14,8 +14,9 @@ app.use(bodyParser.json());
 
    app.post('/',function(req,res){ 
 
-    if (req.body.action ==='network')
-{
+    if (req.body.result.action ==='network')
+      {       
+        console.log('hie');
         var facebookResponse={
 
           "speech": "",
