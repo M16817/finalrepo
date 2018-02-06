@@ -16,7 +16,8 @@ app.use(bodyParser.json());
     if (req.body.result.action ==='network')
     { 
       var facebookResponse={
-     "messages": [
+    "speech": "",
+    "messages": [
      
       {
         "type": 0,
@@ -28,6 +29,10 @@ app.use(bodyParser.json());
           "IP",
           "NETWORK"
         ]
+      },
+      {
+        "type": 1,
+        "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option"
       }
     ]
   }
