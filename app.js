@@ -14,10 +14,8 @@ app.use(bodyParser.json());
 
    app.post('/',function(req,res){ 
 
-    //if (req.body.action.result ==='')
-    
-
-
+    if (req.body.action.result ==='network')
+    {
         var facebookResponse={
 
           "speech": "",
@@ -53,10 +51,10 @@ app.use(bodyParser.json());
    };
   
     return res.json(facebookResponse);
-  });
+  }
  
 
-     /* if(req.body.result.action=== 'createinstance'){
+     if(req.body.result.action=== 'createinstance'){
         firstapp.logIncident('Incident 56310','',function(err,res)
         {
           console.log(res["result"]["number"]);
@@ -71,8 +69,8 @@ app.use(bodyParser.json());
         displayText: resagent,
         source:'Service now'
                 });
-      } */
- 
+      } 
+    });
 
 
 app.listen(portC, function(){
