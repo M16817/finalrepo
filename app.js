@@ -13,19 +13,14 @@ app.use(bodyParser.json());
 
    app.post('/',function(req,res){ 
 
-
     if (req.body.result.action ==='network')
     { 
       var facebookResponse={
     "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option",
     "messages": [
+     
       {
         "type": 0,
-        "platform": "facebook",
-        "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option"
-      },
-      {
-        "type": 2,
         "platform": "facebook",
         "title": "select one",
         "replies": [
@@ -36,7 +31,7 @@ app.use(bodyParser.json());
         ]
       },
       {
-        "type": 0,
+        "type": 1,
         "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option"
       }
     ]
