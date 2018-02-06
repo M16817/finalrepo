@@ -11,14 +11,60 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 
-   app.post('/',function(req,res){
-      firstapp.logIncident('Incident 56310','',function(err,res)
-      {
-        console.log(res["result"]["number"]);
-        success=res["result"]["number"];
-      });
-      console.log('Received the request & it is:::'+JSON.stringify(req.body));
+   app.post('/',function(req,res){ 
+    
+
+    if (req.body.action.result ==='network')
+    {
+        var facebookResponse={
+            "speech": "",
+            "displayText": "Your Incident has been raised",
+            "data": {
+              "facebook": {
+                "attachment": {
+                      "type": "template",
+                      "payload": {
+                      "template_type": "generic",
+                      "elements": [
+                        {
+                          "title": "Select SubCategory",
+                          "subtitle": '',
+                          "buttons": [
+                            {
+                              "type": "postback",
+                              "title": "CPU",
+                              "payload": "CPU"
+                            },
+                            {
+                              "type": "postback",
+                              "title": "Keyboard",
+                              "payload": "Keyboard"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+          
+            };
+    
+    return res.json(facebookResponse);
+     
+        }
+
+
+
+
+
       if(req.body.result.action=== 'createinstance'){
+        firstapp.logIncident('Incident 56310','',function(err,res)
+        {
+          console.log(res["result"]["number"]);
+          success=res["result"]["number"];
+        });
+        console.log('Received the request & it is:::'+JSON.stringify(req.body));
 
       var resagent='Your incident id is generated with Incident number : '+success;
      console.log('request are'+resagent);
