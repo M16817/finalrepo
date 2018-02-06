@@ -10,9 +10,46 @@ var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
+
    app.post('/',function(req,res){ 
 
+
     if (req.body.result.action ==='network')
+    { 
+      var facebookResponse={
+    "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option",
+    "messages": [
+      {
+        "type": 0,
+        "platform": "facebook",
+        "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option"
+      },
+      {
+        "type": 2,
+        "platform": "facebook",
+        "title": "select one",
+        "replies": [
+          "DHCP",
+          "DNS",
+          "IP",
+          "NETWORK"
+
+        ]
+      },
+      {
+        "type": 0,
+        "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option"
+      }
+    ]
+  }
+    return res.json(facebookResponse);
+  
+  };
+
+
+
+
+   /*  if (req.body.result.action ==='network')
       {       
         console.log('hie');
         var facebookResponse={
@@ -51,7 +88,7 @@ app.use(bodyParser.json());
   
     return res.json(facebookResponse);
   }
-
+*/
 
   if (req.body.result.action ==='hardware')
   {       
@@ -110,15 +147,15 @@ if (req.body.result.action ==='software')
     "imageUrl": "https://assets.kpmg.com/content/dam/kpmg/images/2015/07/US-strategic-alliance-servicenow.jpg/jcr:content/renditions/cq5dam.web.1200.630.jpg",
     "buttons": [
       {
-        "text": "DHCP",
+        "text": "Email",
         "postback": ""
       },
       {
-        "text": "DNS",
+        "text": "OS",
         "postback": ""
       },
       {
-        "text": "IP",
+        "text": "Software",
         "postback": ""
       }
     ]
