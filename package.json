@@ -1,24 +1,23 @@
 {
-  "name": "demoapp",
+  "name": "finalrepo",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "dependencies": {
+    "node-rest-client": "^3.1.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/M16817/m16817repository.git"
+    "url": "git+https://github.com/M16817/finalrepo.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/M16817/m16817repository/issues"
+    "url": "https://github.com/M16817/finalrepo/issues"
   },
-  "homepage": "https://github.com/M16817/m16817repository#readme",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "node-rest-client": "^3.1.0"
-  }
+  "homepage": "https://github.com/M16817/finalrepo#readme"
 }
