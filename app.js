@@ -10,8 +10,6 @@ var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-
-
    app.post('/',function(req,res){ 
 
     if (req.body.result.action ==='network')
