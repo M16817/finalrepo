@@ -17,42 +17,42 @@ app.use(bodyParser.json());
     if (req.body.action.result ==='network')
     {
         var facebookResponse={
-            "speech": "",
-            "displayText": "Your Incident has been raised",
-            "data": {
-              "facebook": {
-                "attachment": {
-                      "type": "template",
-                      "payload": {
-                      "template_type": "generic",
-                      "elements": [
-                        {
-                          "title": "Select SubCategory",
-                          "subtitle": '',
-                          "buttons": [
-                            {
-                              "type": "postback",
-                              "title": "CPU",
-                              "payload": "CPU"
-                            },
-                            {
-                              "type": "postback",
-                              "title": "Keyboard",
-                              "payload": "Keyboard"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                }
-              },
-          
-            };
+
+          "speech": "",
+      "messages": [
+        {
+          "type": 1,
+          "platform": "facebook",
+          "title": "Service now",
+          "subtitle": "Service now",
+          "imageUrl": "https://assets.kpmg.com/content/dam/kpmg/images/2015/07/US-strategic-alliance-servicenow.jpg/jcr:content/renditions/cq5dam.web.1200.630.jpg",
+          "buttons": [
+            {
+              "text": "DHCP",
+              "postback": ""
+            },
+            {
+              "text": "DNS",
+              "postback": ""
+            },
+            {
+              "text": "IP",
+              "postback": ""
+            }
+          ]
+        },
+        {
+          "type": 0,
+          "speech": ""
+        }
+      ]
+
+            
+   };
     
     return res.json(facebookResponse);
      
-        }
+ }
 
 
 
