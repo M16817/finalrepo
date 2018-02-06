@@ -51,6 +51,91 @@ app.use(bodyParser.json());
   
     return res.json(facebookResponse);
   }
+
+
+  if (req.body.result.action ==='hardware')
+  {       
+    console.log('hie');
+    var facebookResponse={
+
+      "speech": "",
+  "messages": [
+    {
+      "type": 1,
+      "platform": "facebook",
+      "title": "Service now",
+      "subtitle": "Service now",
+      "imageUrl": "https://assets.kpmg.com/content/dam/kpmg/images/2015/07/US-strategic-alliance-servicenow.jpg/jcr:content/renditions/cq5dam.web.1200.630.jpg",
+      "buttons": [
+        {
+          "text": "DHCP",
+          "postback": ""
+        },
+        {
+          "text": "DNS",
+          "postback": ""
+        },
+        {
+          "text": "IP",
+          "postback": ""
+        }
+      ]
+    },
+    {
+      "type": 0,
+      "speech": ""
+    }
+  ]
+
+        
+};
+
+return res.json(facebookResponse);
+}
+
+
+
+if (req.body.result.action ==='software')
+{       
+  console.log('hie');
+  var facebookResponse={
+
+    "speech": "",
+"messages": [
+  {
+    "type": 1,
+    "platform": "facebook",
+    "title": "Service now",
+    "subtitle": "Service now",
+    "imageUrl": "https://assets.kpmg.com/content/dam/kpmg/images/2015/07/US-strategic-alliance-servicenow.jpg/jcr:content/renditions/cq5dam.web.1200.630.jpg",
+    "buttons": [
+      {
+        "text": "DHCP",
+        "postback": ""
+      },
+      {
+        "text": "DNS",
+        "postback": ""
+      },
+      {
+        "text": "IP",
+        "postback": ""
+      }
+    ]
+  },
+  {
+    "type": 0,
+    "speech": ""
+  }
+]
+
+      
+};
+
+return res.json(facebookResponse);
+}
+
+
   });
  
 
