@@ -22,7 +22,7 @@ app.use(bodyParser.json());
       {
         "type": 0,
         "platform": "facebook",
-        // "title": "select one",
+         "title": "select one",
         "replies": [
           "DHCP",
           "DNS",
