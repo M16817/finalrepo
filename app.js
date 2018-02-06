@@ -18,7 +18,7 @@ app.use(bodyParser.json());
         success=res["result"]["number"];
       });
       console.log('Received the request & it is:::'+JSON.stringify(req.body));
-      if(req.body.result.action=='createinstance'){
+      if(req.body.result.action=== 'createinstance'){
 
       var resagent='Your incident id is generated with Incident number : '+success;
      console.log('request are'+resagent);
