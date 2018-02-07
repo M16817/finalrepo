@@ -27,12 +27,12 @@ app.use(bodyParser.json());
       {
         "type": 2,
         "platform": "facebook",
-        "title": "select one",
+        "title": "select one subcategory",
         "replies": [
           "DHCP",
           "DNS",
           "IP",
-          "NETWORK"
+          "SUB NETWORK"
         ]
       },
       {
@@ -175,11 +175,11 @@ return res.json(facebookResponse);
   });
  
 
-     /* if(req.body.result.action=== 'createinstance'){
-        firstapp.logIncident('Incident 56310','',function(err,res)
+      if(req.body.result.action=== 'createinstance'){
+        firstapp.logIncident('Incident 56310','',function(err,resu)
         {
-          console.log(res["result"]["number"]);
-          success=res["result"]["number"];
+          console.log(resu["result"]["number"]);
+          success=resu["result"]["number"];
         });
         console.log('Received the request & it is:::'+JSON.stringify(req.body));
 
@@ -190,7 +190,7 @@ return res.json(facebookResponse);
         displayText: resagent,
         source:'Service now'
                 });
-      } */
+      }
  
 
 
