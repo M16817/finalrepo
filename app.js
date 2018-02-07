@@ -105,15 +105,15 @@ app.use(bodyParser.json());
       "buttons": [
         {
           "text": "DHCP",
-          "postback": ""
+          "postback": "DHCP"
         },
         {
           "text": "DNS",
-          "postback": ""
+          "postback": "DNS"
         },
         {
           "text": "IP",
-          "postback": ""
+          "postback": "IP"
         }
       ]
     },
@@ -170,13 +170,12 @@ if (req.body.result.action ==='software')
 
 return res.json(facebookResponse);
 }
-
-
        if(req.body.result.action=== 'network.network-custom'){
-        firstapp.logIncident('Incident 56310','',function(err,resu)
+         var desc=req.body.contexts.parameters.desc
+        firstapp.logIncident(desc,'',function(err,resu)
         {
           success=resu["result"]["number"];
-          var resagent='Your incident id is generated with Incident number : '+success;
+          var resagent='Your incident id is generated with Incident number : '+success +desc;
           console.log('request are'+resagent);
            return res.json({
              speech:resagent,
@@ -189,10 +188,6 @@ return res.json(facebookResponse);
       }
 
   });
- 
-
-   
- 
 
 
 app.listen(portC, function(){
