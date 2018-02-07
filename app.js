@@ -172,8 +172,8 @@ return res.json(facebookResponse);
 }
        if(req.body.result.action=== 'network.network-custom'){
         // =req.body.contexts.parameters.desc
-        var desc1=req.body.result.action.parameters.desc
-        var severity=req.body.result.action.parameters.severity
+        var desc1=req.body.result.contexts[0].parameters.desc;
+        var severity=req.body.result.contexts[0].parameters.severity;
         firstapp.logIncident(desc1, severity,function(err,resu)
         {
           success=resu["result"]["number"];
