@@ -19,11 +19,11 @@ app.use(bodyParser.json());
       var facebookResponse={
     "speech": "This cannot be blank",
     "messages": [
-      {
-        "type": 0,
-        "platform": "facebook",
-        "speech": "hieeeee"
-      },
+      // {
+      //   "type": 0,
+      //   "platform": "facebook",
+      //   "speech": ""
+      // },
       {
         "type": 2,
         "platform": "facebook",
