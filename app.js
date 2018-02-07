@@ -171,11 +171,11 @@ if (req.body.result.action ==='software')
 return res.json(facebookResponse);
 }
        if(req.body.result.action=== 'network.network-custom'){
-         var desc=req.body.contexts.parameters.desc
-        firstapp.logIncident(desc,'',function(err,resu)
+         var desc1=req.body.contexts.parameters.desc
+        firstapp.logIncident(desc1,'',function(err,resu)
         {
           success=resu["result"]["number"];
-          var resagent='Your incident id is generated with Incident number : '+success +desc;
+          var resagent='Your incident id is generated with Incident number : '+success;
           console.log('request are'+resagent);
            return res.json({
              speech:resagent,
