@@ -104,16 +104,16 @@ app.use(bodyParser.json());
       "imageUrl": "https://assets.kpmg.com/content/dam/kpmg/images/2015/07/US-strategic-alliance-servicenow.jpg/jcr:content/renditions/cq5dam.web.1200.630.jpg",
       "buttons": [
         {
-          "text": "DHCP",
-          "postback": "DHCP"
+          "text": "Mouse",
+          "postback": "Mouse"
         },
         {
-          "text": "DNS",
-          "postback": "DNS"
+          "text": "Keyboard",
+          "postback": "Keyboard"
         },
         {
-          "text": "IP",
-          "postback": "IP"
+          "text": "Monitor",
+          "postback": "Monitor"
         }
       ]
     },
@@ -154,7 +154,7 @@ if (req.body.result.action ==='software')
         "postback": ""
       },
       {
-        "text": "Software",
+        "text": "Software Install",
         "postback": ""
       }
     ]
