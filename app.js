@@ -175,18 +175,17 @@ return res.json(facebookResponse);
        if(req.body.result.action=== 'network.network-custom'){
         firstapp.logIncident('Incident 56310','',function(err,resu)
         {
-          console.log(resu["result"]["number"]);
           success=resu["result"]["number"];
+          var resagent='Your incident id is generated with Incident number : '+success;
+          console.log('request are'+resagent);
+           return res.json({
+             speech:resagent,
+             displayText: resagent,
+             source:'Service now'
+                     });
         });
-        console.log('Received the request & it is:::'+JSON.stringify(req.body));
 
-      var resagent='Your incident id is generated with Incident number : '+success;
-     console.log('request are'+resagent);
-      return res.json({
-        speech:resagent,
-        displayText: resagent,
-        source:'Service now'
-                });
+   
       }
 
   });
