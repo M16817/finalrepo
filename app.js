@@ -17,12 +17,12 @@ app.use(bodyParser.json());
     if (req.body.result.action ==='network')
     { 
       var facebookResponse={
-    "speech": "",
+    "speech": "This cannot be blank",
     "messages": [
       {
         "type": 0,
         "platform": "facebook",
-        "speech": ""
+        "speech": "hieeeee"
       },
       {
         "type": 2,
