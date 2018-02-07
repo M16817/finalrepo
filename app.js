@@ -147,15 +147,15 @@ if (req.body.result.action ==='software')
     "buttons": [
       {
         "text": "Email",
-        "postback": ""
+        "postback": "Email"
       },
       {
         "text": "OS",
-        "postback": ""
+        "postback": "OS"
       },
       {
-        "text": "Software Install",
-        "postback": ""
+        "text": "Installation",
+        "postback": "Installation"
       }
     ]
   },
@@ -178,7 +178,7 @@ return res.json(facebookResponse);
         {
           success=resu["result"]["number"];
         
-          var resagent='Your incident id is generated with Incident number : '+success + ' ' +desc1;
+          var resagent='Your incident id is generated with Incident number : '+success + ' severity : ' +severity + ' and decription : ' +desc1;
           console.log('request are'+resagent);
            return res.json({
              speech:resagent,
