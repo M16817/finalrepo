@@ -172,12 +172,13 @@ return res.json(facebookResponse);
 }
        if(req.body.result.action=== 'network.network-custom'){
         // =req.body.contexts.parameters.desc
-        var desc1=req.body.result.parameters.desc
-        firstapp.logIncident(desc1,'',function(err,resu)
+        var desc1=req.body.result.action.parameters.desc
+        var severity=req.body.result.action.parameters.severity
+        firstapp.logIncident(desc1, severity,function(err,resu)
         {
           success=resu["result"]["number"];
         
-          var resagent='Your incident id is generated with Incident number : '+success +desc1;
+          var resagent='Your incident id is generated with Incident number : '+success + ' ' +desc1;
           console.log('request are'+resagent);
            return res.json({
              speech:resagent,
