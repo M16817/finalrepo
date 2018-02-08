@@ -1,7 +1,7 @@
 var request = require("request");
 module.exports = {
    
-    'logIncident' : function(desc, severity, callback){
+    'logIncident' : function(desc, severity, category, callback){
 
         console.log("The Final Message Utterance to send POST as Query to Service Now");
         var options = 
@@ -12,13 +12,15 @@ module.exports = {
            { 'postman-token': 'd6253bf3-ff31-fb21-7741-3dd02c84e8bb',
              'cache-control': 'no-cache',
              authorization: 'Basic MzMyMzg6YWJjMTIz',
-             'content-type': 'application/json' 
+             'content-type': 'application/json',
+             category : 'Hardware'
             },
           body:
            { short_description: desc,
              caller_id: 'Pourab Karchaudhuri',
              urgency: severity ,
-             comments: 'Chatbot Testing' 
+             comments: 'Chatbot Testing'
+             
             },
           json: true 
         };

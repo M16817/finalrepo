@@ -172,14 +172,17 @@ if (req.body.result.parameters.Category ==='Software')
 return res.json(facebookResponse);
 }
        if(req.body.result.action=== 'createincidentid'){
-        // =req.body.contexts.parameters.desc
+        // =req.body.contexts.parameters.desc`
+        //req.body.result.contexts[0].parameters.Description;
+
         var desc1=req.body.result.parameters.Description;
         var severity=req.body.result.parameters.severity;
-        firstapp.logIncident(desc1, severity,function(err,resu)
+        var category1=req.body.result.context[0].parameters.category;
+        firstapp.logIncident(desc1, severity,category1, function(err,resu)
         {
           success=resu["result"]["number"];
         
-          var resagent='Your incident id is generated with \n Incident number : '+success +'\n severity : ' +severity +'\n decription : ' +desc1;
+          var resagent='Your incident id is generated with \n Incident number : '+success +'\n severity : ' +severity +'\n decription : ' +desc1 + '\n category :' +category1;
           console.log('request are'+resagent);
            return res.json({
              speech:resagent,
