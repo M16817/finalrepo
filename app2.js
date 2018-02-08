@@ -1,7 +1,7 @@
 var request = require("request");
 module.exports = {
    
-    'logIncident' : function(desc, severity, category, callback){
+    'logIncident' : function(desc, severity, category,subcategory, callback){
 
         console.log("The Final Message Utterance to send POST as Query to Service Now");
         var options = 
