@@ -32,7 +32,8 @@ app.use(bodyParser.json());
           "DHCP",
           "DNS",
           "IP",
-          "SUB NETWORK"
+          "VPN",
+          "wireless"
         ]
       },
       {
