@@ -12,14 +12,15 @@ module.exports = {
            { 'postman-token': 'd6253bf3-ff31-fb21-7741-3dd02c84e8bb',
              'cache-control': 'no-cache',
              authorization: 'Basic MzMyMzg6YWJjMTIz',
-             'content-type': 'application/json',
-             category : 'Hardware'
+             'content-type': 'application/json'
+             
             },
           body:
            { short_description: desc,
              caller_id: 'Pourab Karchaudhuri',
              urgency: severity ,
-             comments: 'Chatbot Testing'
+             comments: 'Chatbot Testing',
+             category : 'Hardware'
              
             },
           json: true 
