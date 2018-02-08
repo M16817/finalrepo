@@ -20,7 +20,7 @@ module.exports = {
              caller_id: 'Pourab Karchaudhuri',
              urgency: severity ,
              comments: 'Chatbot Testing',
-             category : 'Hardware'
+             category : category
              
             },
           json: true 
