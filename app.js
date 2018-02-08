@@ -178,7 +178,8 @@ return res.json(facebookResponse);
         var desc1=req.body.result.parameters.Description;
         var severity=req.body.result.parameters.severity;
         var category1=req.body.result.contexts[0].parameters.Category;
-        firstapp.logIncident(desc1, severity,category1, function(err,resu)
+        var subcategory=req.body.result.parameters.subcategory;
+        firstapp.logIncident(desc1, severity,category1,subcategory, function(err,resu)
         {
           success=resu["result"]["number"];
         
