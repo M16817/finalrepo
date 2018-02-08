@@ -183,7 +183,7 @@ return res.json(facebookResponse);
         {
           success=resu["result"]["number"];
         
-          var resagent='Your incident id is generated with \n Incident number : '+success +'\n severity : ' +severity +'\n decription : ' +desc1 + '\n category :' +category1;
+          var resagent='Your incident id is generated with \n Incident number : '+success +'\n severity : ' +severity +'\n decription : ' +desc1 + '\n category :' +category1 + '\n subcategory :' + subcategory;
           console.log('request are'+resagent);
            return res.json({
              speech:resagent,
