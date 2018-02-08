@@ -14,7 +14,7 @@ app.use(bodyParser.json());
    app.post('/',function(req,res){ 
 
 
-    if (req.body.result.action ==='network')
+    if (req.body.result.parameters.Category ==='Network')
     { 
       var facebookResponse={
     "speech": "This cannot be blank",
@@ -89,7 +89,7 @@ app.use(bodyParser.json());
   }
 */
 
-  if (req.body.result.action ==='hardware')
+  if (req.body.result.parameters.Categorys ==='Hardware')
   {       
     console.log('hie');
     var facebookResponse={
@@ -131,7 +131,7 @@ return res.json(facebookResponse);
 
 
 
-if (req.body.result.action ==='software')
+if (req.body.result.parameters.Category ==='Software')
 {       
   console.log('hie');
   var facebookResponse={
