@@ -171,7 +171,7 @@ if (req.body.result.parameters.Category ==='Software')
 
 return res.json(facebookResponse);
 }
-       if(req.body.result.action=== 'network.network-custom'){
+       if(req.body.result.action=== 'createincidentid'){
         // =req.body.contexts.parameters.desc
         var desc1=req.body.result.contexts[0].parameters.desc;
         var severity=req.body.result.contexts[0].parameters.severity;
