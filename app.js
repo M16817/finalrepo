@@ -173,13 +173,13 @@ return res.json(facebookResponse);
 }
        if(req.body.result.action=== 'createincidentid'){
         // =req.body.contexts.parameters.desc
-        var desc1=req.body.result.contexts[0].parameters.desc;
-        var severity=req.body.result.contexts[0].parameters.severity;
+        var desc1=req.body.result.parameters.Description;
+        var severity=req.body.result.parameters.severity;
         firstapp.logIncident(desc1, severity,function(err,resu)
         {
           success=resu["result"]["number"];
         
-          var resagent='Your incident id is generated with Incident number : '+success + '\n severity : ' +severity + '\n and decription : ' +desc1;
+          var resagent='Your incident id is generated with \n Incident number : '+success +'\n severity : ' +severity +'\n decription : ' +desc1;
           console.log('request are'+resagent);
            return res.json({
              speech:resagent,
