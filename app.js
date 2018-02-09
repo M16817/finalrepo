@@ -197,13 +197,21 @@ return res.json(facebookResponse);
            });
         });
       }
-      // if(req.body.result.action==='searchincident'){
-      //   firstapp.statusIncident(req.body.result.parameters.incno,function(err,resu){
-      //     success= resu["result"]["short_description"];
-      //     var 
-
-      //   })
-      // }
+       if(req.body.result.action==='searchincident'){
+         firstapp.statusIncident(req.body.result.parameters.incno,function(err,resu){
+           success= resu["result"]["short_description"];
+           var shdesc= JSON.parse(success)
+           return res.json({
+             followupEvent : {
+               "name":"getincdetails",
+               "data" : {
+                 "description":shdesc
+               }
+             }
+           })
+           
+         })
+       }
 
   });
 
