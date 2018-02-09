@@ -172,35 +172,38 @@ if (req.body.result.parameters.Category ==='Software')
 return res.json(facebookResponse);
 }
        if(req.body.result.action=== 'createincidentid'){
-        // =req.body.contexts.parameters.desc`
-        //req.body.result.contexts[0].parameters.Description;
-
         var desc1=req.body.result.parameters.Description;
         var severity=req.body.result.parameters.severity;
         var category1=req.body.result.contexts[0].parameters.Category;
         var subcategory=req.body.result.parameters.subcategory;
         firstapp.logIncident(desc1, severity,category1,subcategory, function(err,resu)
         {
-          success=resu["result"]["number"];
-        
+          success=resu["result"]["number"];        
           var resagent='Your incident id is generated with \n Incident number : '+success +'\n severity : ' +severity +'\n decription : ' +desc1 + '\n category :' +category1 + '\n subcategory :' + subcategory;
           console.log('request are'+resagent);
            return res.json({
              speech:resagent,
              displayText: resagent,
-             //source:'Service now',
+             source:'Service now',
                 followupEvent : {
                   "name" : "goodbye",
                   "data" : {
-
+                    "Incidentno":success,
+                    "Desc":desc1,
+                    "category1":category1,
+                    "severity":severity,
+                    "subcategory":subcategory
                   }
                 }
-                
            });
-
         });
+      }
+      if(req.body.result.action==='searchincident'){
+        firstapp.statusIncident(req.body.result.parameters.incno,function(err,resu){
+          success= resu["result"]["short_description"];
+          var 
 
-   
+        })
       }
 
   });
