@@ -178,7 +178,7 @@ return res.json(facebookResponse);
         firstapp.logIncident(desc1, severity,category1,subcategory, function(err,resu)
         {
           success=resu["result"]["number"];        
-          var resagent='Your incident id is generated with \n Incident number : '+success +'\n severity : ' +severity +'\n decription : ' +desc1 + '\n category :' +category1 + '\n subcategory :' + subcategory;
+          var resagent='Your incident id is generated with \n Incident number : '+success +'\n severity : ' +severity +'\n description : ' +desc1 + '\n category :' +category1 + '\n subcategory :' + subcategory;
           console.log('request are'+resagent);
            return res.json({
             // speech:resagent,
@@ -200,8 +200,7 @@ return res.json(facebookResponse);
        if(req.body.result.action==='searchincident'){
          firstapp.statusIncident(req.body.result.parameters.incno,function(err,resu){
          //  success= resu["result"]["short_description"];
-
-         
+     
          console.log(resu);
            var jsonobj= JSON.parse(resu);
 
@@ -215,8 +214,8 @@ return res.json(facebookResponse);
                  "description":shdesc
                }
              }
-           })
-           
+
+           })           
          })
        }
 
