@@ -200,6 +200,9 @@ return res.json(facebookResponse);
        if(req.body.result.action==='searchincident'){
          firstapp.statusIncident(req.body.result.parameters.incno,function(err,resu){
          //  success= resu["result"]["short_description"];
+
+         
+         console.log(resu);
            var jsonobj= JSON.parse(resu);
 
            shdesc=jsonobj['result'][0].short_description;

@@ -38,6 +38,12 @@ module.exports = {
         console.log("The Final Message Utterance to send GET as Query to Service Now");
         var options = { method: 'GET',
           url: 'https://dev18442.service-now.com/api/now/v1/table/incident',
+          headers: {
+            'postman-token': 'd6253bf3-ff31-fb21-7741-3dd02c84e8bb',
+            'cache-control': 'no-cache',
+            authorization: 'Basic MzMyMzg6YWJjMTIz',
+            'content-type': 'application/json'
+          },
           qs: { number: ticketnumber },
                     };
 
