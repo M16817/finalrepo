@@ -181,9 +181,9 @@ return res.json(facebookResponse);
           var resagent='Your incident id is generated with \n Incident number : '+success +'\n severity : ' +severity +'\n decription : ' +desc1 + '\n category :' +category1 + '\n subcategory :' + subcategory;
           console.log('request are'+resagent);
            return res.json({
-             speech:resagent,
-             displayText: resagent,
-             source:'Service now',
+            // speech:resagent,
+            // displayText: resagent,
+            // source:'Service now',
                 followupEvent : {
                   "name" : "goodbye",
                   "data" : {
