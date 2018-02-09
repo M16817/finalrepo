@@ -188,10 +188,11 @@ return res.json(facebookResponse);
            return res.json({
              speech:resagent,
              displayText: resagent,
-             source:'Service now',
+             //source:'Service now',
                 folloupEvent : {
                   "name" : "goodbye",
                   "data" : {
+
                   }
                 }
            });
