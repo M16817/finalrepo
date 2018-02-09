@@ -187,7 +187,7 @@ return res.json(facebookResponse);
                 followupEvent : {
                   "name" : "goodbye",
                   "data" : {
-                    // "Incidentno":success,
+                     "Incidentno":success
                     // "Desc":desc1,
                     // "category1":category1,
                     // "severity":severity,
