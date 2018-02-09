@@ -201,17 +201,16 @@ return res.json(facebookResponse);
          firstapp.statusIncident(req.body.result.parameters.incno,function(err,resu){
          //  success= resu["result"]["short_description"];
      
-         console.log(resu);
            var jsonobj= JSON.parse(resu);
 
-           shdesc=jsonobj['result'][0].short_description;
-
-           console.log(shdesc);
+           //shdesc=jsonobj['result'][0].short_description;
+            categorynm=jsonobj['result'][0].category
            return res.json({
              followupEvent : {
                "name":"getincdetails",
                "data" : {
-                 "description":shdesc
+                // "description":shdesc
+                "category":categorynm
                }
              }
 
