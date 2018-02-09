@@ -189,7 +189,7 @@ return res.json(facebookResponse);
              speech:resagent,
              displayText: resagent,
              //source:'Service now',
-                folloupEvent : {
+                followupEvent : {
                   "name" : "goodbye",
                   "data" : {
 
