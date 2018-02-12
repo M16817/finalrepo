@@ -194,7 +194,9 @@ return res.json(facebookResponse);
            var jsonobj= JSON.parse(resu);
 
            //shdesc=jsonobj['result'][0].short_description;
+           
             categorynm=jsonobj['result'][0].category;
+           console.log('check category');
             console.log(categorynm);
            return res.json({
              followupEvent : {
