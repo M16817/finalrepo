@@ -11,46 +11,46 @@ app.use(bodyParser.json());
 
    app.post('/',function(req,res){ 
 
-if (result.body.result.action==='helloresp'){
-  console.log('this is rich message');
-var fbresp={
-      "facebook": {
-        "attachment": {
-          "type": "",
-          "payload": {
-            "template_type": "generic",
-            "elements": [
-              {
-                "title": "Welcome to Peters Hats",
-                "image_url": "https://xebialabs.com/assets/files/plugins/servicenow.jpg",
-                "subtitle": "We have got the right hat for everyone.",
-                "default_action": {
-                  "type": "web_url",
-                  "url": "http://www.google.com",
-                  "messenger_extensions": true,
-                  "webview_height_ratio": "tall",
-                  "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                },
-                "buttons": [
-                  {
-                    "type": "web_url",
-                    "url": "http://www.google.com",
-                    "title": "View Website"
-                  },
-                  {
-                    "type": "postback",
-                    "title": "Start Chatting",
-                    "payload": "DEVELOPER_DEFINED_PAYLOAD"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      }
-    }
-    return res.json(fbresp);
-  }
+// if (result.body.result.action==='helloresp'){
+//   console.log('this is rich message');
+//    var fbresp={
+//       "facebook": {
+//         "attachment": {
+//           "type": "",
+//           "payload": {
+//             "template_type": "generic",
+//             "elements": [
+//               {
+//                 "title": "Welcome to Peters Hats",
+//                 "image_url": "https://xebialabs.com/assets/files/plugins/servicenow.jpg",
+//                 "subtitle": "We have got the right hat for everyone.",
+//                 "default_action": {
+//                   "type": "web_url",
+//                   "url": "http://www.google.com",
+//                   "messenger_extensions": true,
+//                   "webview_height_ratio": "tall",
+//                   "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+//                 },
+//                 "buttons": [
+//                   {
+//                     "type": "web_url",
+//                     "url": "http://www.google.com",
+//                     "title": "View Website"
+//                   },
+//                   {
+//                     "type": "postback",
+//                     "title": "Start Chatting",
+//                     "payload": "DEVELOPER_DEFINED_PAYLOAD"
+//                   }
+//                 ]
+//               }
+//             ]
+//           }
+//         }
+//       }
+//     }
+//     return res.json(fbresp);
+//   }
 
 
 
