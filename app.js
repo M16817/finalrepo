@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 
 if (result.body.result.action==='helloresp'){
+  console.log('this is rich message');
 var fbresp={
       "facebook": {
         "attachment": {
