@@ -200,14 +200,14 @@ return res.json(facebookResponse);
             var fbcategoryresp={
               "speech": "This cannot be blank",
               "messages": [
-                {
-                  "type": 2,
-                  "platform": "facebook",
-                  "title": "",
-                  "replies": [
-                    "Your Selcted category is :"+ categorynm
-                  ]
-                },
+                // {
+                //   "type": 2,
+                //   "platform": "facebook",
+                //   "title": "",
+                //   "replies": [
+                //     "Your Selcted category is :"+ categorynm
+                //   ]
+                // },
                 {
                   "type": 0,
                   "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option"
