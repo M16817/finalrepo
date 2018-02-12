@@ -217,16 +217,26 @@ return res.json(facebookResponse);
               return res.json(fbcategoryresp);       
          })
         }
-        // else{
-        //   return res.json({
-        //     followupEvent : {
-        //       "name":"getincdetails",
-        //       "data" : {
-        //        "category":"Wrong input"
-        //       }
-        //     }
-        //   })      
-        // }
+        else{
+          var fbcategoryresp={
+            "speech": "This cannot be blank",
+            "messages": [
+              // {
+              //   "type": 2,
+              //   "platform": "facebook",
+              //   "title": "",
+              //   "replies": [
+              //     "Your Selcted category is :"+ categorynm
+              //   ]
+              // },
+              {
+                "type": 0,
+                "speech":  "wrong input"
+              }
+            ]
+          }
+            return res.json(fbcategoryresp);        
+        }
        }
 
   });
