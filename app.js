@@ -210,7 +210,7 @@ return res.json(facebookResponse);
                 // },
                 {
                   "type": 0,
-                  "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option"
+                  "speech":  "Your Selcted category is : \n"+ categorynm
                 }
               ]
             }
