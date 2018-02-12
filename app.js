@@ -187,8 +187,8 @@ return res.json(facebookResponse);
         });
       }
        if(req.body.result.action==='searchincident'){
-         if(req.body.result.parameters.incno.includes("INC"))
-         {
+        // if(req.body.result.parameters.incno.includes("INC"))
+         //{
          firstapp.statusIncident(req.body.result.parameters.incno,function(err,resu){
      
            var jsonobj= JSON.parse(resu);
@@ -210,21 +210,21 @@ return res.json(facebookResponse);
            })           
          })
         }
-        else{
-          return res.json({
-            followupEvent : {
-              "name":"getincdetails",
-              "data" : {
-               // "description":shdesc
-               "category":"Wrong input"
-              }
-            }
-          })      
-        }
+        // else{
+        //   return res.json({
+        //     followupEvent : {
+        //       "name":"getincdetails",
+        //       "data" : {
+        //        // "description":shdesc
+        //        "category":"Wrong input"
+        //       }
+        //     }
+        //   })      
+        // }
 
 
 
-       }
+       //}
 
   });
 
