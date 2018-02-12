@@ -195,6 +195,7 @@ return res.json(facebookResponse);
 
            //shdesc=jsonobj['result'][0].short_description;
             categorynm=jsonobj['result'][0].category;
+            console.log(categorynm);
            return res.json({
              followupEvent : {
                "name":"getincdetails",
