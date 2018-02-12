@@ -199,15 +199,15 @@ return res.json(facebookResponse);
             categorynm=jsonobj['result'][0].category;
            
             console.log(categorynm);
-           return res.json({
-             followupEvent : {
-               "name":"getincdetails",
-               "data" : {
-                // "description":shdesc
-                "category":categorynm
-               }
-             }
-           })           
+          //  return res.json({
+          //    followupEvent : {
+          //      "name":"getincdetails",
+          //      "data" : {
+          //       // "description":shdesc
+          //       "category":categorynm
+          //      }
+          //    }
+          //  })           
          })
         }
         // else{
