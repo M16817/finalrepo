@@ -54,6 +54,7 @@ app.use(bodyParser.json());
 
 
 
+
     if (req.body.result.parameters.Category ==='Network')
     { 
       var facebookResponse={
@@ -187,27 +188,33 @@ return res.json(facebookResponse);
         });
       }
        if(req.body.result.action==='searchincident'){
-        // if(req.body.result.parameters.incno.includes("INC"))
-         //{
+         if(req.body.result.parameters.incno.includes("INC"))
+         {
          firstapp.statusIncident(req.body.result.parameters.incno,function(err,resu){
      
            var jsonobj= JSON.parse(resu);
 
            //shdesc=jsonobj['result'][0].short_description;
-           console.log('check json');
-           console.log(jsonobj);
             categorynm=jsonobj['result'][0].category;
-           
-            console.log(categorynm);
-          //  return res.json({
-          //    followupEvent : {
-          //      "name":"getincdetails",
-          //      "data" : {
-          //       // "description":shdesc
-          //       "category":categorynm
-          //      }
-          //    }
-          //  })           
+
+            var fbcategoryresp={
+              "speech": "This cannot be blank",
+              "messages": [
+                {
+                  "type": 2,
+                  "platform": "facebook",
+                  "title": "select one subcategory",
+                  "replies": [
+                    categorynm
+                  ]
+                },
+                {
+                  "type": 0,
+                  "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option"
+                }
+              ]
+            }
+              return res.json(fbcategoryresp);       
          })
         }
         // else{
@@ -215,16 +222,12 @@ return res.json(facebookResponse);
         //     followupEvent : {
         //       "name":"getincdetails",
         //       "data" : {
-        //        // "description":shdesc
         //        "category":"Wrong input"
         //       }
         //     }
         //   })      
         // }
-
-
-
-       //}
+       }
 
   });
 
