@@ -199,15 +199,7 @@ return res.json(facebookResponse);
 
             var fbcategoryresp={
               "speech": "This cannot be blank",
-              "messages": [
-                // {
-                //   "type": 2,
-                //   "platform": "facebook",
-                //   "title": "",
-                //   "replies": [
-                //     "Your Selcted category is :"+ categorynm
-                //   ]
-                // },
+              "messages": [               
                 {
                   "type": 0,
                   "speech":  "Your Selcted category is : "+ categorynm + "\n Your entered description is : " +  jsonobj['result'][0].short_description
@@ -218,27 +210,17 @@ return res.json(facebookResponse);
          })
         }
         else{
-          var fbcategoryresp={
-            "speech": "This cannot be blank",
-            "messages": [
-              // {
-              //   "type": 2,
-              //   "platform": "facebook",
-              //   "title": "",
-              //   "replies": [
-              //     "Your Selcted category is :"+ categorynm
-              //   ]
-              // },
-              {
-                "type": 0,
-                "speech":  "wrong input"
+         
+            return res.json({
+              followupEvent:{
+                "name":"getincdetails",
+                "data" : {
+                  "category":"wrong input"
+                }
               }
-            ]
-          }
-            return res.json(fbcategoryresp);        
+            })        
         }
        }
-
   });
 
 
