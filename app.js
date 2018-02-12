@@ -203,9 +203,9 @@ return res.json(facebookResponse);
                 {
                   "type": 2,
                   "platform": "facebook",
-                  "title": "select one subcategory",
+                  "title": "",
                   "replies": [
-                    categorynm
+                    "Your Selcted category is :"+ categorynm
                   ]
                 },
                 {
