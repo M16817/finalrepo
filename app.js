@@ -91,7 +91,7 @@ app.use(bodyParser.json());
   "messages": [
     {
       "type": 2,
-      "platform": "facebook",
+      "platform": "google",
       "title": "select one subcategory",
       "replies": [
         "DHCP",
