@@ -100,16 +100,16 @@ app.use(bodyParser.json());
         "wireless"
       ]
     },
-    {
+      {
       "type": 0,
       "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option"
+      }
+    ]
     }
-  ]
-}
   return res.json(facebookResponse);
-}
+  }
 
-  };
+};
 
 
 
