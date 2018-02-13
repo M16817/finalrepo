@@ -57,6 +57,9 @@ app.use(bodyParser.json());
 
     if (req.body.result.parameters.Category ==='Network')
     { 
+      console.log(req.body.originalRequest.source);
+      if (req.body.originalRequest.source=="facebook")
+      {        
       var facebookResponse={
     "speech": "This cannot be blank",
     "messages": [
@@ -79,7 +82,33 @@ app.use(bodyParser.json());
     ]
   }
     return res.json(facebookResponse);
-  
+  }
+  else if(req.body.originalRequest.source=="google")
+  {
+    var facebookResponse={
+  "speech": "This cannot be blank",
+  "messages": [
+    {
+      "type": 2,
+      "platform": "facebook",
+      "title": "select one subcategory",
+      "replies": [
+        "DHCP",
+        "DNS",
+        "IP",
+        "VPN",
+        "wireless"
+      ]
+    },
+    {
+      "type": 0,
+      "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option"
+    }
+  ]
+}
+  return res.json(facebookResponse);
+}
+
   };
 
 
@@ -87,7 +116,6 @@ app.use(bodyParser.json());
 
   if (req.body.result.parameters.Categorys ==='Hardware')
   {       
-    console.log('hie');
     var facebookResponse={
 
       "speech": "",
