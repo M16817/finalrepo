@@ -85,7 +85,8 @@ app.use(bodyParser.json());
     } 
     return res.json(facebookResponse);
     }
-  else if(req.body.originalRequest.source=="google")
+  
+    else if(req.body.originalRequest.source=="google")
   {
     var facebookResponse={
   "speech": "This cannot be blank",
@@ -123,7 +124,9 @@ app.use(bodyParser.json());
 
 
   if (req.body.result.parameters.Categorys ==='Hardware')
-  {       
+  {
+    if(req.body.originalRequest.source=="facebook")
+    {
     var facebookResponse={
 
       "speech": "",
@@ -153,11 +156,50 @@ app.use(bodyParser.json());
       "type": 0,
       "speech": ""
     }
-  ]
-
-        
+  ]       
 };
-
+return res.json(facebookResponse);
+}
+else if(req.body.originalRequest.source=="google")
+{
+  var facebookres=
+  {
+      "speech": "",
+      "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "textToSpeech": "Select one"
+        },
+        {
+          "type": "basic_card",
+          "platform": "google",
+          "title": "Hotel booking bot",
+          "formattedText": "Hi !!!! this is servicenow bot how may i help you??  Please select one option",
+          "image": {
+            "url": "https://zappysys.com/blog/wp-content/uploads/2017/03/servicenow-api-integration.png",
+            "accessibilityText": "Service now"
+          },
+          "buttons": [
+            {
+              "title": "Mouse",
+              "openUrlAction": {
+                "url": "Mouse"
+              }},
+              {
+                "title": "Mouse",
+                "openUrlAction": {
+                  "url": "Mouse"
+                }},
+              {
+                "title": "Mouse",
+                "openUrlAction": {
+                  "url": "Mouse"
+                }}
+          ]
+        }
+      ]
+}
 return res.json(facebookResponse);
 }
 
