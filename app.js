@@ -64,6 +64,11 @@ app.use(bodyParser.json());
       {
       "speech": "This cannot be blank",
       "messages": [
+        {
+          "type": "simple_response",
+          "platform": "google",
+          "textToSpeech": "Select one option"
+        },
       {
         "type": 2,
         "platform": "facebook",
