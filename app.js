@@ -276,7 +276,7 @@ app.post('/', function (req, res) {
     }
   }
 
-
+  
   if (req.body.result.action === 'createincidentid') {
     var desc1 = req.body.result.parameters.Description;
     var severity = req.body.result.parameters.severity;
@@ -307,8 +307,8 @@ app.post('/', function (req, res) {
         var fbcategoryresp = {
           "speech": "This cannot be blank",
           "messages": [
-            {           
-              "type": "simple_response",
+            {
+              "type": 0,
               "speech": "Your Selcted category is : " + categorynm + "\n Your entered description is : " + jsonobj['result'][0].short_description
             }
           ]
