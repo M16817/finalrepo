@@ -276,7 +276,7 @@ app.post('/', function (req, res) {
     }
   }
 
-  
+
   if (req.body.result.action === 'createincidentid') {
     var desc1 = req.body.result.parameters.Description;
     var severity = req.body.result.parameters.severity;
@@ -297,6 +297,7 @@ app.post('/', function (req, res) {
       });
     });
   }
+
   if (req.body.result.action === 'searchincident') {
     // if(req.body.result.parameters.incno.includes("INC"))
     //{
@@ -304,18 +305,37 @@ app.post('/', function (req, res) {
       var jsonobj = JSON.parse(resu);
       if (jsonobj.hasOwnProperty('result')) {
         categorynm = jsonobj['result'][0].category;
-        var fbcategoryresp = {
-          "speech": "This cannot be blank",
-          "messages": [
-            {
-              "type": 0,
-              "speech": "Your Selcted category is : " + categorynm + "\n Your entered description is : " + jsonobj['result'][0].short_description
-            }
-          ]
+
+        IF(req.body.originalRequest.source == "facebook")
+        {
+          var fbcategoryresp = {
+            "speech": "This cannot be blank",
+            "messages": [
+              {
+                "type": 0,
+                "speech": "Your Selcted category is : " + categorynm + "\n Your entered description is : " + jsonobj['result'][0].short_description
+              }
+            ]
+          }
+          return res.json(fbcategoryresp);
+        }       
+        If (req.body.originalRequest.source == "google") 
+        {
+          var fbcategoryresp = {
+            "speech": "This cannot be blank",
+            "message": [
+              {
+                "type": "simple_response",
+                "platform": "google",
+                "textToSpeech": "Please enter incident number"
+              }
+            ]
+          }
+          return res.json(fbcategoryresp);
         }
-        return res.json(fbcategoryresp);
       }
-      else {
+      else 
+      {
         return res.json({
           followupEvent: {
             "name": "getincdetails",
@@ -325,8 +345,8 @@ app.post('/', function (req, res) {
           }
         })
       }
-    })
-  }
+  })
+}
 });
 
 
