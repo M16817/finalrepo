@@ -90,15 +90,16 @@ app.use(bodyParser.json());
   "speech": "This cannot be blank",
   "messages": [
     {
-      "type": 2,
+      "type": "suggestion_chips",
       "platform": "google",
-      "title": "select one subcategory",
-      "replies": [
-        "DHCP",
-        "DNS",
-        "IP",
-        "VPN",
-        "wireless"
+      //"title": "select one subcategory",
+      "suggestions": [
+        {
+          "title": "Create Incident"
+        },
+        {
+          "title": "Get status"
+        }
       ]
     },
       {
