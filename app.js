@@ -60,9 +60,10 @@ app.use(bodyParser.json());
       console.log(req.body.originalRequest.source);
       if (req.body.originalRequest.source=="facebook")
       {        
-      var facebookResponse={
-    "speech": "This cannot be blank",
-    "messages": [
+      var facebookResponse=
+      {
+      "speech": "This cannot be blank",
+      "messages": [
       {
         "type": 2,
         "platform": "facebook",
@@ -80,9 +81,9 @@ app.use(bodyParser.json());
         "speech": "Hi !!!! this is servicenow bot how may i help you?? Please select below one option"
       }
     ]
-  }
+    } 
     return res.json(facebookResponse);
-  }
+    }
   else if(req.body.originalRequest.source=="google")
   {
     var facebookResponse={
