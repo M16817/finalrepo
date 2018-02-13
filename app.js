@@ -188,15 +188,13 @@ return res.json(facebookResponse);
         });
       }
        if(req.body.result.action==='searchincident'){
-         if(req.body.result.parameters.incno.includes("INC"))
-         {
-         firstapp.statusIncident(req.body.result.parameters.incno,function(err,resu){
-     
+        // if(req.body.result.parameters.incno.includes("INC"))
+         //{
+         firstapp.statusIncident(req.body.result.parameters.incno,function(err,resu){     
            var jsonobj= JSON.parse(resu);
-
-           //shdesc=jsonobj['result'][0].short_description;
+            if(jsonobj.hasOwnProperty('result'))
+            {
             categorynm=jsonobj['result'][0].category;
-
             var fbcategoryresp={
               "speech": "This cannot be blank",
               "messages": [               
@@ -207,10 +205,8 @@ return res.json(facebookResponse);
               ]
             }
               return res.json(fbcategoryresp);       
-         })
-        }
-        else{
-         
+          }
+          else{
             return res.json({
               followupEvent:{
                 "name":"getincdetails",
@@ -220,7 +216,8 @@ return res.json(facebookResponse);
               }
             })        
         }
-       }
+         })
+        } 
   });
 
 
