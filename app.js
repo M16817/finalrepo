@@ -323,7 +323,7 @@ app.post('/', function (req, res) {
         {
           console.log("Inside: "+req.body.originalRequest.source);
           var fbcategoryresp = {
-            "speech": "",
+            "speech": "Speech Test",
             "message": [
               {
                 "type": "simple_response",
