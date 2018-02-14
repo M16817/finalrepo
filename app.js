@@ -345,7 +345,7 @@ app.post('/', function (req, res) {
           followupEvent: {
             "name": "getincdetails",
             "data": {
-              // "category": "wrong input"
+               "category": "wrong input"
             }
           }
         })
