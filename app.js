@@ -328,8 +328,7 @@ app.post('/', function (req, res) {
               {
                 "type": "simple_response",
                 "platform": "google",
-                "textToSpeech": "Your Selcted category is : " + categorynm + "\n Your entered description is : " + jsonobj['result'][0].short_description
-    
+                "textToSpeech": "Test Data Mahesh"
               }
             ]
           }
