@@ -327,7 +327,7 @@ app.post('/', function (req, res) {
         {
           console.log("Inside: "+req.body.originalRequest.source);
           var fbcategoryresp = {
-            "speech": "Your Selcted category is : " + categorynm + "\n Your entered description is : " + jsonobj['result'][0].short_description,
+            "speech": "Incident description : " + jsonobj['result'][0].short_description,
             "message": [
               {
                 "type": "simple_response",
@@ -345,7 +345,7 @@ app.post('/', function (req, res) {
           followupEvent: {
             "name": "getincdetails",
             "data": {
-              "category": "wrong input"
+              // "category": "wrong input"
             }
           }
         })
