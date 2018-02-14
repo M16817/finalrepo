@@ -279,6 +279,7 @@ app.post('/', function (req, res) {
 
 
   if (req.body.result.action === 'createincidentid') {
+    
     var desc1 = req.body.result.parameters.Description;
     var severity = req.body.result.parameters.severity;
     var category1 = req.body.result.contexts[0].parameters.Category;
