@@ -282,12 +282,12 @@ app.post('/', function (req, res) {
     var severity = req.body.result.parameters.severity;
     var category1 = req.body.result.contexts[0].parameters.Category;
     //var category1 = req.body.result.parameters.Category;
-
+    console.log(req.body.result);
     var subcategory = req.body.result.parameters.subcategory;
     firstapp.logIncident(desc1, severity, category1, subcategory, function (err, resu) {
       success = resu["result"]["number"];
       var resagent = 'Your incident id is generated with \n Incident number : ' + success + '\n severity : ' + severity + '\n description : ' + desc1 + '\n category :' + category1 + '\n subcategory :' + subcategory;
-      console.log('request are' + resagent);
+     
       return res.json({
         followupEvent: {
           "name": "goodbye",
