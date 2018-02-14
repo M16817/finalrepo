@@ -306,7 +306,7 @@ app.post('/', function (req, res) {
       if (jsonobj.hasOwnProperty('result')) {
         categorynm = jsonobj['result'][0].category;
 
-        IF(req.body.originalRequest.source == "facebook")
+        if (req.body.originalRequest.source == "facebook")
         {
           var fbcategoryresp = {
             "speech": "This cannot be blank",
