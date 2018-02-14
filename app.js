@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
+  console.log(JSON.stringify(req.body));
 
   // if (result.body.result.action==='helloresp'){
   //   console.log('this is rich message');
