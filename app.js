@@ -323,7 +323,7 @@ app.post('/', function (req, res) {
         {
           console.log("Inside: "+req.body.originalRequest.source);
           var fbcategoryresp = {
-            "speech": "Speech Test",
+            "speech": "Your Selcted category is : " + categorynm + "\n Your entered description is : " + jsonobj['result'][0].short_description,
             "message": [
               {
                 "type": "simple_response",
