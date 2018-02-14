@@ -305,7 +305,7 @@ app.post('/', function (req, res) {
       var jsonobj = JSON.parse(resu);
       if (jsonobj.hasOwnProperty('result')) {
         categorynm = jsonobj['result'][0].category;
-
+        console.log(req.body.originalRequest.source);
         if (req.body.originalRequest.source == "facebook")
         {
           var fbcategoryresp = {
