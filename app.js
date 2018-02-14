@@ -326,7 +326,7 @@ app.post('/', function (req, res) {
             "speech": "",
             "message": [
               {
-                "type": 0,
+                "type": "simple_response",
                 "platform": "google",
                 "textToSpeech": "Your Selcted category is : " + categorynm + "\n Your entered description is : " + jsonobj['result'][0].short_description
     
