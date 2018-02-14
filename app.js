@@ -321,7 +321,7 @@ app.post('/', function (req, res) {
         }       
          if (req.body.originalRequest.source == "google") 
         {
-          console.log(req.body.originalRequest.source);
+          console.log("Inside: "+req.body.originalRequest.source);
           var fbcategoryresp = {
             "speech": "",
             "message": [
