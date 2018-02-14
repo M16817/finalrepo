@@ -322,7 +322,7 @@ app.post('/', function (req, res) {
         If (req.body.originalRequest.source == "google") 
         {
           var fbcategoryresp = {
-            "speech": "This cannot be blank",
+            "speech": "",
             "message": [
               {
                 "type": "simple_response",
