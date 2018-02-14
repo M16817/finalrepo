@@ -279,12 +279,12 @@ app.post('/', function (req, res) {
 
 
   if (req.body.result.action === 'createincidentid') {
-    
+
     var desc1 = req.body.result.parameters.Description;
     var severity = req.body.result.parameters.severity;
-    var category1 = req.body.result.contexts[0].parameters.Category;
-    //var category1 = req.body.result.parameters.Category;
-    console.log("category1: " + category1);
+    //var category1 = req.body.result.contexts[0].parameters.Category;
+    var category1 = req.body.result.parameters.Category;
+    console.log("print category1: " + category1);
     var subcategory = req.body.result.parameters.subcategory;
     firstapp.logIncident(desc1, severity, category1, subcategory, function (err, resu) {
       success = resu["result"]["number"];
