@@ -319,7 +319,7 @@ app.post('/', function (req, res) {
           }
           return res.json(fbcategoryresp);
         }       
-        If (req.body.originalRequest.source == "google") 
+        else if (req.body.originalRequest.source == "google") 
         {
           var fbcategoryresp = {
             "speech": "",
