@@ -319,8 +319,9 @@ app.post('/', function (req, res) {
           }
           return res.json(fbcategoryresp);
         }       
-        else if (req.body.originalRequest.source == "google") 
+         if (req.body.originalRequest.source == "google") 
         {
+          console.log(req.body.originalRequest.source);
           var fbcategoryresp = {
             "speech": "",
             "message": [
