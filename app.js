@@ -7,8 +7,6 @@ var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 var incident=require('./app3');
-
-
    app.post('/',function(req,res){
     
     if(req.body.originalRequest.source=='facebook'){
