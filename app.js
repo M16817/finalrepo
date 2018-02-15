@@ -171,21 +171,20 @@ app.post('/', function (req, res) {
     }
   }
 
- //GOOGLE CODE START 
+  //GOOGLE CODE START 
   else {
 
-    if(req.body.result.action=='acthello')
-    {
-      const app=new ActionsSdkApp({request:req,Response:res});
-      var showcase= app.buildRichResponse().addSimpleResponse('Trying to implement basic card')
-      .addBasicCard(
+    if (req.body.result.action == 'acthello') {
+      const app = new ActionsSdkApp({ request: req, Response: res });
+      var showcase = app.buildRichResponse().addSimpleResponse('Trying to implement basic card')
+        .addBasicCard(
         app.buildBasicCard('basic card text basic card text basic card text')
-        .setTitle('title of this card')
-        .addButton('Create Incident','WWW.google.com')
-        .setImage('https://www.google.com','image alternate text')
-        .setImage('CROPPED')
-  )
-  app.ask(showcase)
+          .setTitle('title of this card')
+          .addButton('Create Incident', 'WWW.google.com')
+          .setImage('https://www.google.com', 'image alternate text')
+          .setImage('CROPPED')
+        )
+      app.ask(showcase)
 
     }
 
