@@ -6,8 +6,9 @@ var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
+
+
     app.post('/',function(req,res){
-   
         incident.logIncident("incident 1111",'',function(err,res){
     var success=res["result"]["number"];
     });

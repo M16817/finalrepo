@@ -2,8 +2,6 @@ var Client = require('node-rest-client').Client;
  
 var client = new Client();
  
-// direct way
-
 var args={headers:
            { 'postman-token': 'd6253bf3-ff31-fb21-7741-3dd02c84e8bb',
              'cache-control': 'no-cache',
