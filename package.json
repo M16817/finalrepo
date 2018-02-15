@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.16.2"
-   
+    "express": "^4.16.2",
+    "require": "^2.4.20"
   },
   "devDependencies": {},
   "scripts": {
