@@ -1,3 +1,5 @@
+import { ActionsSdkApp } from './C:/Users/maheshr/AppData/Local/Microsoft/TypeScript/2.6/node_modules/@types/actions-on-google/actions-sdk-app';
+const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
 var request = require('http');
 var express = require('express');
@@ -168,7 +170,26 @@ app.post('/', function (req, res) {
 
     }
   }
+
+ //GOOGLE CODE START 
   else {
+
+    if(req.body.result.action=='acthello')
+    {
+      const app=new ActionsSdkApp({request:req,Response:res});
+      var showcase= app.buildRichResponse().addSimpleResponse('Trying to implement basic card')
+      .addBasicCard(
+        app.buildBasicCard('basic card text basic card text basic card text')
+        .setTitle('title of this card')
+        .addButton('Create Incident','WWW.google.com')
+        .setImage('https://www.google.com','image alternate text')
+        .setImage('CROPPED')
+  )
+  app.ask(showcase)
+
+    }
+
+
     if (req.body.result.parameters.Category === 'Network') {
       var fbresponse = {
         "speech": "google assistant",
