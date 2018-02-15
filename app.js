@@ -308,9 +308,12 @@ app.post('/', function (req, res) {
         if (jsonparse.hasOwnProperty('result')) {
           console.log(jsonparse.result[0].description);
           return res.json({
+
             followupEvent: {
+              "speech": "google assistant",
               "name": "mainmenueventgetinc",
               "data": {
+                "textToSpeech": "Details are",
                 "incstatus": jsonparse.result[0].description,
                 "incnumber": jsonparse.result[0].number,
                 "resolved_at": jsonparse.result[0].resolved_at
