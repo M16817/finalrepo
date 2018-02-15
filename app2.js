@@ -1,57 +1,33 @@
-var request = require("request");
-module.exports = {
-   
-    'logIncident' : function(desc, severity, category,subcategory, callback){
+var Client = require('node-rest-client').Client;
+ 
+var client = new Client();
+ 
+// direct way
 
-        console.log("The Final Message Utterance to send POST as Query to Service Now");
-        var options = 
-        { 
-            method: 'POST',
-          url: 'https://dev18442.service-now.com/api/now/v1/table/incident',
-          headers:
+var args={headers:
            { 'postman-token': 'd6253bf3-ff31-fb21-7741-3dd02c84e8bb',
              'cache-control': 'no-cache',
              authorization: 'Basic MzMyMzg6YWJjMTIz',
-             'content-type': 'application/json'
-             
-            },
+             'content-type': 'application/json' },
           body:
-           { short_description: desc,
+           { short_description: "",
              caller_id: 'Pourab Karchaudhuri',
-             urgency: severity ,
-             comments: 'Chatbot Testing',
-             category : category,
-             subcategory : subcategory          
-            },
-          json: true 
-        };
- 
-        request(options, function (error, response, body) {
-          if (error) throw new Error(error);
- 
-          console.log("Success : "+body);
-          callback(null, body);
-        });
-    },
-    'statusIncident' : function(ticketnumber, callback){
- 
-        console.log("The Final Message Utterance to send GET as Query to Service Now");
-        var options = { method: 'GET',
-          url: 'https://dev18442.service-now.com/api/now/v1/table/incident',
-          headers: {
-            'postman-token': 'd6253bf3-ff31-fb21-7741-3dd02c84e8bb',
-            'cache-control': 'no-cache',
-            authorization: 'Basic MzMyMzg6YWJjMTIz',
-            'content-type': 'application/json'
-          },
-          qs: { number: ticketnumber },
-                    };
+             urgency: "" ,
+             comments: 'Chatbot Testing' },
+          json: true };
 
-        request(options, function(error, response, body) {
-          if (error) throw new Error(error);
-          console.log("Success : "+body);
-          callback(null, body);
-            });
-        }     
+
+var getIncident=  client.get("https://dev18442.service-now.com/api/now/v1/table/incident?number=INC0012038",args
+,function (data, response)
+ {
+    // parsed response body as js object 
+    
+  var obj=JSON.stringify(data);
+   console.log(obj);
+    //console.log(data);
+    // raw response 
+   // console.log(response);
+});
+
+
  
-}
