@@ -176,13 +176,13 @@ app.post('/', function (req, res) {
     if (req.body.result.action === 'acthello') {
       console.log('testing this code');
       const googleapp = new ActionsSdkApp({ request: req, Response: res });
-      var showcase = googleapp.buildRichResponse().addSimpleResponse('Trying to implement basic card')
-        .addBasicCard(
+      var showcase = googleapp.buildRichResponse().addSimpleResponse({speech:'Trying to implement basic card', displayText:'hi'})
+     /*   .addBasicCard(
           googleapp.buildBasicCard('basic card text basic card text basic card text')
           .setTitle('title of this card')
           .addButton('Create Incident', 'WWW.google.com')
           .setImage('https://www.google.com', 'image alternate text')
-        );
+        );*/
       googleapp.ask(showcase);
 
 
