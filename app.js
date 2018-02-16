@@ -184,7 +184,7 @@ app.post('/', function (req, res) {
           .setImage('https://www.google.com', 'image alternate text')
           .setImage('CROPPED')
         )
-      app.ask(showcase)
+      googleapp.ask(showcase)
 
 
 
