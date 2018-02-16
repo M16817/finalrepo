@@ -173,7 +173,7 @@ app.post('/', function (req, res) {
   //GOOGLE CODE START 
   else {
 
-    if (req.body.result.action == 'acthello') {
+    if (req.body.result.action === 'acthello') {
       console.log('testing this code');
       const app = new ActionsSdkApp({ request: req, Response: res });
       var showcase = app.buildRichResponse().addSimpleResponse('Trying to implement basic card')
