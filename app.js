@@ -183,8 +183,11 @@ app.post('/', function (req, res) {
           .addButton('Create Incident', 'WWW.google.com')
           .setImage('https://www.google.com', 'image alternate text')
           .setImage('CROPPED')
+
         )
       app.ask(showcase)
+
+      
 
     }
 
