@@ -182,9 +182,8 @@ app.post('/', function (req, res) {
           .setTitle('title of this card')
           .addButton('Create Incident', 'WWW.google.com')
           .setImage('https://www.google.com', 'image alternate text')
-          .setImage('CROPPED')
-        )
-      googleapp.ask(showcase)
+        );
+      googleapp.ask(showcase);
 
 
 
