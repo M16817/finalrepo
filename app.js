@@ -1,4 +1,3 @@
-import { ActionsSdkApp } from './C:/Users/maheshr/AppData/Local/Microsoft/TypeScript/2.6/node_modules/@types/actions-on-google/actions-sdk-app';
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
 var request = require('http');
@@ -187,7 +186,7 @@ app.post('/', function (req, res) {
         )
       app.ask(showcase)
 
-      
+
 
     }
 
