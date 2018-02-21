@@ -506,6 +506,7 @@ app.post('/', function (req, res) {
         var jsonparse = JSON.parse(resul);
         if (jsonparse.hasOwnProperty('result')) {
           console.log('call followup event');
+          console.log('json string is '+ jsonparse);
           return res.json({
             followupEvent: {
               "name": "mainmenueventgetinc",
