@@ -479,11 +479,12 @@ app.post('/', function (req, res) {
 
       var cat = req.body.result.contexts[0].parameters.Category;
 
+      console.log('get value of description'+ req.body.result.parameters.desc)
       console.log('print context value ', cat);
       console.log('Print parmeter value' , req.body.result.Category);
 
 
-      incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, req.body.result.Category, req.body.result.parameters.subcategory, function (err, resu) {
+      incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
         var resagent = "Your incident has been created with incident number:" + success + ".\n Note it down for further enquiry.";
         return res.json({
