@@ -478,9 +478,14 @@ app.post('/', function (req, res) {
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
 
       var cat = req.body.result.contexts[0].parameters.Category;
-      incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
+
+      console.log('print context value ', cat);
+      console.log('Print parmeter value' , req.body.result.Category);
+
+
+      incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, req.body.result.Category, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
-        var resagent = "Your incident has been created with incident number:" + success + ".\nNote it down for further enquiry.";
+        var resagent = "Your incident has been created with incident number:" + success + ".\n Note it down for further enquiry.";
         return res.json({
           followupEvent: {
             "name": "mainmenuevent",
