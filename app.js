@@ -522,12 +522,10 @@ app.post('/', function (req, res) {
             followupEvent: {
               "name": "IncFailevent",
               "data": {
-
               }
             }
 
           });
-
         }
       });
 
