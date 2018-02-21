@@ -120,6 +120,8 @@ app.post('/', function (req, res) {
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
       console.log('google for inc creation');
       var cat = req.body.result.contexts[0].parameters.Category;
+      console.log(cat);
+
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
         var resagent = "Your incident has been created with incident number:" + success + ".\nNote it down for further enquiry.";
