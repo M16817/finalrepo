@@ -136,7 +136,7 @@ app.post('/', function (req, res) {
 
     if (req.body.result.action == "getincident") {
 
-      Console.log("TESTING GET INCIDENT :");
+      console.log("TESTING GET INCIDENT :");
 
       incident.statusIncident(req.body.result.parameters.incidentno, function (err, resul) {
         var jsonparse = JSON.parse(resul);
@@ -500,7 +500,7 @@ app.post('/', function (req, res) {
 
     if (req.body.result.action == "getincident") {
 
-      Console.log("TESTING GET INCIDENT :");
+      console.log("TESTING GET INCIDENT :");
 
       incident.statusIncident(req.body.result.parameters.incidentno, function (err, resul) {
         var jsonparse = JSON.parse(resul);
