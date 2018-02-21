@@ -505,7 +505,7 @@ app.post('/', function (req, res) {
       incident.statusIncident(req.body.result.parameters.incidentno, function (err, resul) {
         var jsonparse = JSON.parse(resul);
         if (jsonparse.hasOwnProperty('result')) {
-          console.log(jsonparse.result[0].description);
+          console.log('call followup event');
           return res.json({
             followupEvent: {
               "name": "mainmenueventgetinc",
@@ -532,11 +532,7 @@ app.post('/', function (req, res) {
       });
 
     }
-
-
-
   }
-
 
 });
 
