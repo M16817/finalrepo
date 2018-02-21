@@ -129,7 +129,7 @@ app.post('/', function (req, res) {
           followupEvent: {
             "name": "mainmenuevent",
             "data": {
-              "incnumber": success
+              "Incident number ": success
             }
           }
         });
