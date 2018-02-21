@@ -134,21 +134,25 @@ app.post('/', function (req, res) {
       });
     }
 
+
     if (req.body.result.action == "getincident") {
 
       console.log("TESTING GET INCIDENT :");
 
       incident.statusIncident(req.body.result.parameters.incidentno, function (err, resul) {
+
+        console.log('value of result is :::' + resul);
         var jsonparse = JSON.parse(resul);
+
         if (jsonparse.hasOwnProperty('result')) {
-          console.log(jsonparse.result[0].description);
+          console.log('call followup event');
+          console.log('json string is ' + jsonparse);
           return res.json({
             followupEvent: {
               "name": "mainmenueventgetinc",
               "data": {
-                "incstatus": jsonparse.result[0].description,
-                "incnumber": jsonparse.result[0].number,
-                "resolved_at": jsonparse.result[0].resolved_at
+                "incstatus": jsonparse.result[0].short_description,
+                "incnumber": jsonparse.result[0].number
               }
             }
           });
@@ -158,16 +162,21 @@ app.post('/', function (req, res) {
             followupEvent: {
               "name": "IncFailevent",
               "data": {
-
               }
             }
 
           });
-
         }
       });
 
     }
+
+
+
+
+
+
+
   }
 
   //GOOGLE CODE START 
@@ -479,9 +488,9 @@ app.post('/', function (req, res) {
 
       var cat = req.body.result.contexts[0].parameters.Category;
 
-      console.log('get value of description'+ req.body.result.parameters.desc)
+      console.log('get value of description' + req.body.result.parameters.desc)
       console.log('print context value ', cat);
-      console.log('Print parmeter value' , req.body.result.Category);
+      console.log('Print parmeter value', req.body.result.Category);
 
 
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
@@ -503,13 +512,13 @@ app.post('/', function (req, res) {
       console.log("TESTING GET INCIDENT :");
 
       incident.statusIncident(req.body.result.parameters.incidentno, function (err, resul) {
-        
-        console.log('value of result is :::'+ resul);
+
+        console.log('value of result is :::' + resul);
         var jsonparse = JSON.parse(resul);
-        
+
         if (jsonparse.hasOwnProperty('result')) {
           console.log('call followup event');
-          console.log('json string is '+ jsonparse);
+          console.log('json string is ' + jsonparse);
           return res.json({
             followupEvent: {
               "name": "mainmenueventgetinc",
@@ -533,6 +542,7 @@ app.post('/', function (req, res) {
       });
 
     }
+
   }
 
 });
