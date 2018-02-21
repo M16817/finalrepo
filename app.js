@@ -505,19 +505,17 @@ app.post('/', function (req, res) {
       incident.statusIncident(req.body.result.parameters.incidentno, function (err, resul) {
         
         console.log('value of result is :::'+ resul);
-        //var jsonparse = JSON.parse(resul);
+        var jsonparse = JSON.parse(resul);
         
         if (jsonparse.hasOwnProperty('result')) {
           console.log('call followup event');
-         // console.log('json string is '+ jsonparse);
+          console.log('json string is '+ jsonparse);
           return res.json({
             followupEvent: {
               "name": "mainmenueventgetinc",
               "data": {
-                // "incstatus": jsonparse.result[0].short_description,
-                // "incnumber": jsonparse.result[0].number
-                "incstatus": result[0].short_description,
-                "incnumber": result[0].number
+                "incstatus": jsonparse.result[0].short_description,
+                "incnumber": jsonparse.result[0].number
               }
             }
           });
