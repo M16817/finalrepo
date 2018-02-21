@@ -503,7 +503,10 @@ app.post('/', function (req, res) {
       console.log("TESTING GET INCIDENT :");
 
       incident.statusIncident(req.body.result.parameters.incidentno, function (err, resul) {
+        
+        console.log('value of result is :::'+ resul);
         var jsonparse = JSON.parse(resul);
+        
         if (jsonparse.hasOwnProperty('result')) {
           console.log('call followup event');
           console.log('json string is '+ jsonparse);
