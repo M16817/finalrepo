@@ -118,7 +118,7 @@ app.post('/', function (req, res) {
     //Rest Api Call started
 
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
-
+      console.log('google for inc creation');
       var cat = req.body.result.contexts[0].parameters.Category;
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
