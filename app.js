@@ -11,8 +11,8 @@ app.use(bodyParser.json());
 var incident = require('./restapimethods');
 app.post('/', function (req, res) {
 
-  googleresp.basicCard(req,res);
-
+  googleresp.carousel(req,res);
+  
 });
 
 app.listen(portC, function () {
