@@ -14,3 +14,7 @@ app.post('/', function (req, res) {
   googleresp.basicCard(req,res);
 
 })
+
+app.listen(portC, function () {
+  console.log('AGENT is running my app on  PORT: ' + portC);
+});
