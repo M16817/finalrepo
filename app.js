@@ -488,6 +488,7 @@ app.post('/', function (req, res) {
 
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
 
+      console.log('entire body :'+ req.body);
       var cat = req.body.result.contexts[0].parameters.Category;
 
       console.log('get value of description' + req.body.result.parameters.desc)
