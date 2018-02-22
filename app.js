@@ -316,13 +316,12 @@ app.post('/', function (req, res) {
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
 
       var cat = q.body.result.contexts[0].parameters.Category;
+      console.log('google category is :' + cat);
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
-        var resagent = "Your incident has been created with incident number:" + success + ".\nNote it down for further enquiry.";
+        var resagent = "Your incident has been created with incident number:" + success ;
+        console.log('google incident number is :' + success);
         return res.json({
-          // speech:resagent,
-          // displayText: resagent,
-          // source:'Service Now'
           followupEvent: {
             "name": "mainmenuevent",
             "data": {
