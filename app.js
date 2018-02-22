@@ -315,7 +315,8 @@ app.post('/', function (req, res) {
 
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
 
-      var cat = req.body.result.contexts[0].parameters.Category;
+      //var cat = req.body.result.contexts[0].parameters.Category;
+      var cat=req.body.result.parameters.category;
       console.log('google category is :' + cat);
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
