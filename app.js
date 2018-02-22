@@ -1,5 +1,6 @@
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
+var googleresp=require('./googlerichresponse');
 var request = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -183,20 +184,22 @@ app.post('/', function (req, res) {
 
   //GOOGLE CODE START 
   else if (req.body.originalRequest.source == 'google') {
-    console.log(req.body.originalRequest.source);
-    if (req.body.result.action === 'acthello') {
-      console.log('testing this code');
-      const googleapp = new ActionsSdkApp({ request: req, response: res });
-      var showcase = googleapp.buildRichResponse()
-        .addSimpleResponse({ speech: 'Trying to implement basic card', displayText: 'hi' })
-        .addBasicCard(
-        googleapp.buildBasicCard('basic card text basic card text basic card text')
-          .setTitle('title of this card')
-          .addButton('Create Incident', 'WWW.google.com')
-          .setImage('', 'image alternate text')
-        );
-      googleapp.ask(showcase);
+    // console.log(req.body.originalRequest.source);
+    // if (req.body.result.action === 'acthello') {
+    //   console.log('testing this code');
+    //   const googleapp = new ActionsSdkApp({ request: req, response: res });
+    //   var showcase = googleapp.buildRichResponse()
+    //     .addSimpleResponse({ speech: 'Trying to implement basic card', displayText: 'hi' })
+    //     .addBasicCard(
+    //     googleapp.buildBasicCard('basic card text basic card text basic card text')
+    //       .setTitle('title of this card')
+    //       .addButton('Create Incident', 'WWW.google.com')
+    //       .setImage('', 'image alternate text')
+    //     );
+    //   googleapp.ask(showcase);
 
+    if(req.body.result.action==='acthello');
+    googleresp.basicCard(request,Response);
 
 
     }
@@ -317,7 +320,7 @@ app.post('/', function (req, res) {
       console.log('entire body :'+ req.body.result);
       //var cat = req.body.result.contexts[0].parameters.Category;
       var cat=req.body.result.parameters.category;
-      
+
       console.log('google category is :' + cat);
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
