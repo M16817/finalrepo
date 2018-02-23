@@ -1,3 +1,5 @@
+import { fbgeneric } from './Facebookrichmsg';
+
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
 var fbrichmsg=require('./Facebookrichmsg');
@@ -13,6 +15,8 @@ var incident = require('./restapimethods');
 app.post('/', function (req, res) {
 
   if (req.body.originalRequest.source == 'facebook') {
+   
+    /*code checked for fb list
     if(req.body.result.action=='acthello')
     {
       console.log('call fb list');
@@ -21,8 +25,14 @@ app.post('/', function (req, res) {
       console.log(fblog);
       return res.json(fblog);
     }
+  */
 
+  /*code for fb basic card  */
+    if(req.body.result.action=='acthello'){
+      var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
 
+      return res.json(fblog);
+    }
     
 
     if (req.body.result.parameters.Category === 'Network') {
