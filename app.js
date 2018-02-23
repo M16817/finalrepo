@@ -15,9 +15,9 @@ app.post('/', function (req, res) {
   if (req.body.originalRequest.source == 'facebook') {
     if(req.body.result.action=='acthello')
     {
-      //console.log('call fb list');
-      //var fblog= JSON.stringify(fbrichmsg.fblistresp());
-    
+      console.log('call fb list');
+      var fblog= JSON.stringify(fbrichmsg.fblistresp());
+      console.log(fblog);
       return res.json(fbrichmsg.fblistresp());
     }
 
