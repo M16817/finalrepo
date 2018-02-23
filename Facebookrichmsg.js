@@ -181,6 +181,7 @@ var fblistresp = function fblist() {
         }
       }
     }
+    return resp;
 }
 
 module.exports.fblistresp=fblistresp;
