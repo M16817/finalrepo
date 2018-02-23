@@ -15,6 +15,7 @@ app.post('/', function (req, res) {
   if (req.body.originalRequest.source == 'facebook') {
     if(req.body.result.action=='acthello')
     {
+      console.log('call fb list');
       fbrichmsg.fblistresp();
     }
 
