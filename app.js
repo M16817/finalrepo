@@ -16,6 +16,7 @@ app.post('/', function (req, res) {
     if(req.body.result.action=='acthello')
     {
       console.log('call fb list');
+      console.log('chk fun response'+ fbrichmsg.fblistresp());
       var fblog= JSON.stringify(fbrichmsg.fblistresp());
       console.log(fblog);
       return res.json(fbrichmsg.fblistresp());
