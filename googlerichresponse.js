@@ -20,13 +20,10 @@ var basicCard = function basicCard(request, response) {
     const app = new ActionsSdkApp({ request, response });
     app.ask(app.buildRichResponse()
         // Create a basic card and add it to the rich response
-        .addSimpleResponse('Math and prime numbers it is!')
-        .addBasicCard(app.buildBasicCard('42 is an even composite number. It' +
-            'is composed of three distinct prime numbers multiplied together. It' +
-            'has a total of eight divisors. 42 is an abundant number, because the' +
-            'sum of its proper divisors 54 is greater than itself. To count from' +
-            '1 to 42 would take you about twenty-one…')
-            .setTitle('Math & prime numbers')
+        .addSimpleResponse('This is Servicenow bot, How may I help you today')
+        .addBasicCard(app.buildBasicCard('This is Service now bot' +
+            'How may I help you')
+            .setTitle('ServiceNow Bot')
             .addButton('Read more', 'https://example.google.com/mathandprimes')
             .setImage('https://example.google.com/42.png', 'Image alternate text')
             .setImageDisplay('CROPPED')

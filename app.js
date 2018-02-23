@@ -1,5 +1,6 @@
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
+var fbrichmsg=require('./Facebookrichmsg');
 var googleresp=require('./googlerichresponse');
 var request = require('http');
 var express = require('express');
@@ -12,6 +13,12 @@ var incident = require('./restapimethods');
 app.post('/', function (req, res) {
 
   if (req.body.originalRequest.source == 'facebook') {
+    if(req.body.action.result=='acthello')
+    {
+      fbrichmsg.fblistresp();
+    }
+
+
 
     if (req.body.result.parameters.Category === 'Network') {
       var fbresponse = {
@@ -119,10 +126,7 @@ app.post('/', function (req, res) {
     //Rest Api Call started
 
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
-      console.log('google for inc creation');
       var cat = req.body.result.contexts[0].parameters.Category;
-      console.log(cat);
-
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
         var resagent = "Your incident has been created with incident number:" + success + ".\nNote it down for further enquiry.";
@@ -174,20 +178,14 @@ app.post('/', function (req, res) {
 
     }
 
-
-
-
-
-
-
   }
 
   //GOOGLE CODE START 
   else if (req.body.originalRequest.source == 'google') {
-    console.log(req.body.originalRequest.source);
-    if (req.body.result.action === 'acthello') {
-      googleresp.basicCard(req,res);
-    }
+    // console.log(req.body.originalRequest.source);
+    // if (req.body.result.action === 'acthello') {
+    //   googleresp.basicCard(req,res);
+    // }
 
 
     if (req.body.result.parameters.Category === 'Network') {
@@ -361,9 +359,6 @@ app.post('/', function (req, res) {
       });
 
     }
-
-
-
 
   }
 
