@@ -15,11 +15,13 @@ app.post('/', function (req, res) {
   if (req.body.originalRequest.source == 'facebook') {
     if(req.body.result.action=='acthello')
     {
-      console.log('call fb list');
-      fbrichmsg.fblistresp();
+      //console.log('call fb list');
+      //var fblog= JSON.stringify(fbrichmsg.fblistresp());
+    
+      return res.json(fbrichmsg.fblistresp());
     }
 
-
+    
 
     if (req.body.result.parameters.Category === 'Network') {
       var fbresponse = {
