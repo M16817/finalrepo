@@ -13,7 +13,7 @@ var incident = require('./restapimethods');
 app.post('/', function (req, res) {
 
   if (req.body.originalRequest.source == 'facebook') {
-    if(req.body.action.result=='acthello')
+    if(req.body.result.action=='acthello')
     {
       fbrichmsg.fblistresp();
     }
