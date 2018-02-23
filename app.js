@@ -2,8 +2,8 @@ import { fbgeneric } from './Facebookrichmsg';
 
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
-var fbrichmsg=require('./Facebookrichmsg');
-var googleresp=require('./googlerichresponse');
+var fbrichmsg = require('./Facebookrichmsg');
+var googleresp = require('./googlerichresponse');
 var request = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -15,7 +15,7 @@ var incident = require('./restapimethods');
 app.post('/', function (req, res) {
 
   if (req.body.originalRequest.source == 'facebook') {
-   
+
     /*code checked for fb list
     if(req.body.result.action=='acthello')
     {
@@ -27,44 +27,43 @@ app.post('/', function (req, res) {
     }
   */
 
-  /*code for fb basic card  */
-    if(req.body.result.action=='acthello'){
-     // var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
+    /*code for fb basic card  */
+    if (req.body.result.action == 'acthello') {
+      // var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
 
-     var fbgen =
-     {
-       "message": {
-         "attachment": {
-           "type": "template",
-           "payload": {
-             "template_type": "generic",
-             "elements": [
-               {
-                 "title": "Welcome!",
-                 "image_url": "https://petersfancybrownhats.com/company_image.png",
-                 "subtitle": "We have the right hat for everyone.",
-                 "buttons": [
-                   {
-                     "type": "web_url",
-                     "url": "https://petersfancybrownhats.com",
-                     "title": "View Website"
-                   }, {
-                     "type": "postback",
-                     "title": "Start Chatting",
-                     "payload": "DEVELOPER_DEFINED_PAYLOAD"
-                   }
-                 ]
-               }
-             ]
-           }
-         }
-       }
-     }
-     //return fbgen;
+      var fbgen =
+        {
+
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "generic",
+              "elements": [
+                {
+                  "title": "Welcome!",
+                  "image_url": "https://petersfancybrownhats.com/company_image.png",
+                  "subtitle": "We have the right hat for everyone.",
+                  "buttons": [
+                    {
+                      "type": "web_url",
+                      "url": "https://petersfancybrownhats.com",
+                      "title": "View Website"
+                    }, {
+                      "type": "postback",
+                      "title": "Start Chatting",
+                      "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        };
+      //return fbgen;
 
       return res.json(fbgen);
     }
-    
+
 
     if (req.body.result.parameters.Category === 'Network') {
       var fbresponse = {
@@ -346,14 +345,14 @@ app.post('/', function (req, res) {
     //Rest Api Call started
 
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
-      console.log('entire body :'+ req.body.result);
+      console.log('entire body :' + req.body.result);
       //var cat = req.body.result.contexts[0].parameters.Category;
-      var cat=req.body.result.parameters.category;
+      var cat = req.body.result.parameters.category;
 
       console.log('google category is :' + cat);
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
-        var resagent = "Your incident has been created with incident number:" + success ;
+        var resagent = "Your incident has been created with incident number:" + success;
         console.log('google incident number is :' + success);
         return res.json({
           followupEvent: {
@@ -518,7 +517,7 @@ app.post('/', function (req, res) {
 
     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
 
-      
+
       var cat = req.body.result.contexts[0].parameters.Category;
 
       console.log('get value of description' + req.body.result.parameters.desc)
