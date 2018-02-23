@@ -29,9 +29,40 @@ app.post('/', function (req, res) {
 
   /*code for fb basic card  */
     if(req.body.result.action=='acthello'){
-      var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
+     // var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
 
-      return res.json(fblog);
+     var fbgen =
+     {
+       "message": {
+         "attachment": {
+           "type": "template",
+           "payload": {
+             "template_type": "generic",
+             "elements": [
+               {
+                 "title": "Welcome!",
+                 "image_url": "https://petersfancybrownhats.com/company_image.png",
+                 "subtitle": "We have the right hat for everyone.",
+                 "buttons": [
+                   {
+                     "type": "web_url",
+                     "url": "https://petersfancybrownhats.com",
+                     "title": "View Website"
+                   }, {
+                     "type": "postback",
+                     "title": "Start Chatting",
+                     "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                   }
+                 ]
+               }
+             ]
+           }
+         }
+       }
+     }
+     //return fbgen;
+
+      return res.json(fbgen);
     }
     
 
