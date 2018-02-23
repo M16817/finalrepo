@@ -104,34 +104,40 @@ var client = new Client();
 
 var fbgeneric = function fbgen() {
   var fbgen =
-    {
-      "message": {
-        "attachment": {
-          "type": "template",
-          "payload": {
-            "template_type": "generic",
-            "elements": [
-              {
-                "title": "Welcome!",
-                "image_url": "https://petersfancybrownhats.com/company_image.png",
-                "subtitle": "We have the right hat for everyone.",
-                "buttons": [
-                  {
-                    "type": "web_url",
-                    "url": "https://petersfancybrownhats.com",
-                    "title": "View Website"
-                  }, {
-                    "type": "postback",
-                    "title": "Start Chatting",
-                    "payload": "DEVELOPER_DEFINED_PAYLOAD"
-                  }
-                ]
-              }
-            ]
-          }
+  {
+    "facebook": {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [
+            {
+              "title": "Service Now",
+              "image_url": "https://tekslate.com/wp-content/uploads/2014/11/online-servicenow-training.png",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "https://www.messenger.com",
+                  "title": "Visit Messenger"
+                }
+              ]
+            },
+            {
+              "title": "Service Now",
+              "image_url": "https://tekslate.com/wp-content/uploads/2014/11/online-servicenow-training.png",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "https://www.messenger.com",
+                  "title": "Visit Messenger"
+                }
+              ]
+            }
+          ]
         }
       }
     }
+  }
     return fbgen;
 }
 module.exports.fbgeneric=fbgeneric;

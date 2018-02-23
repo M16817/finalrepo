@@ -33,7 +33,7 @@ app.post('/', function (req, res) {
 
       var fbgen =
         {
-
+          "speech":"",
           "attachment": {
             "type": "template",
             "payload": {
