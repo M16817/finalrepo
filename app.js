@@ -26,8 +26,10 @@ app.post('/', function (req, res) {
     /*code for fb list template */
     if(req.body.result.action=='acthello'){
       var fblist=fbrichmsg.fblistresp();
+      console.log(fblist);
       return res.json(fblist);
     }
+    
 
     if (req.body.result.parameters.Category === 'Network') {
       var fbresponse = {
