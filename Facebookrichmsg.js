@@ -175,10 +175,8 @@ module.exports.fbgeneric = fbgeneric;
 
 var fblistresp = function fblist() {
   var resp =
-
-    {
-
-      "message": [
+  {
+    "messages": [
         {
           "type": 4,
           "platform": "facebook",
@@ -240,7 +238,7 @@ var fblistresp = function fblist() {
           }
         }
       ]
-    }
+  }
 
   return resp;
 }
