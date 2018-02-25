@@ -16,14 +16,19 @@ app.post('/', function (req, res) {
 
   if (req.body.originalRequest.source == 'facebook') {
 
-    /*code for fb basic card  */
+    /*code for fb generic template card  
     if (req.body.result.action == 'acthello') {
       // var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
       var fbgen= fbrichmsg.fbgeneric();
       console.log(fbgen);
       return res.json(fbgen);
-    }
+    }*/
 
+    /*code for fb list template */
+    if(req.body.result.action=='acthello'){
+      var fblist=fbrichmsg.fblistresp();
+      return res.json(fblist);
+    }
 
     if (req.body.result.parameters.Category === 'Network') {
       var fbresponse = {
