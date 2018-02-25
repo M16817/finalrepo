@@ -16,83 +16,11 @@ app.post('/', function (req, res) {
 
   if (req.body.originalRequest.source == 'facebook') {
 
-    /*code checked for fb list
-    if(req.body.result.action=='acthello')
-    {
-      console.log('call fb list');
-      //console.log('chk fun response'+ fbrichmsg.fblistresp());
-      var fblog= JSON.stringify(fbrichmsg.fblistresp());
-      console.log(fblog);
-      return res.json(fblog);
-    }
-  */
-
     /*code for fb basic card  */
     if (req.body.result.action == 'acthello') {
       // var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
-      var fbgen =
-        {
-          "speech": "",
-          "messages": [
-            {
-              "platform": "facebook",
-              "payload": {
-                "facebook": {
-                  "attachment": {
-                    "type": "template",
-                    "payload": {
-                      "template_type": "generic",
-                      "elements": [
-                        {
-                          "title": "Smurfs: The Lost Village (2017)",
-                          "image_url": "https://www.moovrika.com/ext/makeimg.php?tbl=movies&id=15666&img=1&type=image&movie=Smurfs+The+Lost+Village&fs=400",
-                          "subtitle": "Smurfette attempts to find her purpose in the village. When she encounters a creature in the Forbidden Forest who drops a mysterious map, she sets off with her friends Brainy, Clumsy, and Hefty on an adventure to find the Lost Village before the evil wizard Gargamel does.",
-                          "default_action": {
-                            "type": "web_url",
-                            "url": "https://www.moovrika.com/m/15666",
-                            "webview_height_ratio": "tall"
-                          },
-                          "buttons": [
-                            {
-                              "title": "more info",
-                              "type": "web_url",
-                              "url": "https://www.moovrika.com/m/4082",
-                              "webview_height_ratio": "tall"
-                            },
-                            {
-                              "title": "View trailer",
-                              "type": "web_url",
-                              "url": "https://www.moovrika.com/m/4082",
-                              "webview_height_ratio": "tall"
-                            }
-                          ]
-                        },
-                        {
-                          "title": "Resident Evil: The Final Chapter (2017)",
-                          "image_url": "https://www.moovrika.com/ext/makeimg.php?tbl=movies&id=4167&img=1&type=image&movie=Resident+Evil+The+Final+Chapter&fs=400",
-                          "subtitle": "Resident Evil: The Final Chapter is an upcoming science fiction action horror film written and directed by Paul W. S. Anderson. It is the sequel to Resident Evil: Retribution (2012), and will be the sixth and final installment in the Resident Evil film series, which is very loosely based on the Capcom survival horror video game series Resident Evil.",
-                          "default_action": {
-                            "type": "web_url",
-                            "url": "https://www.moovrika.com/m/4167",
-                            "webview_height_ratio": "tall"
-                          },
-                          "buttons": [
-                            {
-                              "title": "more info",
-                              "type": "web_url",
-                              "url": "https://www.moovrika.com/m/4082",
-                              "webview_height_ratio": "tall"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        };
+      var fbgen= fbrichmsg.fbgeneric();
+        
       return res.json(fbgen);
     }
 
