@@ -1,4 +1,3 @@
-import { fbgeneric } from './Facebookrichmsg';
 
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
