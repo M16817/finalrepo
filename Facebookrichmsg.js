@@ -179,7 +179,6 @@ var fblistresp = function fblist() {
       "speech":"",
       "message":[
         {
-        "type": 4,
         "platform": "facebook",
         "payload": {
           "facebook": {
