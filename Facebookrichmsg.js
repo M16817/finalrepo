@@ -177,7 +177,7 @@ var fblistresp = function fblist() {
   var resp =
 
     {
-      "speech": "",
+
       "message": [
         {
           "type": 4,
