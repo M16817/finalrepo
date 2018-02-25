@@ -104,156 +104,150 @@ var client = new Client();
 
 var fbgeneric = function fbgen() {
   var fbgen =
-  {
-    "speech": "",
-    "messages": [
-      {
-        "platform": "facebook",
-        "payload": {
-          "facebook": {
-            "attachment": {
-              "type": "template",
-              "payload": {
-                "template_type": "generic",
-                "elements": [
-                  {
-                    "title": "Smurfs: The Lost Village (2017)",
-                    "image_url": "https://www.moovrika.com/ext/makeimg.php?tbl=movies&id=15666&img=1&type=image&movie=Smurfs+The+Lost+Village&fs=400",
-                    "subtitle": "Smurfette attempts to find her purpose in the village. When she encounters a creature in the Forbidden Forest who drops a mysterious map, she sets off with her friends Brainy, Clumsy, and Hefty on an adventure to find the Lost Village before the evil wizard Gargamel does.",
-                    "default_action": {
-                      "type": "web_url",
-                      "url": "https://www.moovrika.com/m/15666",
-                      "webview_height_ratio": "tall"
-                    },
-                    "buttons": [
-                      {
-                        "title": "more info",
+    {
+      "speech": "",
+      "messages": [
+        {
+          "platform": "facebook",
+          "payload": {
+            "facebook": {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "generic",
+                  "elements": [
+                    {
+                      "title": "Smurfs: The Lost Village (2017)",
+                      "image_url": "https://www.moovrika.com/ext/makeimg.php?tbl=movies&id=15666&img=1&type=image&movie=Smurfs+The+Lost+Village&fs=400",
+                      "subtitle": "Smurfette attempts to find her purpose in the village. When she encounters a creature in the Forbidden Forest who drops a mysterious map, she sets off with her friends Brainy, Clumsy, and Hefty on an adventure to find the Lost Village before the evil wizard Gargamel does.",
+                      "default_action": {
                         "type": "web_url",
-                        "url": "https://www.moovrika.com/m/4082",
+                        "url": "https://www.moovrika.com/m/15666",
                         "webview_height_ratio": "tall"
                       },
-                      {
-                        "title": "View trailer",
-                        "type": "web_url",
-                        "url": "https://www.moovrika.com/m/4082",
-                        "webview_height_ratio": "tall"
-                      }
-                    ]
-                  },
-                  {
-                    "title": "Resident Evil: The Final Chapter (2017)",
-                    "image_url": "https://www.moovrika.com/ext/makeimg.php?tbl=movies&id=4167&img=1&type=image&movie=Resident+Evil+The+Final+Chapter&fs=400",
-                    "subtitle": "Resident Evil: The Final Chapter is an upcoming science fiction action horror film written and directed by Paul W. S. Anderson. It is the sequel to Resident Evil: Retribution (2012), and will be the sixth and final installment in the Resident Evil film series, which is very loosely based on the Capcom survival horror video game series Resident Evil.",
-                    "default_action": {
-                      "type": "web_url",
-                      "url": "https://www.moovrika.com/m/4167",
-                      "webview_height_ratio": "tall"
+                      "buttons": [
+                        {
+                          "title": "more info",
+                          "type": "web_url",
+                          "url": "https://www.moovrika.com/m/4082",
+                          "webview_height_ratio": "tall"
+                        },
+                        {
+                          "title": "View trailer",
+                          "type": "web_url",
+                          "url": "https://www.moovrika.com/m/4082",
+                          "webview_height_ratio": "tall"
+                        }
+                      ]
                     },
-                    "buttons": [
-                      {
-                        "title": "more info",
+                    {
+                      "title": "Resident Evil: The Final Chapter (2017)",
+                      "image_url": "https://www.moovrika.com/ext/makeimg.php?tbl=movies&id=4167&img=1&type=image&movie=Resident+Evil+The+Final+Chapter&fs=400",
+                      "subtitle": "Resident Evil: The Final Chapter is an upcoming science fiction action horror film written and directed by Paul W. S. Anderson. It is the sequel to Resident Evil: Retribution (2012), and will be the sixth and final installment in the Resident Evil film series, which is very loosely based on the Capcom survival horror video game series Resident Evil.",
+                      "default_action": {
                         "type": "web_url",
-                        "url": "https://www.moovrika.com/m/4082",
+                        "url": "https://www.moovrika.com/m/4167",
                         "webview_height_ratio": "tall"
-                      }
-                    ]
-                  }
-                ]
+                      },
+                      "buttons": [
+                        {
+                          "title": "more info",
+                          "type": "web_url",
+                          "url": "https://www.moovrika.com/m/4082",
+                          "webview_height_ratio": "tall"
+                        }
+                      ]
+                    }
+                  ]
+                }
               }
             }
           }
         }
-      }
-    ]
-  };
-    return fbgen;
+      ]
+    };
+  return fbgen;
 }
-module.exports.fbgeneric=fbgeneric;
+module.exports.fbgeneric = fbgeneric;
 
 
 //list template 
 
 var fblistresp = function fblist() {
   var resp =
+
     {
-      "speech":"",
-      "message":[
+      "speech": "",
+      "message": [
         {
-        "platform": "facebook",
-        "payload": {
-          "facebook": {
-            "attachment": {
-              "type": "template",
-              "payload": {
-                "template_type": "list",
-                "top_element_style": "compact",
-                "elements": [
-                  {
-                    "title": "Classic T-Shirt Collection",
-                    "subtitle": "See all our colors",
-                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
-                    "buttons": [
-                      {
-                        "title": "View",
-                        "type": "web_url",
-                        "url": "https://peterssendreceiveapp.ngrok.io/collection",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                      }
-                    ]
-                  },
-                  {
-                    "title": "Classic White T-Shirt",
-                    "subtitle": "See all our colors",
-                    "default_action": {
-                      "type": "web_url",
-                      "url": "https://peterssendreceiveapp.ngrok.io/view?item=100",
-                      "messenger_extensions": false,
-                      "webview_height_ratio": "tall"
-                    }
-                  },
-                  {
-                    "title": "Classic Blue T-Shirt",
-                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
-                    "subtitle": "100% Cotton, 200% Comfortable",
-                    "default_action": {
-                      "type": "web_url",
-                      "url": "https://peterssendreceiveapp.ngrok.io/view?item=101",
-                      "messenger_extensions": true,
-                      "webview_height_ratio": "tall",
-                      "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+          "type": 4,
+          "platform": "facebook",
+          "payload": {
+            "facebook": {
+              "attachment": {
+                "type": "template",
+                "payload": {
+                  "template_type": "list",
+                  "top_element_style": "compact",
+                  "elements": [
+                    {
+                      "title": "Classic T-Shirt Collection",
+                      "subtitle": "See all our colors",
+                      "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+                      "buttons": [
+                        {
+                          "title": "View",
+                          "type": "web_url",
+                          "url": "https://peterssendreceiveapp.ngrok.io/collection"
+                        }
+                      ]
                     },
-                    "buttons": [
-                      {
-                        "title": "Shop Now",
-                        "type": "web_url",
-                        "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-                      }
-                    ]
-                  }
-                ],
-                "buttons": [
-                  {
-                    "title": "View More",
-                    "type": "postback",
-                    "payload": "payload"
-                  }
-                ]
+                    {
+                      "title": "Classic White T-Shirt",
+                      "subtitle": "See all our colors",
+                      "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+                      "buttons": [
+                        {
+                          "title": "View",
+                          "type": "web_url",
+                          "url": "https://peterssendreceiveapp.ngrok.io/collection"
+                        }
+                      ]
+                    },
+                    {
+                      "title": "Classic Blue T-Shirt",
+                      "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
+                      "subtitle": "100% Cotton, 200% Comfortable",
+                      "buttons": [
+                        {
+                          "title": "Shop Now",
+                          "type": "web_url",
+                          "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101"
+                        }
+                      ]
+                    }
+                  ],
+                  "buttons": [
+                    {
+                      "title": "View More",
+                      "type": "postback",
+                      "payload": "payload"
+                    }
+                  ]
+                }
               }
             }
           }
         }
-      }
-    ]
-    };
+      ]
+    }
+
   return resp;
 }
 
 module.exports.fblistresp = fblistresp;
+
+
 
 
 
