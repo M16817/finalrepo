@@ -105,39 +105,67 @@ var client = new Client();
 var fbgeneric = function fbgen() {
   var fbgen =
   {
-    "facebook": {
-      "attachment": {
-        "type": "template",
+    "speech": "",
+    "messages": [
+      {
+        "platform": "facebook",
         "payload": {
-          "template_type": "generic",
-          "elements": [
-            {
-              "title": "Service Now",
-              "image_url": "https://tekslate.com/wp-content/uploads/2014/11/online-servicenow-training.png",
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "https://www.messenger.com",
-                  "title": "Visit Messenger"
-                }
-              ]
-            },
-            {
-              "title": "Service Now",
-              "image_url": "https://tekslate.com/wp-content/uploads/2014/11/online-servicenow-training.png",
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "https://www.messenger.com",
-                  "title": "Visit Messenger"
-                }
-              ]
+          "facebook": {
+            "attachment": {
+              "type": "template",
+              "payload": {
+                "template_type": "generic",
+                "elements": [
+                  {
+                    "title": "Smurfs: The Lost Village (2017)",
+                    "image_url": "https://www.moovrika.com/ext/makeimg.php?tbl=movies&id=15666&img=1&type=image&movie=Smurfs+The+Lost+Village&fs=400",
+                    "subtitle": "Smurfette attempts to find her purpose in the village. When she encounters a creature in the Forbidden Forest who drops a mysterious map, she sets off with her friends Brainy, Clumsy, and Hefty on an adventure to find the Lost Village before the evil wizard Gargamel does.",
+                    "default_action": {
+                      "type": "web_url",
+                      "url": "https://www.moovrika.com/m/15666",
+                      "webview_height_ratio": "tall"
+                    },
+                    "buttons": [
+                      {
+                        "title": "more info",
+                        "type": "web_url",
+                        "url": "https://www.moovrika.com/m/4082",
+                        "webview_height_ratio": "tall"
+                      },
+                      {
+                        "title": "View trailer",
+                        "type": "web_url",
+                        "url": "https://www.moovrika.com/m/4082",
+                        "webview_height_ratio": "tall"
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Resident Evil: The Final Chapter (2017)",
+                    "image_url": "https://www.moovrika.com/ext/makeimg.php?tbl=movies&id=4167&img=1&type=image&movie=Resident+Evil+The+Final+Chapter&fs=400",
+                    "subtitle": "Resident Evil: The Final Chapter is an upcoming science fiction action horror film written and directed by Paul W. S. Anderson. It is the sequel to Resident Evil: Retribution (2012), and will be the sixth and final installment in the Resident Evil film series, which is very loosely based on the Capcom survival horror video game series Resident Evil.",
+                    "default_action": {
+                      "type": "web_url",
+                      "url": "https://www.moovrika.com/m/4167",
+                      "webview_height_ratio": "tall"
+                    },
+                    "buttons": [
+                      {
+                        "title": "more info",
+                        "type": "web_url",
+                        "url": "https://www.moovrika.com/m/4082",
+                        "webview_height_ratio": "tall"
+                      }
+                    ]
+                  }
+                ]
+              }
             }
-          ]
+          }
         }
       }
-    }
-  }
+    ]
+  };
     return fbgen;
 }
 module.exports.fbgeneric=fbgeneric;
