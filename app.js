@@ -1,3 +1,5 @@
+import { fbgeneric } from './Facebookrichmsg';
+
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
 var fbrichmsg = require('./Facebookrichmsg');
@@ -18,7 +20,7 @@ app.post('/', function (req, res) {
     if (req.body.result.action == 'acthello') {
       // var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
       var fbgen= fbrichmsg.fbgeneric();
-        
+      console.log(fbgen);
       return res.json(fbgen);
     }
 
