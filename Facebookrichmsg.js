@@ -249,7 +249,7 @@ var fblistresp = function fblist() {
         }
       }
     ]
-    }
+    };
   return resp;
 }
 
