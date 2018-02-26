@@ -247,6 +247,8 @@ module.exports.fblistresp = fblistresp;
 
 
 
+//code for google list
+
 var googlelist = function googlelist() {
   var glistresp =
     {
