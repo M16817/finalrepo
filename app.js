@@ -31,12 +31,32 @@ app.post('/', function (req, res) {
     }
     */
 
-    /* check for google msg*/
+    /* check for google msg
     if (req.body.result.action=='acthello'){
       var glist=fbrichmsg.googlelist();
       return res.json(glist);
 
-    }
+    }*/
+
+
+    if(req.body.result.action=='acthello'){
+    const options = {
+      method: 'GET',
+      uri: 'https://graph.facebook.com/me',
+      qs: {
+        access_token: "EAAKeoGj4A6MBACu5rghMhKUCp5OphGrcObbeDiDGEHaZCHLy6DnAHEWqfSdGGqhlebuZBn6Kmgu6tC5pTS5nMXNX68f2tqWZCqMPkIiFCnkhcuUNWpj6ZC0YymaZBOPB9xJr1pYThZAuMxU16S5EkKwH0HNTd3ZB9BthGIQYQv5bKpNr2QAnB3DnLJc0QOMlIF2rFcTqZCdnjwZDZD",
+        q: queryTerm,
+        type: searchType,
+        fields: searchType === 'page' ? pageFieldSet : userFieldSet
+      }
+    };
+    request(options)
+    .then(fbres=>{
+      const parsedRes= JSON.parse(fbres).data;
+      console.log(parsedRes);
+      res.json(parsedRes);
+    })
+  }
  
 
     
