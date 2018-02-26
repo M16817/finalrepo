@@ -175,8 +175,8 @@ module.exports.fbgeneric = fbgeneric;
 
 var fblistresp = function fblist() {
   var resp =
-  {
-    "messages": [
+    {
+      "messages": [
         {
           "type": 4,
           "platform": "facebook",
@@ -238,7 +238,7 @@ var fblistresp = function fblist() {
           }
         }
       ]
-  }
+    }
 
   return resp;
 }
@@ -247,6 +247,50 @@ module.exports.fblistresp = fblistresp;
 
 
 
+var googlelist = function googlelist() {
+  var glistresp =
+    {
+      "speech": "",
+      "message": [
+        {
+          "type": "list_card",
+          "platform": "google",
+          "title": "Servicenowbot",
+          "items": [
+            {
+              "optionInfo": {
+                "key": "bookhotelbot",
+                "synonyms": [
+                  "this is hotel booking bot"
+                ]
+              },
+              "title": "servicenow bot",
+              "description": "this is service now bot",
+              "image": {
+                "url": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG"
+              }
+            },
+            {
+              "optionInfo": {
+                "key": "Cancel booking",
+                "synonyms": [
+                  "Select this for canceling"
+                ]
+              },
+              "title": "Book Hotel",
+              "description": "Select this for booking",
+              "image": {
+                "url": "http://www.clker.com/cliparts/Y/3/L/D/Z/R/simple-penguin-md.png"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    return glistresp;
+  }
+
+  module.exports.googlelist = googlelist
 
 
 

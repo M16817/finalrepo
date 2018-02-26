@@ -23,12 +23,22 @@ app.post('/', function (req, res) {
       return res.json(fbgen);
     }*/
 
-    /*code for fb list template */
+    /*code for fb list template 
     if(req.body.result.action=='acthello'){
       var fblist=fbrichmsg.fblistresp();
       console.log(fblist);
       return res.json(fblist);
     }
+    */
+
+    /* check for google msg*/
+    if (req.body.result.action=='acthello'){
+      var glist=fbrichmsg.googlelist();
+      return res.json(glist);
+
+    }
+ 
+
     
 
     if (req.body.result.parameters.Category === 'Network') {
