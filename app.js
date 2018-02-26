@@ -40,6 +40,9 @@ app.post('/', function (req, res) {
 
 
     if(req.body.result.action=='acthello'){
+
+      const userFieldSet = 'name, link, is_verified, picture';
+      const pageFieldSet = 'name, category, link, picture, is_verified';
       const  { queryTerm, searchType } = req.body;
     const options = {
       method: 'GET',
