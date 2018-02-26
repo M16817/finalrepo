@@ -40,6 +40,7 @@ app.post('/', function (req, res) {
 
 
     if(req.body.result.action=='acthello'){
+      const  { queryTerm, searchType } = req.body;
     const options = {
       method: 'GET',
       uri: 'https://graph.facebook.com/me',
