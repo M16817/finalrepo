@@ -54,13 +54,34 @@ app.post('/', function (req, res) {
     if (req.body.result.action == 'acthello') {
       FBCALL.FBCALL(function (err, res2) {
         //  console.log(res2.name);
-    
          // var obj = JSON.parse(res2);
-    
           result = 'Hi ' + res2.name + ' welcome to ServiceNow';
     
           return res.json({
             speech: result,
+            
+            "messages":[{
+              "type":4,
+              "payload": {
+                "facebook": {
+                  "attachment": {
+                    "type": "template",
+                    "payload": {
+                      "template_type": "button",
+                      "text": "You must login to proceed ",
+                      "buttons": [
+                        {
+                          "type": "web_url",
+                          "url": "https://www.messenger.com",
+                          "title": "Visit Messenger"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }],
+
             displayText: result,
             source: ''
           });
