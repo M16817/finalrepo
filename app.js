@@ -67,11 +67,14 @@ app.post('/', function (req, res) {
     };*/
 
     if (req.body.result.action == 'acthello') {
-      FBCALL.FBCALL(function (err, res2) {
-        console.log('value of res2' + JSON.parse(res2));
-        console.log(res2.name);
-        result = 'Hi ' + res2.name + ' welcome to ServiceNow';
+     // FBCALL.FBCALL(function (err, res2) {
+      //  console.log('value of res2' + JSON.parse(res2));
+       // console.log(res2.name);
 
+        incident.userProfile(function(err,res2){
+          var obj = JSON.parse(res2);
+          result = 'Hi ' + res2.name + ' welcome to ServiceNow';
+    
         var fbbuttonresponse = {
           "speech": "",
           "messages": [
