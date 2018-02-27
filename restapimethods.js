@@ -66,7 +66,7 @@ module.exports = {
     console.log("User profile");
     var options = {
       method: 'GET',
-      url: 'EAAKeoGj4A6MBACu5rghMhKUCp5OphGrcObbeDiDGEHaZCHLy6DnAHEWqfSdGGqhlebuZBn6Kmgu6tC5pTS5nMXNX68f2tqWZCqMPkIiFCnkhcuUNWpj6ZC0YymaZBOPB9xJr1pYThZAuMxU16S5EkKwH0HNTd3ZB9BthGIQYQv5bKpNr2QAnB3DnLJc0QOMlIF2rFcTqZCdnjwZDZD'
+      url: 'https://graph.facebook.com/me?access_token=EAALWyUke73EBAEPmTecXQ6B7jB9Ex9O7POfW4oaoSRoMHpyawNM9uEiA2x489q0ZAYp7AFUvpFYBBU7glcNZAL4uWDWguoPPsF57Cjc0DxgcdJNxgBwWBLDCQ0I3LccKaH2fZC849O4Nx73jF4ARNyGnKfoMgsn9fHjfY61YoFnkxAbJQTpLuf0KgIiGprJUOPjqHdSTwZDZD'
     };
 
     request(options, function (error, response, body) {
@@ -75,7 +75,4 @@ module.exports = {
       callback(null, body);
     });
   }
-
-
-
 } 
