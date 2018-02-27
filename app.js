@@ -91,7 +91,7 @@ app.post('/', function (req, res) {
                       "text": result,
                       "buttons": [
                         {
-                          "type": "web_url",
+                          "type": "account_link",
                           "url": "https://www.messenger.com",
                           "title": "Visit Messenger"
                         }
