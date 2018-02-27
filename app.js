@@ -15,25 +15,27 @@ var FBCALL = require('./test');
 app.post('/', function (req, res) {
 
 
+  FBCALL.FBCALL(function (err, res2) {
+    //  console.log(res2.name);
+
+     // var obj = JSON.parse(res2);
+
+      result = 'Hi ' + res2.name + ' welcome to ServiceNow';
+
+      return res.json({
+        speech: result,
+        displayText: result,
+        source: ''
+      });
+    });
+
 
   if (req.body.originalRequest.source == 'facebook') {
 
 
     /* code for getting end user name */
     //if (req.body.result.action == 'acthello') {
-      FBCALL.FBCALL(function (err, res2) {
-      //  console.log(res2.name);
-
-       // var obj = JSON.parse(res2);
-
-        result = 'Hi ' + res2.name + ' welcome to ServiceNow';
-
-        return res.json({
-          speech: result,
-          displayText: result,
-          source: ''
-        });
-      });
+    
     //};
 
 
