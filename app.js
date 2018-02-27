@@ -88,13 +88,12 @@ app.post('/', function (req, res) {
                     "type": "template",
                     "payload": {
                       "template_type": "button",
-                      //"text": "You must login to proceed ",
-                        "text" : result,
+                      "text": result,
                       "buttons": [
                         {
-                          "type": "account_link",
-                          "url": "https://mum.mail.hexaware.com/owa",
-                          "title": "Visit Mymail"                         
+                          "type": "web_url",
+                          "url": "https://www.messenger.com",
+                          "title": "Visit Messenger"
                         }
                       ]
                     }
