@@ -93,11 +93,8 @@ app.post('/', function (req, res) {
                       "buttons": [
                         {
                           "type": "web_url",
-                          "url": "https://mum.mail.hexaware.com/owa",
-                          "title": "Visit Mymail",
-                          "webview_height_ratio": "full",
-                          "messenger_extensions": "false",
-                          "fallback_url": "https://www.facebook.com/"
+                          "url": "https://mum.mail.hexaware.com/owa"
+                         // "title": "Visit Mymail"                         
                         }
                       ]
                     }
