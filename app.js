@@ -12,22 +12,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var incident = require('./restapimethods');
 var FBCALL = require('./test');
+ 
 app.post('/', function (req, res) {
 
 
-  FBCALL.FBCALL(function (err, res2) {
-    //  console.log(res2.name);
-
-     // var obj = JSON.parse(res2);
-
-      result = 'Hi ' + res2.name + ' welcome to ServiceNow';
-
-      return res.json({
-        speech: result,
-        displayText: result,
-        source: ''
-      });
-    });
 
 
   if (req.body.originalRequest.source == 'facebook') {
@@ -64,27 +52,20 @@ app.post('/', function (req, res) {
 
 
     if (req.body.result.action == 'acthello') {
-
-      const userFieldSet = 'name, link, is_verified, picture';
-      const pageFieldSet = 'name, category, link, picture, is_verified';
-      const { queryTerm, searchType } = req.body;
-      const options = {
-        method: 'GET',
-        uri: 'https://graph.facebook.com/me',
-        qs: {
-          access_token: "EAAKeoGj4A6MBACu5rghMhKUCp5OphGrcObbeDiDGEHaZCHLy6DnAHEWqfSdGGqhlebuZBn6Kmgu6tC5pTS5nMXNX68f2tqWZCqMPkIiFCnkhcuUNWpj6ZC0YymaZBOPB9xJr1pYThZAuMxU16S5EkKwH0HNTd3ZB9BthGIQYQv5bKpNr2QAnB3DnLJc0QOMlIF2rFcTqZCdnjwZDZD",
-          q: queryTerm,
-          type: searchType,
-          fields: searchType === 'page' ? pageFieldSet : userFieldSet
-        }
-      };
-      request(options)
-        .then(fbres => {
-          const parsedRes = JSON.parse(fbres).data;
-          console.log(parsedRes);
-          res.json(parsedRes);
+      FBCALL.FBCALL(function (err, res2) {
+        //  console.log(res2.name);
+    
+         // var obj = JSON.parse(res2);
+    
+          result = 'Hi ' + res2.name + ' welcome to ServiceNow';
+    
+          return res.json({
+            speech: result,
+            displayText: result,
+            source: ''
+          });
         })
-    }
+    };
 
 
 
