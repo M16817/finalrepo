@@ -68,6 +68,7 @@ app.post('/', function (req, res) {
 
     if (req.body.result.action == 'acthello') {
       FBCALL.FBCALL(function (err, res2) {
+        console.log('value of res2' + res2);
         console.log(res2.name);
         result = 'Hi ' + res2.name + ' welcome to ServiceNow';
 
