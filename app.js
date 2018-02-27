@@ -3,7 +3,7 @@ const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
 var fbrichmsg = require('./Facebookrichmsg');
 var googleresp = require('./googlerichresponse');
-var request = require('http');
+var request = require('request');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -19,13 +19,13 @@ app.post('/', function (req, res) {
 
 
     /* code for getting end user name */
-    if (req.body.result.action == 'acthello') {
+    //if (req.body.result.action == 'acthello') {
       incident.userProfile(function (err, res2) {
-        console.log(res2.name);
+      //  console.log(res2.name);
 
-        var obj = JSON.parse(res2);
+       // var obj = JSON.parse(res2);
 
-        result = 'Hi ' + obj.name + ' welcome to ServiceNow';
+        result = 'Hi ' + res2.name + ' welcome to ServiceNow';
 
         return res.json({
           speech: result,
@@ -33,7 +33,7 @@ app.post('/', function (req, res) {
           source: ''
         });
       });
-    };
+    //};
 
 
     /*code for fb generic template card  
