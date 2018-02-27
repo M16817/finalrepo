@@ -3,7 +3,7 @@ const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
 var fbrichmsg = require('./Facebookrichmsg');
 var googleresp = require('./googlerichresponse');
-var request = require('request');
+var request = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -11,6 +11,7 @@ var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var incident = require('./restapimethods');
+var FBCALL = require('./test');
 app.post('/', function (req, res) {
 
 
@@ -20,7 +21,7 @@ app.post('/', function (req, res) {
 
     /* code for getting end user name */
     //if (req.body.result.action == 'acthello') {
-      incident.userProfile(function (err, res2) {
+      FBCALL.FBCALL(function (err, res2) {
       //  console.log(res2.name);
 
        // var obj = JSON.parse(res2);

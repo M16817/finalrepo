@@ -1,4 +1,3 @@
-import { json } from "./C:/Users/maheshr/AppData/Local/Microsoft/TypeScript/2.6/node_modules/@types/body-parser";
 
 var request = require("request");
 

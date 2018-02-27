@@ -16,7 +16,5 @@ function abc (callback) {
   }
 
 
-  abc(function(err,res){
-console.log(res);
-  })
- 
+  module.exports.FBCALL=abc;
+
