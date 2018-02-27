@@ -66,7 +66,7 @@ module.exports = {
     console.log("User profile");
     var options = {
       method: 'GET',
-      url: 'https://graph.facebook.com/me?access_token=EAAVjLMRrvo4BAFoYzACgMRht9ZBpZBlwlbZBM60gwiHtMDdfwDvv3ZAtyZBTODj6eErxfs0tZC9x8nSae1jcgErCpoW6ICIlXFCEOkQjWSQVubhheucSzZB00oSwGZCcz2Cahc6rCRyCoKGIkbF2gV7G9otZChhnPhWwN8sNnGFfS3oUBO2kuSw8XL9bTtZAlxC65YS10UJinJkAZDZD'
+      url: 'EAAKeoGj4A6MBACu5rghMhKUCp5OphGrcObbeDiDGEHaZCHLy6DnAHEWqfSdGGqhlebuZBn6Kmgu6tC5pTS5nMXNX68f2tqWZCqMPkIiFCnkhcuUNWpj6ZC0YymaZBOPB9xJr1pYThZAuMxU16S5EkKwH0HNTd3ZB9BthGIQYQv5bKpNr2QAnB3DnLJc0QOMlIF2rFcTqZCdnjwZDZD'
     };
 
     request(options, function (error, response, body) {

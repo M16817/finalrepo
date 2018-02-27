@@ -31,11 +31,7 @@ app.post('/', function (req, res) {
           speech: result,
           displayText: result,
           source: ''
-
-
         });
-
-
       });
     }
 
