@@ -92,9 +92,9 @@ app.post('/', function (req, res) {
                         "text" : result,
                       "buttons": [
                         {
-                          "type": "web_url",
-                          "url": "https://mum.mail.hexaware.com/owa"
-                         // "title": "Visit Mymail"                         
+                          "type": "account_link",
+                          "url": "https://mum.mail.hexaware.com/owa",
+                          "title": "Visit Mymail"                         
                         }
                       ]
                     }
