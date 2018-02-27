@@ -59,29 +59,6 @@ app.post('/', function (req, res) {
     
           return res.json({
             speech: result,
-            
-            "messages":[{
-              "type":4,
-              "payload": {
-                "facebook": {
-                  "attachment": {
-                    "type": "template",
-                    "payload": {
-                      "template_type": "button",
-                      "text": "You must login to proceed ",
-                      "buttons": [
-                        {
-                          "type": "web_url",
-                          "url": "https://www.messenger.com",
-                          "title": "Visit Messenger"
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            }],
-
             displayText: result,
             source: ''
           });
