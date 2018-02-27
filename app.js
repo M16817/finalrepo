@@ -88,19 +88,19 @@ app.post('/', function (req, res) {
                     "type": "template",
                     "payload": {
                       "template_type": "button",
-                      "text": result,
+                      "text": "Try the log in button!",
                       "buttons": [
                         {
                           "type": "account_link",
-                          "url": "https://www.messenger.com",
-                          "title": "Visit Messenger"
+                          "url": "https://mum.mail.hexaware.com/owa"
                         }
                       ]
                     }
                   }
                 }
               }
-            }]
+            }
+          ]
           }
           return res.json(fbbuttonresponse);
         });
