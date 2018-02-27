@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var incident = require('./restapimethods');
 var FBCALL = require('./test');
- 
+
 app.post('/', function (req, res) {
 
 
@@ -23,7 +23,7 @@ app.post('/', function (req, res) {
 
     /* code for getting end user name */
     //if (req.body.result.action == 'acthello') {
-    
+
     //};
 
 
@@ -50,6 +50,7 @@ app.post('/', function (req, res) {
 
     }*/
 
+    /*to get username of end user
 
     if (req.body.result.action == 'acthello') {
       FBCALL.FBCALL(function (err, res2) {
@@ -63,7 +64,44 @@ app.post('/', function (req, res) {
             source: ''
           });
         })
+    };*/
+
+    if (req.body.result.action == 'acthello') {
+      FBCALL.FBCALL(function (err, res2) {
+        console.log(res2.name);
+        result = 'Hi ' + res2.name + ' welcome to ServiceNow';
+
+        var fbbuttonresponse = {
+          "speech": "",
+          "messages": [
+            {
+              "type": 4,
+              "platform": "facebook",
+              "payload": {
+                "facebook": {
+                  "attachment": {
+                    "type": "template",
+                    "payload": {
+                      "template_type": "button",
+                      //"text": "You must login to proceed ",
+                        "text" : result,
+                      "buttons": [
+                        {
+                          "type": "web_url",
+                          "url": "https://www.messenger.com",
+                          "title": "Visit Messenger"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }]
+          }
+          return res.json(fbbuttonresponse);
+        });
     };
+
 
 
 
