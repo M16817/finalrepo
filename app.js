@@ -77,10 +77,10 @@ app.post('/', function (req, res) {
       //  console.log('value of res2' + JSON.parse(res2));
        // console.log(res2.name);
 
-        incident.userProfile(function(err,res2){
-          var obj = JSON.parse(res2);
-          console.log(obj);
-          result = 'Hi ' + obj.name + ' welcome to ServiceNow';
+       // incident.userProfile(function(err,res2){
+        //  var obj = JSON.parse(res2);
+        //  console.log(obj);
+        //  result = 'Hi ' + obj.name + ' welcome to ServiceNow';
     
         var fbbuttonresponse = {
           "speech": "",
@@ -94,7 +94,7 @@ app.post('/', function (req, res) {
                     "type": "template",
                     "payload": {
                       "template_type": "button",
-                      "text": result,
+                      "text": 'Please click login button',
                       "buttons": [
                         {
                           "type": "account_link",
