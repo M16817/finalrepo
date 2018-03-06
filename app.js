@@ -65,8 +65,6 @@ app.get('/auth/facebook', passport.authenticate('facebook', {
 }));
 
 
-
-
 app.get('/callback', passport.authenticate('facebook', {
 }), 
 	function (req, res) {
@@ -156,6 +154,10 @@ app.post('/first', function (req, res) {
                       {
                         "type": "account_link",
                         "url": "https://mydemoflight.herokuapp.com/login"
+                      },
+                      {
+                        "type": "account_unlink",
+                        "url": "https://mydemoflight.herokuapp.com/logout"
                       }
                     ]
                   }
