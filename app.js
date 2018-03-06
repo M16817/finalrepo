@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var incident = require('./restapimethods');
 var FBCALL = require('./test');
+var redirecturi='';
 
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
@@ -52,6 +53,8 @@ passport.deserializeUser(function (user, done) {
 
 
 app.get('/login', function (req, res) {
+
+  redirecturi=req.query.redirect_uri;
   res.sendfile('Public/index1.html');
 });
 
@@ -62,14 +65,6 @@ app.get('/auth/facebook', passport.authenticate('facebook', {
 }));
 
 
-app.get('/', function (req, res) {
-
-  console.log(req.query.redirecturi);
-  redirecturi=req.query.redirecturi; 
-  res.redirect('/callback');
-res.end();
-}
-);
 
 
 app.get('/callback', passport.authenticate('facebook', {
@@ -77,7 +72,7 @@ app.get('/callback', passport.authenticate('facebook', {
 	function (req, res) {
   console.log(redirecturi);
   res.redirect(redirecturi + "&authorization_code=34s4f545");
-	 facebook.logout();
+	
     });
 
 //code added for fb redirect page ends here
