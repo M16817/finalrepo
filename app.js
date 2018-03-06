@@ -55,9 +55,37 @@ app.get('/login', function (req, res) {
   res.sendfile('Public/index1.html');
 });
 
+//code added for fb redirect page
+
 app.get('/auth/facebook', passport.authenticate('facebook', {
   scope: ['public_profile', 'email']
 }));
+
+
+app.get('/', function (req, res) {
+
+  console.log(req.query.redirecturi);
+  redirecturi=req.query.redirecturi; 
+  res.redirect('/callback');
+res.end();
+}
+);
+
+
+app.get('/callback', passport.authenticate('facebook', {
+}), 
+	function (req, res) {
+  console.log(redirecturi);
+  res.redirect(redirecturi + "&authorization_code=34s4f545");
+	 facebook.logout();
+    });
+
+//code added for fb redirect page ends here
+
+
+
+
+
 
 
 app.post('/', function (req, res) {
