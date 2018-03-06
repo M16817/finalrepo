@@ -85,10 +85,7 @@ app.get('/callback', passport.authenticate('facebook', {
 
 
 
-
-
-
-app.post('/', function (req, res) {
+app.post('/first', function (req, res) {
   if (req.body.originalRequest.source == 'facebook') {
 
 
