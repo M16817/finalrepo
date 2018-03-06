@@ -20,10 +20,6 @@ app.get('/login',function(req,res){
 
 
 app.post('/', function (req, res) {
-
-
-
-
   if (req.body.originalRequest.source == 'facebook') {
 
 
@@ -109,7 +105,7 @@ app.post('/', function (req, res) {
           ]
           }
           return res.json(fbbuttonresponse);
-        });
+      //  });
     };
 
 
