@@ -48,17 +48,11 @@ passport.deserializeUser(function (user, done) {
   done(null, user);
 });
 
-
-
-
-
 app.get('/login', function (req, res) {
 
   redirecturi=req.query.redirect_uri;
   res.sendfile('Public/index1.html');
 });
-
-//code added for fb redirect page
 
 app.get('/auth/facebook', passport.authenticate('facebook', {
   scope: ['public_profile', 'email']
@@ -156,8 +150,7 @@ app.post('/first', function (req, res) {
                         "url": "https://mydemoflight.herokuapp.com/login"
                       },
                       {
-                        "type": "account_unlink",
-                        "url": "https://mydemoflight.herokuapp.com/logout"
+                        "type": "account_unlink"
                       }
                     ]
                   }
