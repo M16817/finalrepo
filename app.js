@@ -98,7 +98,7 @@ app.post('/', function (req, res) {
                       "buttons": [
                         {
                           "type": "account_link",
-                          "url": ""
+                          "url": "https://mydemoflight.herokuapp.com/index1.html"
                         }
                       ]
                     }
