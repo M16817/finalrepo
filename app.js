@@ -82,9 +82,6 @@ var GoogleStrategy = new GoogleStrategy(
     callbackURL: configAuth.facebookAuth.callbackURL
   },
   function (accessToken, refreshToken, extraParams, profile, done) {
-    // accessToken is the token to call Auth0 API (not needed in the most cases)
-    // extraParams.id_token has the JSON Web Token
-    // profile has all the information from the user
     return done(null, profile);
   }  
 )
@@ -92,21 +89,17 @@ var GoogleStrategy = new GoogleStrategy(
 passport.use(GoogleStrategy);
 
 app.get('/auth/google', passport.authenticate('google', {
-  scope: ['public_profile', 'email']
+  scope: ['profile', 'email']
 }));
 
 
-app.get('/callback', passport.authenticate('facebook', {
+app.get('/callback', passport.authenticate('google', {
 }),
   function (req, res) {
     console.log(redirecturi);
     res.redirect(redirecturi + "&authorization_code=34s4f545");
 
   });
-
-
-
-
 
 app.post('/first', function (req, res) {
   if (req.body.originalRequest.source == 'facebook') {
