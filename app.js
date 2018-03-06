@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var incident = require('./restapimethods');
 var FBCALL = require('./test');
+var passport=require('Passport');
 
 
 app.get('/login',function(req,res){
