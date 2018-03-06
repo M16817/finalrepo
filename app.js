@@ -75,19 +75,16 @@ app.get('/fb/callback', passport.authenticate('facebook', {
 // ********* code for google auth starts here  **************** //
 //var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-var GoogleStrategy = new GoogleStrategy(
-  {
-    clientID: configAuth.facebookAuth.clientID,
-    clientSecret: configAuth.facebookAuth.clientSecret,
-    callbackURL: configAuth.facebookAuth.callbackURL
-  },
-  function (token, refreshToken, profile, done) {
-    return done(null, profile);
-  }  
-)
+passport.use(new GoogleStrategy({
 
-passport.use(GoogleStrategy);
+  clientID        : configAuth.googleAuth.clientID,
+  clientSecret    : configAuth.googleAuth.clientSecret,
+  callbackURL     : configAuth.googleAuth.callbackURL,
 
+},
+function(token, refreshToken, profile, done) {
+}
+));
 app.get('/auth/google', passport.authenticate('google', {
   scope: ['profile', 'email']
 }));
