@@ -12,13 +12,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var incident = require('./restapimethods');
 var FBCALL = require('./test');
-var redirecturi='';
+
+// ********* code for facebook auth **************** // 
+
+var redirecturi = '';
 
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const facebookStrategy = require('passport-facebook');
 var configAuth = require('./auth.js');
-
 
 var strategy = new facebookStrategy(
   {
@@ -50,7 +52,7 @@ passport.deserializeUser(function (user, done) {
 
 app.get('/login', function (req, res) {
 
-  redirecturi=req.query.redirect_uri;
+  redirecturi = req.query.redirect_uri;
   res.sendfile('Public/index1.html');
 });
 
@@ -60,14 +62,48 @@ app.get('/auth/facebook', passport.authenticate('facebook', {
 
 
 app.get('/callback', passport.authenticate('facebook', {
-}), 
-	function (req, res) {
-  console.log(redirecturi);
-  res.redirect(redirecturi + "&authorization_code=34s4f545");
-	
-    });
+}),
+  function (req, res) {
+    console.log(redirecturi);
+    res.redirect(redirecturi + "&authorization_code=34s4f545");
 
-//code added for fb redirect page ends here
+  });
+
+// ********* code for facebook auth ends here **************** //
+
+
+// ********* code for google auth starts here  **************** //
+var GoogleStrategy = require('passport-google-oauth2').Strategy;
+
+var GoogleStrategy = new GoogleStrategy(
+  {
+    clientID: configAuth.facebookAuth.clientID,
+    clientSecret: configAuth.facebookAuth.clientSecret,
+    callbackURL: configAuth.facebookAuth.callbackURL
+  },
+  function (accessToken, refreshToken, extraParams, profile, done) {
+    // accessToken is the token to call Auth0 API (not needed in the most cases)
+    // extraParams.id_token has the JSON Web Token
+    // profile has all the information from the user
+    return done(null, profile);
+  }  
+)
+
+passport.use(GoogleStrategy);
+
+app.get('/auth/google', passport.authenticate('google', {
+  scope: ['public_profile', 'email']
+}));
+
+
+app.get('/callback', passport.authenticate('facebook', {
+}),
+  function (req, res) {
+    console.log(redirecturi);
+    res.redirect(redirecturi + "&authorization_code=34s4f545");
+
+  });
+
 
 
 
@@ -334,6 +370,7 @@ app.post('/first', function (req, res) {
     // if (req.body.result.action === 'acthello') {
     //   googleresp.basicCard(req,res);
     // }
+    
 
 
     if (req.body.result.parameters.Category === 'Network') {
