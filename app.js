@@ -13,6 +13,12 @@ app.use(bodyParser.json());
 var incident = require('./restapimethods');
 var FBCALL = require('./test');
 
+
+app.get('/login',function(req,res){
+  res.sendfile('public/index1.html');
+  });
+
+
 app.post('/', function (req, res) {
 
 
@@ -88,11 +94,11 @@ app.post('/', function (req, res) {
                     "type": "template",
                     "payload": {
                       "template_type": "button",
-                      "text": "Try the log in button!",
+                      "text": result,
                       "buttons": [
                         {
                           "type": "account_link",
-                          "url": "https://mum.mail.hexaware.com/owa"
+                          "url": ""
                         }
                       ]
                     }
