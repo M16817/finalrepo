@@ -12,16 +12,52 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var incident = require('./restapimethods');
 var FBCALL = require('./test');
-var passport=require('Passport');
+
+const passport = require('passport');
+const Auth0Strategy = require('passport-auth0');
+const facebookStrategy = require('passport-facebook');
+var configAuth = require('./auth.js');
 
 
-app.get('/login',function(req,res){
+var strategy = new facebookStrategy(
+  {
+    clientID: configAuth.facebookAuth.clientID,
+    clientSecret: configAuth.facebookAuth.clientSecret,
+    callbackURL: configAuth.facebookAuth.callbackURL
+  },
+  function (accessToken, refreshToken, extraParams, profile, done) {
+    // accessToken is the token to call Auth0 API (not needed in the most cases)
+    // extraParams.id_token has the JSON Web Token
+    // profile has all the information from the user
+    return done(null, profile);
+  }
+);
+
+
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+passport.use(strategy);
+
+// you can use this section to keep a smaller payload
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
+
+
+
+
+
+app.get('/login', function (req, res) {
   res.sendfile('Public/index1.html');
-  });
+});
 
-  app.get('/auth/facebook', passport.authenticate('facebook', { 
-    scope : ['public_profile', 'email']
-  }));
+app.get('/auth/facebook', passport.authenticate('facebook', {
+  scope: ['public_profile', 'email']
+}));
 
 
 app.post('/', function (req, res) {
@@ -74,42 +110,42 @@ app.post('/', function (req, res) {
     };*/
 
     if (req.body.result.action == 'acthello') {
-     // FBCALL.FBCALL(function (err, res2) {
+      // FBCALL.FBCALL(function (err, res2) {
       //  console.log('value of res2' + JSON.parse(res2));
-       // console.log(res2.name);
+      // console.log(res2.name);
 
-       // incident.userProfile(function(err,res2){
-        //  var obj = JSON.parse(res2);
-        //  console.log(obj);
-        //  result = 'Hi ' + obj.name + ' welcome to ServiceNow';
-    
-        var fbbuttonresponse = {
-          "speech": "",
-          "messages": [
-            {
-              "type": 4,
-              "platform": "facebook",
-              "payload": {
-                "facebook": {
-                  "attachment": {
-                    "type": "template",
-                    "payload": {
-                      "template_type": "button",
-                      "text": 'Please click login button',
-                      "buttons": [
-                        {
-                          "type": "account_link",
-                          "url": "https://mydemoflight.herokuapp.com/login"
-                        }
-                      ]
-                    }
+      // incident.userProfile(function(err,res2){
+      //  var obj = JSON.parse(res2);
+      //  console.log(obj);
+      //  result = 'Hi ' + obj.name + ' welcome to ServiceNow';
+
+      var fbbuttonresponse = {
+        "speech": "",
+        "messages": [
+          {
+            "type": 4,
+            "platform": "facebook",
+            "payload": {
+              "facebook": {
+                "attachment": {
+                  "type": "template",
+                  "payload": {
+                    "template_type": "button",
+                    "text": 'Please click login button',
+                    "buttons": [
+                      {
+                        "type": "account_link",
+                        "url": "https://mydemoflight.herokuapp.com/login"
+                      }
+                    ]
                   }
                 }
               }
             }
-          ]
           }
-          return res.json(fbbuttonresponse);
+        ]
+      }
+      return res.json(fbbuttonresponse);
       //  });
     };
 
