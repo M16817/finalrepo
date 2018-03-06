@@ -18,6 +18,10 @@ app.get('/login',function(req,res){
   res.sendfile('Public/index1.html');
   });
 
+  app.get('/auth/facebook', passport.authenticate('facebook', { 
+    scope : ['public_profile', 'email']
+  }));
+
 
 app.post('/', function (req, res) {
   if (req.body.originalRequest.source == 'facebook') {
