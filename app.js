@@ -15,7 +15,7 @@ var FBCALL = require('./test');
 
 
 app.get('/login',function(req,res){
-  res.sendfile('public/index1.html');
+  res.sendfile('Public/index1.html');
   });
 
 
