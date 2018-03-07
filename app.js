@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 var incident = require('./restapimethods');
 var FBCALL = require('./test');
 
+var expressSession=require('express-session');
 // ********* code for facebook auth **************** // 
 
 var redirecturi = '';
@@ -105,6 +106,12 @@ app.get('/ga/callback', passport.authenticate('google', {
 //********** Google auth code ends here ************/
 var TwitterStrategy = require('passport-twitter').Strategy;
 
+app.use(expressSession({
+  secret: configAuth.twitterAuth.consumerSecret,
+  resave: false,
+  saveUninitialized: true
+}));
+
 passport.use(new TwitterStrategy({
 
   consumerKey: configAuth.twitterAuth.consumerKey,
@@ -129,7 +136,7 @@ app.get('/twt/callback', passport.authenticate('twitter', {
     res.redirect(redirecturi + "&authorization_code=34s4f545");
 
   });
-  
+
 //**************** twitter auth code ends ere ************/
 
 app.post('/first', function (req, res) {

@@ -7,6 +7,7 @@
     "actions-on-google": "^1.8.2",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "import": "0.0.6",
     "mssql": "^4.1.0",
     "node-rest-client": "^3.1.0",
