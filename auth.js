@@ -12,9 +12,9 @@ module.exports = {
     },
 
     'twitterAuth' : {
-        'consumerKey'       : 'your-consumer-key-here',
-        'consumerSecret'    : 'your-client-secret-here',
-        'callbackURL'       : 'http://localhost:8080/auth/twitter/callback'
+        'consumerKey'       : 'nW8gdRkaoc2m43XzUGA4zVAS0',
+        'consumerSecret'    : 'RYT8vXXGRBBXodL5TBFsrKLz93Yo1QIHDkGWnmV9E4nJcdWypN',
+        'callbackURL'       : 'https://mydemoflight.herokuapp.com/twt/callback'
     },
 
      'googleAuth' : {

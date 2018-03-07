@@ -51,7 +51,7 @@ passport.deserializeUser(function (user, done) {
 });
 
 app.get('/login', function (req, res) {
- console.log('login method called');
+  console.log('login method called');
   redirecturi = req.query.redirect_uri;
   res.sendfile('Public/index1.html');
 });
@@ -75,16 +75,17 @@ app.get('/fb/callback', passport.authenticate('facebook', {
 // ********* code for google auth starts here  **************** //
 //var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
 passport.use(new GoogleStrategy({
 
-  clientID        : configAuth.googleAuth.clientID,
-  clientSecret    : configAuth.googleAuth.clientSecret,
-  callbackURL     : configAuth.googleAuth.callbackURL,
+  clientID: configAuth.googleAuth.clientID,
+  clientSecret: configAuth.googleAuth.clientSecret,
+  callbackURL: configAuth.googleAuth.callbackURL,
 
 },
-function(token, refreshToken, profile, done) {
-  return done(null, profile);
-}
+  function (token, refreshToken, profile, done) {
+    return done(null, profile);
+  }
 ));
 app.get('/auth/google', passport.authenticate('google', {
   scope: ['profile', 'email']
@@ -94,12 +95,42 @@ app.get('/auth/google', passport.authenticate('google', {
 app.get('/ga/callback', passport.authenticate('google', {
 }),
   function (req, res) {
-    
+
     console.log('google callack method called');
     console.log(redirecturi);
     res.redirect(redirecturi + "&authorization_code=34s4f545");
 
   });
+
+//********** Google auth code ends here ************/
+var TwitterStrategy = require('passport-twitter').Strategy;
+
+passport.use(new TwitterStrategy({
+
+  consumerKey: configAuth.twitterAuth.consumerKey,
+  consumerSecret: configAuth.twitterAuth.consumerSecret,
+  callbackURL: configAuth.twitterAuth.callbackURL
+
+},
+  function (token, refreshToken, profile, done) {
+    return done(null, profile);
+  }
+));
+
+app.get('/auth/twitter', passport.authenticate('twitter', {
+  scope: ['public_profile', 'email']
+}));
+
+
+app.get('/twt/callback', passport.authenticate('twitter', {
+}),
+  function (req, res) {
+    console.log(redirecturi);
+    res.redirect(redirecturi + "&authorization_code=34s4f545");
+
+  });
+  
+//**************** twitter auth code ends ere ************/
 
 app.post('/first', function (req, res) {
   if (req.body.originalRequest.source == 'facebook') {
@@ -363,7 +394,7 @@ app.post('/first', function (req, res) {
     // if (req.body.result.action === 'acthello') {
     //   googleresp.basicCard(req,res);
     // }
-    
+
 
 
     if (req.body.result.parameters.Category === 'Network') {
