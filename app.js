@@ -83,6 +83,7 @@ passport.use(new GoogleStrategy({
 
 },
 function(token, refreshToken, profile, done) {
+  return done(null, profile);
 }
 ));
 app.get('/auth/google', passport.authenticate('google', {
