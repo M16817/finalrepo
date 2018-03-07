@@ -51,7 +51,7 @@ passport.deserializeUser(function (user, done) {
 });
 
 app.get('/login', function (req, res) {
-
+ console.log('login method called');
   redirecturi = req.query.redirect_uri;
   res.sendfile('Public/index1.html');
 });
@@ -93,6 +93,8 @@ app.get('/auth/google', passport.authenticate('google', {
 app.get('/ga/callback', passport.authenticate('google', {
 }),
   function (req, res) {
+    
+    console.log('google callack method called');
     console.log(redirecturi);
     res.redirect(redirecturi + "&authorization_code=34s4f545");
 
