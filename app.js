@@ -247,11 +247,20 @@ app.post('/first', function (req, res) {
       console.log(reqvalue, '\n', resvalue);
 
       // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
-      fs.appendFile('script.html', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + resvalue + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + req.body.result.fulfillment.messages[1].buttons[0].text + req.body.result.fulfillment.messages[1].buttons[1].text +req.body.result.fulfillment.messages[1].buttons[2].text  ,  function (err) {
+      fs.appendFile('script.html', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + resvalue + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[0].text + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[1].text + '</br>' , function (err) {
         if (err) throw err;
         console.log('Updated!');
       });
     };
+
+
+    if(req.body.result.action=="incidenttype"){
+      fs.appendFile('script.html', '<br><br>' + 'User says :'+ req.body.result.resolvedQuery + '</br>' + '<br>' + 'Bot says :' + req.body.result.fulfillment.messages[3].buttons[0] + '</br>' + '<br>' + req.body.result.fulfillment.messages[3].buttons[1]+ '<br>'+ req.body.result.fulfillment.messages[3].buttons[1]+ '</br>', function(err) {
+        if (err) throw err;
+        console.log('second conversation updated !!!!!!');
+      });
+    };
+
 
     app.get('/script', function (req, res) {
       fs.readFile('script.html', 'utf8', function (err, contents) {
