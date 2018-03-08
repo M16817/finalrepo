@@ -2,7 +2,7 @@
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
 
-var fs=require('fs');
+var fs = require('fs');
 var fbrichmsg = require('./Facebookrichmsg');
 var googleresp = require('./googlerichresponse');
 var request = require('http');
@@ -110,6 +110,7 @@ app.get('/ga/callback', passport.authenticate('google', {
     res.redirect(redirecturi + "&authorization_code=34s4f545");
 
   });
+
 
 //********** Google auth code ends here ************/
 var TwitterStrategy = require('passport-twitter').Strategy;
@@ -240,17 +241,23 @@ app.post('/first', function (req, res) {
     };
 
     if (req.body.result.action == 'acthello') {
-      var reqvalue= req.body.result.resolvedQuery
-      var resvalue= req.body.result.fulfillment.messages[0].speech
+      var reqvalue = req.body.result.resolvedQuery
+      var resvalue = req.body.result.fulfillment.messages[0].speech
 
-      console.log(reqvalue, '\n' , resvalue); 
+      console.log(reqvalue, '\n', resvalue);
 
-     // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
-      fs.appendFile('script.txt', '\n User says : ', reqvalue , '\n Bot says :' + resvalue , function (err) {
+      // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
+      fs.appendFile('script.txt', '\n User says : ', reqvalue, '\n Bot says :' + resvalue, function (err) {
         if (err) throw err;
         console.log('Updated!');
       });
     };
+
+    app.get('/script', function (req, res) {
+      fs.readFile('script.txt', 'utf8', function (err, contents) {
+        console.log(contents);
+      });
+    });
 
 
 
