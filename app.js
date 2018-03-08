@@ -383,7 +383,7 @@ app.post('/first', function (req, res) {
     //Rest Api Call started
 
     // if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
-      if (req.body.result.action == "abcde") {
+      if (req.body.result.action == "makeincident") {
       var cat = req.body.result.contexts[0].parameters.Category;
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
