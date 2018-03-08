@@ -257,6 +257,7 @@ app.post('/first', function (req, res) {
       fs.readFile('script.txt', 'utf8', function (err, contents) {
         res.send(contents);
         console.log('this is content :' + contents);
+        fs.writeFileSync('/logfile.txt',contents,'UTF8');
       });
     });
 
