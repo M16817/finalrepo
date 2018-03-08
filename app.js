@@ -255,11 +255,15 @@ app.post('/first', function (req, res) {
 
 
     if(req.body.result.action=="incidenttype"){
-      fs.appendFile('script.html', '<br><br>' + 'User says :'+ req.body.result.resolvedQuery + '</br>' + '<br>' + 'Bot says :' + req.body.result.fulfillment.messages[3].buttons[0] + '</br>' + '<br>' + req.body.result.fulfillment.messages[3].buttons[1]+ '<br>'+ req.body.result.fulfillment.messages[3].buttons[1]+ '</br>', function(err) {
+      fs.appendFile('script.html', '<br></br>' + 'User says :'+ req.body.result.resolvedQuery  + '<br>' + 'Bot says :' + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '</br>' + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '</br>', function(err) {
         if (err) throw err;
         console.log('second conversation updated !!!!!!');
       });
-    };
+    }
+
+    // if(req.body.result.action==""){
+
+    // }
 
 
     app.get('/script', function (req, res) {
@@ -378,7 +382,8 @@ app.post('/first', function (req, res) {
 
     //Rest Api Call started
 
-    if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
+    // if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
+      if (req.body.result.action == "abcde") {
       var cat = req.body.result.contexts[0].parameters.Category;
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
