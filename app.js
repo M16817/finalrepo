@@ -247,7 +247,7 @@ app.post('/first', function (req, res) {
       console.log(reqvalue, '\n', resvalue);
 
       // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
-      fs.appendFile('script.txt', '\n User says : ', reqvalue, '\n Bot says :' + resvalue, function (err) {
+      fs.appendFile('script.txt', '\n User says : '+ reqvalue + '\n Bot says :' + resvalue, function (err) {
         if (err) throw err;
         console.log('Updated!');
       });
@@ -255,10 +255,10 @@ app.post('/first', function (req, res) {
 
     app.get('/script', function (req, res) {
       fs.readFile('script.txt', 'utf8', function (err, contents) {
+        res.send(contents)
         console.log(contents);
       });
     });
-
 
 
 
