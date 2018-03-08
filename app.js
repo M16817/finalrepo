@@ -247,7 +247,7 @@ app.post('/first', function (req, res) {
       console.log(reqvalue, '\n', resvalue);
 
       // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
-      fs.appendFile('script.html', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + resvalue ,  function (err) {
+      fs.appendFile('script.html', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + resvalue + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + req.body.result.fulfillment.messages[1].buttons[0].text + req.body.result.fulfillment.messages[1].buttons[1].text + req.body.result.fulfillment.messages[1].buttons[2].text  ,  function (err) {
         if (err) throw err;
         console.log('Updated!');
       });
@@ -255,8 +255,8 @@ app.post('/first', function (req, res) {
 
     app.get('/script', function (req, res) {
       fs.readFile('script.html', 'utf8', function (err, contents) {
-        res.send(contents);
-        console.log('this is content :' + contents);
+        //res.send(contents);
+        //console.log('this is content :' + contents);
         // fs.writeFileSync('logfile',contents,'UTF8');
       });
     });
