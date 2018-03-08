@@ -239,9 +239,9 @@ app.post('/first', function (req, res) {
       //  });
     };
 
-    if (req.body.action.result == 'acthello') {
-      var reqvalue= req.body.action.result.resolvedQuery
-      var resvalue= req.body.action.fulfillment.messages[0].speech
+    if (req.body.result.action == 'acthello') {
+      var reqvalue= req.body.result.action.resolvedQuery
+      var resvalue= req.body.result.action.fulfillment.messages[0].speech
       fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
       fs.appendFile('script.txt', '\n Bot says :' + fulfillment , function (err) {
         if (err) throw err;
