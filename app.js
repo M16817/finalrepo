@@ -247,7 +247,7 @@ app.post('/first', function (req, res) {
       console.log(reqvalue, '\n', resvalue);
 
       // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
-      fs.appendFile('script.html', '\n' +' User says : '+ reqvalue + '\n'+ ' Bot says :' + resvalue ,  function (err) {
+      fs.appendFile('script.html', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + resvalue ,  function (err) {
         if (err) throw err;
         console.log('Updated!');
       });
