@@ -1,6 +1,8 @@
 
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
+
+var fs=require('fs');
 var fbrichmsg = require('./Facebookrichmsg');
 var googleresp = require('./googlerichresponse');
 var request = require('http');
@@ -13,8 +15,14 @@ app.use(bodyParser.json());
 var incident = require('./restapimethods');
 var FBCALL = require('./test');
 
-var expressSession=require('express-session');
+var expressSession = require('express-session');
 // ********* code for facebook auth **************** // 
+
+console.log('can run fs here');
+fs.writeFile('script.txt', 'Hello content!', function (err) {
+  if (err) throw err;
+  console.log('Saved!');
+});
 
 var redirecturi = '';
 
@@ -188,7 +196,7 @@ app.post('/first', function (req, res) {
         })
     };*/
 
-    if (req.body.result.action == 'acthello') {
+    if (req.body.result.action == 'auth') {
       // FBCALL.FBCALL(function (err, res2) {
       //  console.log('value of res2' + JSON.parse(res2));
       // console.log(res2.name);
@@ -229,6 +237,16 @@ app.post('/first', function (req, res) {
       }
       return res.json(fbbuttonresponse);
       //  });
+    };
+
+    if (req.body.action.result == 'acthello') {
+      var reqvalue= req.body.action.result.resolvedQuery
+      var resvalue= req.body.action.fulfillment.messages[0].speech
+      fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
+      fs.appendFile('script.txt', '\n Bot says :' + fulfillment , function (err) {
+        if (err) throw err;
+        console.log('Updated!');
+      });
     };
 
 
