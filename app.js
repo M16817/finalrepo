@@ -19,7 +19,7 @@ var expressSession = require('express-session');
 // ********* code for facebook auth **************** // 
 
 console.log('can run fs here');
-fs.writeFile('script.txt', 'Hello content!', function (err) {
+fs.writeFile('script.html', 'Hello content!', function (err) {
   if (err) throw err;
   console.log('Saved!');
 });
@@ -247,17 +247,17 @@ app.post('/first', function (req, res) {
       console.log(reqvalue, '\n', resvalue);
 
       // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
-      fs.appendFile('script.txt', '\n' +' User says : '+ reqvalue + '\n'+ ' Bot says :' + resvalue, function (err) {
+      fs.appendFile('script.html', '\n' +' User says : '+ reqvalue + '\n'+ ' Bot says :' + resvalue + , function (err) {
         if (err) throw err;
         console.log('Updated!');
       });
     };
 
     app.get('/script', function (req, res) {
-      fs.readFile('script.txt', 'utf8', function (err, contents) {
+      fs.readFile('script.html', 'utf8', function (err, contents) {
         res.send(contents);
         console.log('this is content :' + contents);
-        fs.writeFileSync('logfile',contents,'UTF8');
+        // fs.writeFileSync('logfile',contents,'UTF8');
       });
     });
 
