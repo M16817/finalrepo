@@ -255,11 +255,13 @@ app.post('/first', function (req, res) {
 
 
     if(req.body.result.action=="incidenttype"){
-      fs.appendFile('script.html', '<br></br>' + 'User says :'+ req.body.result.resolvedQuery  + '<br>' + 'Bot says :' + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[2].text + '</br>', function(err) {
+      fs.appendFile('script.html', '<br></br>' + 'User says :'+ req.body.result.resolvedQuery  + '<br>' + 'Bot says :' + '<br>' + req.body.result.fulfillment.messages[3].subtitle + '</br>' + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[2].text + '</br>', function(err) {
         if (err) throw err;
         console.log('second conversation updated !!!!!!');
       });
-    }
+    };
+
+
 
     // if(req.body.result.action==""){
 
@@ -309,6 +311,10 @@ app.post('/first', function (req, res) {
         ]
 
       };
+      fs.appendFile('script.txt',fbresponse.messages[0].buttons[0].text + '</br>' + fbresponse.messages[0].buttons[1].text + '</br>' + fbresponse.messages[0].buttons[2].text + '</br>' ,function(err){
+        if (err) throw err;
+        console.log('subcategories conversation updated !!!!!!');
+      })
       return res.json(fbresponse);
     }
 
@@ -382,8 +388,8 @@ app.post('/first', function (req, res) {
 
     //Rest Api Call started
 
-     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
-      //if (req.body.result.action == "makeincident") {
+    // if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
+      if (req.body.result.action == "makeincident") {
         console.log('make incident called');
         console.log(req.body.result);
       var cat = req.body.result.contexts[0].parameters.Category;
