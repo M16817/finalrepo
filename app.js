@@ -382,8 +382,8 @@ app.post('/first', function (req, res) {
 
     //Rest Api Call started
 
-    // if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
-      if (req.body.result.action == "makeincident") {
+     if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
+      //if (req.body.result.action == "makeincident") {
         console.log('make incident called');
         console.log(req.body.result);
       var cat = req.body.result.contexts[0].parameters.Category;
