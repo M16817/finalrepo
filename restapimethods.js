@@ -88,7 +88,7 @@ module.exports = {
   
     console.log('Chat script data '+data);
   
-    fs.appendFile('script.html',data, function(err) {
+    fs.appendFile('script.txt',data, function(err) {
       if(err) {
           return console.log(err);
       }else{
