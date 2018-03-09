@@ -269,7 +269,7 @@ app.post('/first', function (req, res) {
     app.get('/script', function (req, res) {
       fs.readFile('script.html', 'utf8', function (err, contents) {
         res.send(contents);
-        //console.log('this is content :' + contents);
+        console.log('this is content :' + contents);
         // fs.writeFileSync('logfile',contents,'UTF8');
       });
     });
