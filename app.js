@@ -148,6 +148,19 @@ app.get('/twt/callback', passport.authenticate('twitter', {
 
 //**************** twitter auth code ends ere ************/
 
+
+app.get('/script1', function (req, res) {
+  fs.readFile('script.html', 'utf8', function (err, contents) {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write(contents);
+    console.log('this is content :' + contents);
+    // fs.writeFileSync('logfile',contents,'UTF8');
+  });
+});
+
+
+
+
 app.post('/first', function (req, res) {
   if (req.body.originalRequest.source == 'facebook') {
 
@@ -269,15 +282,6 @@ app.post('/first', function (req, res) {
 
     };
 
-
-    app.get('/script1', function (req, res) {
-      fs.readFile('script.html', 'utf8', function (err, contents) {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write(contents);
-        console.log('this is content :' + contents);
-        // fs.writeFileSync('logfile',contents,'UTF8');
-      });
-    });
 
 
     if (req.body.result.parameters.Category === 'Network') {
