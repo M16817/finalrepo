@@ -266,8 +266,8 @@ app.post('/first', function (req, res) {
       // });
 
      //var messg=resvalue + req.body.result.fulfillment.messages[1].subtitle + req.body.result.fulfillment.messages[1].buttons[0].text +req.body.result.fulfillment.messages[1].buttons[1].text;
-     console.log('messg is'+resvalue); 
-     incident.chatLog(reqvalue, resvalue ,req.body.sessionId);
+     //console.log('messg is'+resvalue); 
+     incident.chatLog(reqvalue, "bot says nilesh" ,req.body.sessionId);
 
     };
 
