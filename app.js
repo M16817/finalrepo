@@ -384,10 +384,12 @@ app.post('/first', function (req, res) {
 
     // if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
       if (req.body.result.action == "makeincident") {
+        console.log('make incident called');
       var cat = req.body.result.contexts[0].parameters.Category;
+      console.log(cat);
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
-        var resagent = "Your incident has been created with incident number:" + success + ".\nNote it down for further enquiry.";
+        var resagent = "Your incident has been created with incident number:" + success + ".Note it down for further enquiry.";
         console.log('This is incident number :' + success)
         return res.json({
           followupEvent: {
