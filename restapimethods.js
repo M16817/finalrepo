@@ -75,5 +75,28 @@ module.exports = {
       if (error) throw new Error(error);
       callback(null, body);
     });
+  },
+
+  'chatLog' : function(usermsg,botreply,sessionId){
+
+    console.log('User Says '+usermsg);
+    console.log('Bot Says '+botreply);
+    //console.log('Session '+ sessionId);
+    //usermsg+=session;
+  
+    var data='<br>'+sessionId +' User:' + usermsg  +'<br>Bot:' + botreply +'<br><br>';
+  
+    console.log('Chat script data '+data);
+  
+    fs.appendFile('script.html',data, function(err) {
+      if(err) {
+          return console.log(err);
+      }else{
+      console.log('Chat is logged in to file');}
+    });
+  
+  
   }
+
+
 } 

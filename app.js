@@ -247,18 +247,24 @@ app.post('/first', function (req, res) {
       console.log(reqvalue, '\n', resvalue);
 
       // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
-      fs.appendFile('script.html', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + resvalue + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[0].text + '</br>' + req.body.result.fulfillment.messages[1].buttons[1].text , function (err) {
-        if (err) throw err;
-        console.log('Updated!');
-      });
+      // fs.appendFile('script.html', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + resvalue + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[0].text + '</br>' + req.body.result.fulfillment.messages[1].buttons[1].text , function (err) {
+      //   if (err) throw err;
+      //   console.log('Updated!');
+      // });
+
+      incident.chatLog(reqvalue,resvalue + req.body.result.fulfillment.messages[1].subtitle + req.body.result.fulfillment.messages[1].buttons[0].text +req.body.result.fulfillment.messages[1].buttons[1].text  ,req.body.sessionId);
+
     };
 
 
     if(req.body.result.action=="incidenttype"){
-      fs.appendFile('script.html', '<br></br>' + 'User says :'+ req.body.result.resolvedQuery  + '<br>' + 'Bot says :' + '<br>' + req.body.result.fulfillment.messages[3].subtitle + '</br>' + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[2].text + '</br>', function(err) {
-        if (err) throw err;
-        console.log('second conversation updated !!!!!!');
-      });
+      // fs.appendFile('script.html', '<br></br>' + 'User says :'+ req.body.result.resolvedQuery  + '<br>' + 'Bot says :' + '<br>' + req.body.result.fulfillment.messages[3].subtitle + '</br>' + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[2].text + '</br>', function(err) {
+      //   if (err) throw err;
+      //   console.log('second conversation updated !!!!!!');
+      // });
+
+      incident.chatLog(req.body.result.resolvedQuery , req.body.result.fulfillment.messages[3].subtitle + req.body.result.fulfillment.messages[3].buttons[0].text +req.body.result.fulfillment.messages[3].buttons[1].text +req.body.result.fulfillment.messages[3].buttons[2].text ,req.body.sessionId);
+
     };
 
 
@@ -311,10 +317,17 @@ app.post('/first', function (req, res) {
         ]
 
       };
-      fs.appendFile('script.txt',fbresponse.messages[0].buttons[0].text + '</br>' + fbresponse.messages[0].buttons[1].text + '</br>' + fbresponse.messages[0].buttons[2].text + '</br>' ,function(err){
-        if (err) throw err;
-        console.log('subcategories conversation updated !!!!!!');
-      })
+      // fs.appendFile('script.txt',fbresponse.messages[0].buttons[0].text + '</br>' + fbresponse.messages[0].buttons[1].text + '</br>' + fbresponse.messages[0].buttons[2].text + '</br>' ,function(err){
+      //   if (err) throw err;
+      //   console.log('subcategories conversation updated !!!!!!');
+      // })
+
+      
+      incident.chatLog(req.body.result.resolvedQuery , 'DHCP' + 'DNS' + 'IP' ,req.body.sessionId);
+
+
+
+
       return res.json(fbresponse);
     }
 
@@ -349,6 +362,11 @@ app.post('/first', function (req, res) {
           }
         ]
       };
+
+        
+      incident.chatLog(req.body.result.resolvedQuery , 'Monitor' + 'Keyboard' + 'Mouse' ,req.body.sessionId);
+
+
       return res.json(fbresponse);
     }
 
@@ -383,6 +401,8 @@ app.post('/first', function (req, res) {
           }
         ]
       };
+      incident.chatLog(req.body.result.resolvedQuery , 'Email' + 'OS' + 'Mac' ,req.body.sessionId);
+
       return res.json(fbresponse);
     }
 
