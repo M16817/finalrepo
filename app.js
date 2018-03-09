@@ -254,25 +254,26 @@ app.post('/first', function (req, res) {
       //   console.log('Updated!');
       // });
 
-      incident.chatLog(reqvalue,resvalue + req.body.result.fulfillment.messages[1].subtitle + req.body.result.fulfillment.messages[1].buttons[0].text +req.body.result.fulfillment.messages[1].buttons[1].text  ,req.body.sessionId);
+      incident.chatLog(reqvalue, resvalue + req.body.result.fulfillment.messages[1].subtitle + req.body.result.fulfillment.messages[1].buttons[0].text + req.body.result.fulfillment.messages[1].buttons[1].text, req.body.sessionId);
 
     };
 
 
-    if(req.body.result.action=="incidenttype"){
+    if (req.body.result.action == "incidenttype") {
       // fs.appendFile('script.html', '<br></br>' + 'User says :'+ req.body.result.resolvedQuery  + '<br>' + 'Bot says :' + '<br>' + req.body.result.fulfillment.messages[3].subtitle + '</br>' + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[2].text + '</br>', function(err) {
       //   if (err) throw err;
       //   console.log('second conversation updated !!!!!!');
       // });
 
-      incident.chatLog(req.body.result.resolvedQuery , req.body.result.fulfillment.messages[3].subtitle + req.body.result.fulfillment.messages[3].buttons[0].text +req.body.result.fulfillment.messages[3].buttons[1].text +req.body.result.fulfillment.messages[3].buttons[2].text ,req.body.sessionId);
+      incident.chatLog(req.body.result.resolvedQuery, req.body.result.fulfillment.messages[3].subtitle + req.body.result.fulfillment.messages[3].buttons[0].text + req.body.result.fulfillment.messages[3].buttons[1].text + req.body.result.fulfillment.messages[3].buttons[2].text, req.body.sessionId);
 
     };
 
 
     app.get('/script', function (req, res) {
       fs.readFile('script.html', 'utf8', function (err, contents) {
-        res.send(contents);
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(contents);
         console.log('this is content :' + contents);
         // fs.writeFileSync('logfile',contents,'UTF8');
       });
@@ -317,7 +318,7 @@ app.post('/first', function (req, res) {
       // })
 
       return res.json(fbresponse);
-      incident.chatLog(req.body.result.resolvedQuery , 'DHCP' + 'DNS' + 'IP' ,req.body.sessionId);
+      incident.chatLog(req.body.result.resolvedQuery, 'DHCP' + 'DNS' + 'IP', req.body.sessionId);
     }
 
     if (req.body.result.parameters.Category === 'Hardware') {
@@ -351,9 +352,9 @@ app.post('/first', function (req, res) {
           }
         ]
       };
-  
-      return res.json(fbresponse);  
-      incident.chatLog(req.body.result.resolvedQuery , 'Monitor' + 'Keyboard' + 'Mouse' ,req.body.sessionId);
+
+      return res.json(fbresponse);
+      incident.chatLog(req.body.result.resolvedQuery, 'Monitor' + 'Keyboard' + 'Mouse', req.body.sessionId);
     }
 
     if (req.body.result.parameters.Category === 'Software') {
@@ -382,24 +383,24 @@ app.post('/first', function (req, res) {
             ]
           },
           {
-            
+
             "type": 0,
             "speech": ""
           }
         ]
       };
-  
+
       return res.json(fbresponse);
-      incident.chatLog(req.body.result.resolvedQuery , 'Email' + 'OS' + 'Mac' ,req.body.sessionId);
+      incident.chatLog(req.body.result.resolvedQuery, 'Email' + 'OS' + 'Mac', req.body.sessionId);
 
     }
 
     //Rest Api Call started
 
     // if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
-      if (req.body.result.action == "makeincident") {
-        console.log('make incident called');
-        console.log(req.body.result);
+    if (req.body.result.action == "makeincident") {
+      console.log('make incident called');
+      console.log(req.body.result);
       var cat = req.body.result.contexts[0].parameters.Category;
       console.log(cat);
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
