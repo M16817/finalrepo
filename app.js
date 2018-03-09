@@ -385,6 +385,7 @@ app.post('/first', function (req, res) {
     // if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
       if (req.body.result.action == "makeincident") {
         console.log('make incident called');
+        console.log(req.body.result);
       var cat = req.body.result.contexts[0].parameters.Category;
       console.log(cat);
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
