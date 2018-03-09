@@ -247,6 +247,8 @@ app.post('/first', function (req, res) {
 
       console.log(reqvalue, '\n', resvalue);
 
+      
+
       // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
       // fs.appendFile('script.html', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + resvalue + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[0].text + '</br>' + req.body.result.fulfillment.messages[1].buttons[1].text , function (err) {
       //   if (err) throw err;
