@@ -270,7 +270,7 @@ app.post('/first', function (req, res) {
     };
 
 
-    app.get('/script', function (req, res) {
+    app.get('/script1', function (req, res) {
       fs.readFile('script.html', 'utf8', function (err, contents) {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(contents);
