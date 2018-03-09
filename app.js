@@ -269,12 +269,6 @@ app.post('/first', function (req, res) {
     };
 
 
-
-    // if(req.body.result.action==""){
-
-    // }
-
-
     app.get('/script', function (req, res) {
       fs.readFile('script.html', 'utf8', function (err, contents) {
         res.send(contents);
@@ -282,8 +276,6 @@ app.post('/first', function (req, res) {
         // fs.writeFileSync('logfile',contents,'UTF8');
       });
     });
-
-
 
 
     if (req.body.result.parameters.Category === 'Network') {
