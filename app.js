@@ -247,7 +247,7 @@ app.post('/first', function (req, res) {
       console.log(reqvalue, '\n', resvalue);
 
       // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
-      fs.appendFile('script.html', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + resvalue + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[0].text + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[1].text + '</br>' , function (err) {
+      fs.appendFile('script.html', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + resvalue + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[0].text + '</br>' + req.body.result.fulfillment.messages[1].buttons[1].text , function (err) {
         if (err) throw err;
         console.log('Updated!');
       });
@@ -255,7 +255,7 @@ app.post('/first', function (req, res) {
 
 
     if(req.body.result.action=="incidenttype"){
-      fs.appendFile('script.html', '<br></br>' + 'User says :'+ req.body.result.resolvedQuery  + '<br>' + 'Bot says :' + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '</br>' + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '</br>', function(err) {
+      fs.appendFile('script.html', '<br></br>' + 'User says :'+ req.body.result.resolvedQuery  + '<br>' + 'Bot says :' + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[2].text + '</br>', function(err) {
         if (err) throw err;
         console.log('second conversation updated !!!!!!');
       });
@@ -388,6 +388,7 @@ app.post('/first', function (req, res) {
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
         var resagent = "Your incident has been created with incident number:" + success + ".\nNote it down for further enquiry.";
+        console.log('This is incident number :' + success)
         return res.json({
           followupEvent: {
             "name": "mainmenuevent",
