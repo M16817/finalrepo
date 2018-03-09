@@ -18,11 +18,12 @@ var FBCALL = require('./test');
 var expressSession = require('express-session');
 // ********* code for facebook auth **************** // 
 
-console.log('can run fs here');
-fs.writeFile('script.html', 'Hello content!', function (err) {
-  if (err) throw err;
-  console.log('Saved!');
-});
+// console.log('can run fs here');
+// fs.writeFile('script.html', 'Hello content!', function (err) {
+//   if (err) throw err;
+//   console.log('Saved!');
+// });
+
 
 var redirecturi = '';
 
@@ -322,13 +323,8 @@ app.post('/first', function (req, res) {
       //   console.log('subcategories conversation updated !!!!!!');
       // })
 
-      
-      incident.chatLog(req.body.result.resolvedQuery , 'DHCP' + 'DNS' + 'IP' ,req.body.sessionId);
-
-
-
-
       return res.json(fbresponse);
+      incident.chatLog(req.body.result.resolvedQuery , 'DHCP' + 'DNS' + 'IP' ,req.body.sessionId);
     }
 
     if (req.body.result.parameters.Category === 'Hardware') {
@@ -362,12 +358,9 @@ app.post('/first', function (req, res) {
           }
         ]
       };
-
-        
+  
+      return res.json(fbresponse);  
       incident.chatLog(req.body.result.resolvedQuery , 'Monitor' + 'Keyboard' + 'Mouse' ,req.body.sessionId);
-
-
-      return res.json(fbresponse);
     }
 
     if (req.body.result.parameters.Category === 'Software') {
