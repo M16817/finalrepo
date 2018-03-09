@@ -402,9 +402,10 @@ app.post('/first', function (req, res) {
           }
         ]
       };
-     // incident.chatLog(req.body.result.resolvedQuery , 'Email' + 'OS' + 'Mac' ,req.body.sessionId);
-
+  
       return res.json(fbresponse);
+      incident.chatLog(req.body.result.resolvedQuery , 'Email' + 'OS' + 'Mac' ,req.body.sessionId);
+
     }
 
     //Rest Api Call started
