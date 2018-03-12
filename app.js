@@ -322,7 +322,7 @@ app.post('/first', function (req, res) {
       //   console.log('subcategories conversation updated !!!!!!');
       // })
 
-      incident.chatLog(req.body.result.resolvedQuery , 'DHCP' + 'DNS' + 'IP' ,req.body.sessionId);
+      incident.chatLog(req.body.result.resolvedQuery , fbresponse.messages[0].buttons[0].text + '</br>' + fbresponse.messages[0].buttons[1].text + '</br>' + fbresponse.messages[0].buttons[2].text ,req.body.sessionId);
 
       return res.json(fbresponse);
      
