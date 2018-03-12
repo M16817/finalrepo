@@ -257,27 +257,27 @@ app.post('/first', function (req, res) {
       console.log(reqvalue);
 
 
-     // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
-      fs.appendFile('script.txt', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + 'Hi...!!!! This is servicenow bot how may I help you today ??' + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[0].text + '</br>' + req.body.result.fulfillment.messages[1].buttons[1].text , function (err) {
+      // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
+      fs.appendFile('script.txt', '<br>' + ' User says : ' + reqvalue + '</br>' + ' Bot says :' + 'Hi...!!!! This is servicenow bot how may I help you today ??' + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[0].text + '</br>' + req.body.result.fulfillment.messages[1].buttons[1].text, function (err) {
         if (err) throw err;
         console.log('Updated!');
       });
 
-     //var messg=resvalue + req.body.result.fulfillment.messages[1].subtitle + req.body.result.fulfillment.messages[1].buttons[0].text +req.body.result.fulfillment.messages[1].buttons[1].text;
-     //console.log('messg is'+resvalue); 
-     
-     //incident.chatLog(reqvalue, resvalue ,req.body.sessionId);
+      //var messg=resvalue + req.body.result.fulfillment.messages[1].subtitle + req.body.result.fulfillment.messages[1].buttons[0].text +req.body.result.fulfillment.messages[1].buttons[1].text;
+      //console.log('messg is'+resvalue); 
+
+      //incident.chatLog(reqvalue, resvalue ,req.body.sessionId);
 
     };
 
 
-    if(req.body.result.action=="incidenttype"){
+    if (req.body.result.action == "incidenttype") {
       // fs.appendFile('script.html', '<br></br>' + 'User says :'+ req.body.result.resolvedQuery  + '<br>' + 'Bot says :' + '<br>' + req.body.result.fulfillment.messages[3].subtitle + '</br>' + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[2].text + '</br>', function(err) {
       //   if (err) throw err;
       //   console.log('second conversation updated !!!!!!');
       // });
 
-      incident.chatLog(req.body.result.resolvedQuery , req.body.result.fulfillment.messages[3].subtitle +  '<br>' + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[2].text ,req.body.sessionId);
+      incident.chatLog(req.body.result.resolvedQuery, req.body.result.fulfillment.messages[3].subtitle + '<br>' + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[2].text, req.body.sessionId);
 
     };
 
@@ -322,10 +322,10 @@ app.post('/first', function (req, res) {
       //   console.log('subcategories conversation updated !!!!!!');
       // })
 
-      incident.chatLog(req.body.result.resolvedQuery , fbresponse.messages[0].buttons[0].text + '</br>' + fbresponse.messages[0].buttons[1].text + '</br>' + fbresponse.messages[0].buttons[2].text ,req.body.sessionId);
+      incident.chatLog(req.body.result.resolvedQuery, fbresponse.messages[0].buttons[0].text + '</br>' + fbresponse.messages[0].buttons[1].text + '</br>' + fbresponse.messages[0].buttons[2].text, req.body.sessionId);
 
       return res.json(fbresponse);
-     
+
     }
 
     if (req.body.result.parameters.Category === 'Hardware') {
@@ -359,9 +359,11 @@ app.post('/first', function (req, res) {
           }
         ]
       };
-  
-      return res.json(fbresponse);  
-      incident.chatLog(req.body.result.resolvedQuery , 'Monitor' + 'Keyboard' + 'Mouse' ,req.body.sessionId);
+
+      incident.chatLog(req.body.result.resolvedQuery, fbresponse.messages[0].buttons[0].text + '</br>' + fbresponse.messages[0].buttons[1].text + '</br>' + fbresponse.messages[0].buttons[2].text, req.body.sessionId);
+
+      return res.json(fbresponse);
+
     }
 
     if (req.body.result.parameters.Category === 'Software') {
@@ -390,30 +392,40 @@ app.post('/first', function (req, res) {
             ]
           },
           {
-            
+
             "type": 0,
             "speech": ""
           }
         ]
       };
-  
+
+      incident.chatLog(req.body.result.resolvedQuery, fbresponse.messages[0].buttons[0].text + '</br>' + fbresponse.messages[0].buttons[1].text + '</br>' + fbresponse.messages[0].buttons[2].text, req.body.sessionId);
+
       return res.json(fbresponse);
-      incident.chatLog(req.body.result.resolvedQuery , 'Email' + 'OS' + 'Mac' ,req.body.sessionId);
 
     }
 
     //Rest Api Call started
 
     // if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
-      if (req.body.result.action == "makeincident") {
-        console.log('make incident called');
-        console.log(req.body.result);
+    if (req.body.result.action == "makeincident") {
+      console.log('make incident called');
+      console.log(req.body.result);
       var cat = req.body.result.contexts[0].parameters.Category;
       console.log(cat);
+
+      incident.chatLog(req.body.result.parameters.subcategory,'Please Enter Description',req.body.sessionId);
+      incident.chatLog(req.body.result.parameters.desc,'Please Enter Severity as High low medium',req.body.sessionId);
+
+
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         var success = resu["result"]["number"];
         var resagent = "Your incident has been created with incident number:" + success + ".Note it down for further enquiry.";
         console.log('This is incident number :' + success)
+
+        incident.chatLog(req.body.result.parameters.severity,resagent,req.body.sessionId);
+
+
         return res.json({
           followupEvent: {
             "name": "mainmenuevent",
