@@ -84,7 +84,7 @@ module.exports = {
     //console.log('Session '+ sessionId);
     //usermsg+=session;
   
-    var data='<br>'+sessionId +' User:' + usermsg  +'<br>Bot:' + botreply +'<br><br>';
+    var data='<br>'+sessionId + '<br>' + ' User Says :' + usermsg  +'<br>Bot Says :' + botreply +'<br><br>';
   
     console.log('Chat script data '+data);
   

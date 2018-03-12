@@ -277,7 +277,7 @@ app.post('/first', function (req, res) {
       //   console.log('second conversation updated !!!!!!');
       // });
 
-      incident.chatLog(req.body.result.resolvedQuery , req.body.result.fulfillment.messages[3].subtitle + req.body.result.fulfillment.messages[3].buttons[0].text +req.body.result.fulfillment.messages[3].buttons[1].text +req.body.result.fulfillment.messages[3].buttons[2].text ,req.body.sessionId);
+      incident.chatLog(req.body.result.resolvedQuery , req.body.result.fulfillment.messages[3].subtitle + req.body.result.fulfillment.messages[3].buttons[0].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[1].text + '<br>' + req.body.result.fulfillment.messages[3].buttons[2].text ,req.body.sessionId);
 
     };
 
