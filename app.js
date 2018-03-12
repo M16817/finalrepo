@@ -253,19 +253,20 @@ app.post('/first', function (req, res) {
 
     if (req.body.result.action == 'acthello') {
       var reqvalue = req.body.result.resolvedQuery;
-      var resvalue = 'Hi...!!!! This is servicenow bot how may I help you today ??'+ '<br>' +req.body.result.fulfillment.messages[1].subtitle.buttons[0].text + '<br>'+req.body.result.fulfillment.messages[1].subtitle.buttons[1].text   ;
-      console.log(reqvalue, '\n', resvalue);
+      //var resvalue = 'Hi...!!!! This is servicenow bot how may I help you today ??'+ '<br>' +req.body.result.fulfillment.messages[1].subtitle.buttons[0].text + '<br>'+req.body.result.fulfillment.messages[1].subtitle.buttons[1].text   ;
+      console.log(reqvalue);
 
 
-      // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
-      // fs.appendFile('script.html', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + resvalue + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[0].text + '</br>' + req.body.result.fulfillment.messages[1].buttons[1].text , function (err) {
-      //   if (err) throw err;
-      //   console.log('Updated!');
-      // });
+     // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
+      fs.appendFile('script.txt', '<br>' +' User says : '+ reqvalue + '</br>'+ ' Bot says :' + 'Hi...!!!! This is servicenow bot how may I help you today ??' + '<br>' + req.body.result.fulfillment.messages[1].subtitle + '</br>' + '<br>' + req.body.result.fulfillment.messages[1].buttons[0].text + '</br>' + req.body.result.fulfillment.messages[1].buttons[1].text , function (err) {
+        if (err) throw err;
+        console.log('Updated!');
+      });
 
      //var messg=resvalue + req.body.result.fulfillment.messages[1].subtitle + req.body.result.fulfillment.messages[1].buttons[0].text +req.body.result.fulfillment.messages[1].buttons[1].text;
      //console.log('messg is'+resvalue); 
-     incident.chatLog(reqvalue, resvalue ,req.body.sessionId);
+     
+     //incident.chatLog(reqvalue, resvalue ,req.body.sessionId);
 
     };
 
