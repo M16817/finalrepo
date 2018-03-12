@@ -252,11 +252,9 @@ app.post('/first', function (req, res) {
     };
 
     if (req.body.result.action == 'acthello') {
-      var reqvalue = req.body.result.resolvedQuery
-      var resvalue = req.body.result.fulfillment.messages[0].speech
-
+      var reqvalue = req.body.result.resolvedQuery;
+      var resvalue = 'Hi...!!!! This is servicenow bot how may I help you today ??'+ '<br>' +req.body.result.fulfillment.messages[1].subtitle.buttons[0].text + '<br>'+req.body.result.fulfillment.messages[1].subtitle.buttons[1].text   ;
       console.log(reqvalue, '\n', resvalue);
-
 
 
       // fs.appendFile('script.txt', '\n User says :' + resolvedQuery)
@@ -267,7 +265,7 @@ app.post('/first', function (req, res) {
 
      //var messg=resvalue + req.body.result.fulfillment.messages[1].subtitle + req.body.result.fulfillment.messages[1].buttons[0].text +req.body.result.fulfillment.messages[1].buttons[1].text;
      //console.log('messg is'+resvalue); 
-     incident.chatLog(reqvalue, "bot says nilesh" ,req.body.sessionId);
+     incident.chatLog(reqvalue, resvalue ,req.body.sessionId);
 
     };
 
