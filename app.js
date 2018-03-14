@@ -182,17 +182,17 @@ app.post('/first', function (req, res) {
     }
 
     if(req.body.result.action=='fbquickreplies'){
-      var fbquickreplies=fbtemplate.fbquickreplies('title','subtitle','http://www.naturephotographers.net/kt0101-1.jpg','buttontext','buttonpostback');
+      var fbquickreplies=fbtemplate.fbquickreplies('title', 'firstreply', 'secondreply');
       return res.json(fbquickreplies);
     }
 
     if(req.body.result.action=="fbcard"){
-      var fbcard=fbtemplate.fbcard();
+      var fbcard=fbtemplate.fbcard('title','subtitle','http://www.naturephotographers.net/kt0101-1.jpg','buttontext','buttonpostback');
       return res.json(fbcard);
     }
 
     if(req.body.result.action=="fbcourosel"){
-      var fbcourosel=fbtemplate.fbcourosel();
+      var fbcourosel=fbtemplate.fbcourosel("Welcome!","https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14","This is courosel.","web_url","https://petersfancybrownhats.com","View Website");
       return res.json(fbcourosel);
     }
 
