@@ -26,8 +26,7 @@ var fblistresp = function fblist(title,subtitle,image_url,buttonTitle,buttonType
                             "url": buttonUrl
                           }
                         ]
-                      }
-                       /*,
+                      },
                      {
                         "title": "Classic White T-Shirt",
                         "subtitle": "See all our colors",
@@ -51,7 +50,7 @@ var fblistresp = function fblist(title,subtitle,image_url,buttonTitle,buttonType
                             "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101"
                           }
                         ]
-                      }*/
+                      }
                     ],
                     "buttons": [
                       {

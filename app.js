@@ -177,7 +177,7 @@ app.post('/first', function (req, res) {
     
     if(req.body.result.action=='fblist'){
       var fblist=fbtemplate.fblistresp('Title','Subtitle','http://www.naturephotographers.net/kt0101-1.jpg','View','web_url','http://www.naturephotographers.net/kt0101-1.jpg');
-      console.log(fblist);
+      //console.log(fblist);
       return res.json(fblist);
     }
     
