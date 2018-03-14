@@ -1,5 +1,11 @@
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
+
+
+
+
+
+
 var response = function (req, res) {
 
     const app = new ActionsSdkApp({ request: req, response: res });

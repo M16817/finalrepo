@@ -4,6 +4,7 @@ const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
 var fs = require('fs');
 var fbtemplate=require('./fbtemplate');
+var googletemplate=require('./googletemplate');
 var fbrichmsg = require('./Facebookrichmsg');
 var googleresp = require('./googlerichresponse');
 var request = require('http');
@@ -493,6 +494,13 @@ app.post('/first', function (req, res) {
     // if (req.body.result.action === 'acthello') {
     //   googleresp.basicCard(req,res);
     // }
+
+    if(req.body.result.action=='googlesuggesion'){
+      var googlesuggesion= googletemplate.googlesuggesion('textToSpeech','firstsuggestion','secondsuggestion','thirdsuggestion');
+      return res.json(googlesuggesion);
+    }
+    
+
 
 
 
