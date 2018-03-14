@@ -29,7 +29,7 @@ var fbquickreplies = function fbquickreplies(tile, subtitle, imageUrl, buttonTex
             ]
 
         }
-    return fbquickreplies
+    return fbresponse
 }
 module.exports.fbquickreplies = fbquickreplies;
 
