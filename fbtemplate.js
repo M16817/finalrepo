@@ -1,8 +1,7 @@
 // FB quick replies template
 
 var fbquickreplies = function fbquickrepl(title, subtitle, imageUrl, buttonText, buttonPostback) {
-    console.log('print titlemahes : ' + title)
-    var fbresponse =
+    var fbquickreplies =
         {
             "speech": "",
             "messages": [
@@ -30,7 +29,7 @@ var fbquickreplies = function fbquickrepl(title, subtitle, imageUrl, buttonText,
             ]
 
         }
-    return fbresponse
+    return fbquickreplies
 }
 module.exports.fbquickreplies = fbquickreplies;
 
