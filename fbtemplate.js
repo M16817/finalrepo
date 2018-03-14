@@ -210,16 +210,12 @@ var fbcard = function fbcard() {
                 "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
                 "buttons": [
                     {
-                        "text": "DHCP",
-                        "postback": "DHCP"
+                        "text": "buttontext",
+                        "postback": "postback"
                     },
                     {
-                        "text": "DNS",
-                        "postback": "DNS"
-                    },
-                    {
-                        "text": "IP Address",
-                        "postback": "IP Address"
+                        "text": "buttontext",
+                        "postback": "postback"
                     }
                 ]
             },

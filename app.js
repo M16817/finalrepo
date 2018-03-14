@@ -296,9 +296,6 @@ app.post('/first', function (req, res) {
     };
 
 
-
-
-
     if (req.body.result.parameters.Category === 'Network') {
       var fbresponse = {
         "speech": "",
