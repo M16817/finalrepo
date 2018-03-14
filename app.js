@@ -182,14 +182,14 @@ app.post('/first', function (req, res) {
     }
 
     if(req.body.result.action=='fbquickreplies'){
-      var fbquickreplies=fbtemplate.fbquickreplies('Servicenow','Subservicenow','http://www.naturephotographers.net/kt0101-1.jpg','buttontext','buttonpostback');
+      var fbquickreplies=fbtemplate.fbquickreplies('title','subtitle','http://www.naturephotographers.net/kt0101-1.jpg','buttontext','buttonpostback');
       return res.json(fbquickreplies);
     }
 
-    if(req.body.result.action="fbcard"){
-      var fbcard=fbtemplate.fbcard();
-      return res.json(fbcard);
-    }
+    // if(req.body.result.action="fbcard"){
+    //   var fbcard=fbtemplate.fbcard();
+    //   return res.json(fbcard);
+    // }
 
     if(req.body.result.action="fbcourosel"){
       var fbcourosel=fbtemplate.fbcourosel();
