@@ -105,7 +105,7 @@ module.exports.fblistresp = fblistresp;
 //FB template for courosel
 
 
-var fbcourosel = function fbcourosel() {
+var fbcourosel = function fbcourosel(title,imageUrl,subtitle,buttonType,buttonUrl,buttonTitle) {
     var fbcourosel = {
         "messages": [
             {
