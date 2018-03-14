@@ -166,12 +166,12 @@ app.post('/first', function (req, res) {
 
 
     //code for fb generic template card  
-    if (req.body.result.action == 'fbgeneric') {
-      //var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
-      var fbgen= fbrichmsg.fbgeneric();
-      console.log(fbgen);
-      return res.json(fbgen);
-    }
+    // if (req.body.result.action == 'fbgeneric') {
+    //   //var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
+    //   var fbgen= fbrichmsg.fbgeneric();
+    //   console.log(fbgen);
+    //   return res.json(fbgen);
+    // }
 
     //code for fb list template 
     
