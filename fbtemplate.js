@@ -1,6 +1,7 @@
 // FB quick replies template
 
 var fbquickreplies = function fbquickreplies(tile, subtitle, imageUrl, buttonText, buttonPostback) {
+    console.log('print titlemahes : '+ title)
     var fbresponse =
         {
             "speech": "",
