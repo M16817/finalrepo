@@ -3,6 +3,7 @@ const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
 
 var fs = require('fs');
+var fbtemplate=require('./fbtemplate');
 var fbrichmsg = require('./Facebookrichmsg');
 var googleresp = require('./googlerichresponse');
 var request = require('http');
@@ -175,7 +176,7 @@ app.post('/first', function (req, res) {
     //code for fb list template 
     
     if(req.body.result.action=='fblist'){
-      var fblist=fbrichmsg.fblistresp();
+      var fblist=fbtemplate.fblistresp('Title','Subtitle','http://www.naturephotographers.net/kt0101-1.jpg','View','web_url','http://www.naturephotographers.net/kt0101-1.jpg');
       console.log(fblist);
       return res.json(fblist);
     }
