@@ -18,11 +18,6 @@ var FBCALL = require('./test');
 var expressSession = require('express-session');
 // ********* code for facebook auth **************** // 
 
-// console.log('can run fs here');
-// fs.writeFile('script.html', 'Hello content!', function (err) {
-//   if (err) throw err;
-//   console.log('Saved!');
-// });
 
 var redirecturi = '';
 
@@ -169,13 +164,13 @@ app.post('/first', function (req, res) {
     //};
 
 
-    /*code for fb generic template card  
-    if (req.body.result.action == 'acthello') {
-      // var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
+    //code for fb generic template card  
+    if (req.body.result.action == 'fbgeneric') {
+      var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
       var fbgen= fbrichmsg.fbgeneric();
       console.log(fbgen);
       return res.json(fbgen);
-    }*/
+    }
 
     /*code for fb list template 
     if(req.body.result.action=='acthello'){
@@ -415,7 +410,7 @@ app.post('/first', function (req, res) {
       console.log(cat);
 
       incident.chatLog(req.body.result.parameters.subcategory,'Please Enter Description',req.body.sessionId);
-      incident.chatLog(req.body.result.parameters.desc,'Please Enter Severity as High low medium',req.body.sessionId);
+      incident.chatLog(req.body.result.parameters.desc,'Please Enter Severity as High, low or medium',req.body.sessionId);
 
 
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
