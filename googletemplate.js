@@ -1,6 +1,7 @@
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
 var googlesuggestion_chip = function googlesuggesion(textToSpeech,firstsuggestion,secondsuggestion,thirdsuggestion) {
+    console.log('function called'); 
     var googlesuggesion = {
         "speech": "google assistant",
         "messages": [

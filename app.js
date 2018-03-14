@@ -496,10 +496,13 @@ app.post('/first', function (req, res) {
     // }
 
     if(req.body.result.action=='googlesuggesion'){
+      console.log('call googleresponse : ');
       var googlesuggesion= googletemplate.googlesuggesion('textToSpeech','firstsuggestion','secondsuggestion','thirdsuggestion');
       return res.json(googlesuggesion);
+      console.log('googleresponse : ');
     }
     
+
 
 
 
