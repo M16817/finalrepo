@@ -157,7 +157,7 @@ app.get('/script', function (req, res) {
 
 app.post('/first', function (req, res) {
   if (req.body.originalRequest.source == 'facebook') {
-
+    console.log('mahesh print action :' + req.body.result.action);
 
     /* code for getting end user name */
     //if (req.body.result.action == 'acthello') {
