@@ -191,7 +191,7 @@ var fbcourosel = function fbcourosel() {
             }
         ]
     }
-    return fbresponse
+    return fbcourosel
 }
 module.exports.fbcourosel = fbcourosel;
 
