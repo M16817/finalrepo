@@ -166,19 +166,20 @@ app.post('/first', function (req, res) {
 
     //code for fb generic template card  
     if (req.body.result.action == 'fbgeneric') {
-      var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
+      //var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
       var fbgen= fbrichmsg.fbgeneric();
       console.log(fbgen);
       return res.json(fbgen);
     }
 
-    /*code for fb list template 
-    if(req.body.result.action=='acthello'){
+    //code for fb list template 
+    
+    if(req.body.result.action=='fblist'){
       var fblist=fbrichmsg.fblistresp();
       console.log(fblist);
       return res.json(fblist);
     }
-    */
+    
 
     /* check for google msg
     if (req.body.result.action=='acthello'){
