@@ -1,7 +1,7 @@
 // FB quick replies template
 
 var fbquickreplies = function fbquickrepl(title, subtitle, imageUrl, buttonText, buttonPostback) {
-    console.log('print titlemahes : '+ title)
+    console.log('print titlemahes : ' + title)
     var fbresponse =
         {
             "speech": "",
@@ -110,3 +110,128 @@ var fblistresp = function fblist(title, subtitle, image_url, buttonTitle, button
 }
 
 module.exports.fblistresp = fblistresp;
+
+
+//FB template for courosel
+
+
+var fbcourosel = function fbcourosel() {
+    var fbcourosel = {
+        "messages": [
+            {
+                "type": 4,
+                "platform": "facebook",
+                "payload": {
+                    "facebook": {
+                        "attachment": {
+                            "type": "template",
+                            "payload": {
+                                "template_type": "generic",
+                                "elements": [
+                                    {
+                                        "title": "Welcome!",
+                                        "image_url": "https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14",
+                                        "subtitle": "We have the right hat for everyone.",
+                                        "buttons": [
+                                            {
+                                                "type": "web_url",
+                                                "url": "https://petersfancybrownhats.com",
+                                                "title": "View Website"
+                                            },
+                                            {
+                                                "type": "postback",
+                                                "title": "Start Chatting",
+                                                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Welcome!",
+                                        "image_url": "https://petersfancybrownhats.com/company_image.png",
+                                        "subtitle": "We have the right hat for everyone.",
+                                        "buttons": [
+                                            {
+                                                "type": "web_url",
+                                                "url": "https://petersfancybrownhats.com",
+                                                "title": "View Website"
+                                            },
+                                            {
+                                                "type": "postback",
+                                                "title": "Start Chatting",
+                                                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "title": "Welcome!",
+                                        "image_url": "https://petersfancybrownhats.com/company_image.png",
+                                        "subtitle": "We have the right hat for everyone.",
+                                        "buttons": [
+                                            {
+                                                "type": "web_url",
+                                                "url": "https://petersfancybrownhats.com",
+                                                "title": "View Website"
+                                            },
+                                            {
+                                                "type": "postback",
+                                                "title": "Start Chatting",
+                                                "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "type": 0,
+                "speech": "Hi!"
+            }
+        ]
+    }
+    return fbresponse
+}
+module.exports.fbcourosel = fbcourosel;
+
+
+///////////////////////////////////card///////////////////////////////////
+
+var fbcard = function fbcard() {
+
+    var fbcard = {
+        "speech": "",
+        "messages": [
+            {
+                "type": 1,
+                "platform": "facebook",
+                "title": "Servicenow",
+                "subtitle": "Servicenow",
+                "imageUrl": "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/122013/untitled-1_86.png?itok=jqHZFAoG",
+                "buttons": [
+                    {
+                        "text": "DHCP",
+                        "postback": "DHCP"
+                    },
+                    {
+                        "text": "DNS",
+                        "postback": "DNS"
+                    },
+                    {
+                        "text": "IP Address",
+                        "postback": "IP Address"
+                    }
+                ]
+            },
+            {
+                "type": 0,
+                "speech": ""
+            }
+        ]
+    }
+    return fbcard;
+}
+module.exports.fbcard = fbcard;
+
+

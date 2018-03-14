@@ -186,6 +186,16 @@ app.post('/first', function (req, res) {
       return res.json(fbquickreplies);
     }
 
+    if(req.body.result.action="fbcard"){
+      var fbcard=fbtemplate.fbcard();
+      return res.json(fbcard);
+    }
+
+    if(req.body.result.action="fbcourosel"){
+      var fbcourosel=fbtemplate.fbcourosel();
+      return res.json(fbcourosel);
+    }
+
     
     
 
