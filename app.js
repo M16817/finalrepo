@@ -1,3 +1,5 @@
+import { fbsharebutoon } from './fbtemplate';
+
 
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
@@ -203,6 +205,13 @@ app.post('/first', function (req, res) {
       console.log('fbbutton function called');
       return res.json(fbbuttons);
     }
+
+    if(req.body.result.action=="fbsharebutton"){
+      var fbsharebutton=fbtemplate.fbsharebutoon();
+      return res.json(fbsharebutton);
+    }
+
+  
        
 
     /* check for google msg
