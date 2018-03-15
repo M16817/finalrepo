@@ -225,36 +225,53 @@ module.exports.fbcard = fbcard;
 //template for fb buttons //
 
 
-var fbbuttons=function fbbuttons(){
-var fbbuttons = {
-    "speech": "",
-    "messages": [
-      {
-        "type": 4,
-        "platform": "facebook",
-        "payload": {
-          "facebook": {
-            "attachment": {
-              "type": "template",
-              "payload": {
-                "template_type": "button",
-                "text": 'Please click login button',
-                "buttons": [
-                  {
-                    "type": "account_link",
-                    "url": "https://mydemoflight.herokuapp.com/login"
-                  },
-                  {
-                    "type": "account_unlink"
-                  }
-                ]
-              }
+var fbbuttons = function fbbuttons() {
+    var fbbuttons = {
+        "speech": "",
+        "messages": [
+            {
+                "type": 4,
+                "platform": "facebook",
+                "payload": {
+                    "facebook": {
+                        "attachment": {
+                            "type": "template",
+                            "payload": {
+                                "template_type": "button",
+                                "text": 'Please click login button',
+                                "buttons": [
+                                    {
+                                        "type": "account_link",
+                                        "url": "https://mydemoflight.herokuapp.com/login"
+                                    },
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://www.messenger.com",
+                                        "title": "Web url button"
+                                    },
+                                    {
+                                        "type": "phone_number",
+                                        "title": "Call Representative",
+                                        "payload": "+917387355663"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
             }
-          }
-        }
-      }
-    ]
-  }
-  return fbbuttons;
+        ]
+    }
+    return fbbuttons;
 }
 module.exports.fbbuttons = fbbuttons;
+
+
+var fbsharebutoon = function fbsharebutoon() {
+    var sharebutton = {
+
+
+    }
+    return sharebutton;
+}
+module.exports.fbsharebutoon = fbsharebutoon;
