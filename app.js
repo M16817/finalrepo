@@ -198,8 +198,8 @@ app.post('/first', function (req, res) {
     }
 
     if(req.body.result.action=="Fbbuttons"){
-      var fbcourosel=fbtemplate.fbbuttons(); //("Welcome!","https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14","This is courosel.","web_url","https://petersfancybrownhats.com","View Website");
-      return res.json(fbcourosel);
+      var fbbuttons=fbtemplate.fbbuttons(); //("Welcome!","https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14","This is courosel.","web_url","https://petersfancybrownhats.com","View Website");
+      return res.json(fbbuttons);
     }
 
     

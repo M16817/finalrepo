@@ -37,4 +37,4 @@ var googlesuggestion_chip = function googlesuggesion(textToSpeech,firstsuggestio
     };
     return googlesuggesion;
 }
-module.exports.googlesuggesion = googlesuggesion;
+module.exports.googlesuggesion = googlesuggestion_chip;
