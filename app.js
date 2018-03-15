@@ -203,9 +203,7 @@ app.post('/first', function (req, res) {
       console.log('fbbutton function called');
       return res.json(fbbuttons);
     }
-
-    
-    
+       
 
     /* check for google msg
     if (req.body.result.action=='acthello'){
