@@ -221,3 +221,36 @@ var fbcard = function fbcard(title, subtitle, imageUrl, buttonText, buttonPostba
 module.exports.fbcard = fbcard;
 
 
+var fbbuttons=function fbbuttons(){
+var fbbuttons={
+"speech": "",
+"messages": [
+  {
+    "type": 4,
+    "platform": "facebook",
+    "payload": {
+      "facebook": {
+        "message": {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "button",
+              "text": "What do you want to do next?",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "https://www.messenger.com",
+                  "title": "Visit Messenger"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+]
+}
+return fbbuttons;
+}
+module.exports.fbbuttons=fbbuttons;
