@@ -268,7 +268,6 @@ app.post('/first', function (req, res) {
         ]
       }
       return res.json(fbbuttonresponse);
-      //  });
     };
 
     if (req.body.result.action == 'acthello') {
