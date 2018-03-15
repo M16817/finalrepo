@@ -1,8 +1,4 @@
-import { fbsharebutoon } from './fbtemplate';
-
-
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
-
 
 var fs = require('fs');
 var fbtemplate=require('./fbtemplate');
@@ -206,7 +202,7 @@ app.post('/first', function (req, res) {
       return res.json(fbbuttons);
     }
 
-    if(req.body.result.action=="fbsharebutton"){
+    if(req.body.result.action=="fbsharebutoon"){
       var fbsharebutton=fbtemplate.fbsharebutoon();
       return res.json(fbsharebutton);
     }
