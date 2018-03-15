@@ -221,34 +221,36 @@ var fbcard = function fbcard(title, subtitle, imageUrl, buttonText, buttonPostba
 module.exports.fbcard = fbcard;
 
 
-var fbbuttons = function fbbuttons() {
-    var fbbuttons = {
-        "speech": "",
-        "messages": [
-            {
-                "type": 4,
-                "platform": "facebook",
-                "payload": {
-                    "facebook": {
-                        "attachment": {
-                            "type": "template",
-                            "payload": {
-                                "template_type": "button",
-                                "text": "What do you want to do next?",
-                                "buttons": [
-                                    {
-                                        "type": "web_url",
-                                        "url": "https://www.messenger.com",
-                                        "title": "Visit Messenger"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                }
+var fbbuttonresponse=function fbbuttonresponse(){
+var fbbuttonresponse = {
+    "speech": "",
+    "messages": [
+      {
+        "type": 4,
+        "platform": "facebook",
+        "payload": {
+          "facebook": {
+            "attachment": {
+              "type": "template",
+              "payload": {
+                "template_type": "button",
+                "text": 'Please click login button',
+                "buttons": [
+                  {
+                    "type": "account_link",
+                    "url": "https://mydemoflight.herokuapp.com/login"
+                  },
+                  {
+                    "type": "account_unlink"
+                  }
+                ]
+              }
             }
-        ]
-    }
-    return fbbuttons;
+          }
+        }
+      }
+    ]
+  }
+  return fbbuttonresponse
 }
-module.exports.fbbuttons = fbbuttons;
+module.exports.fbbuttonresponse = fbbuttonresponse;
