@@ -105,7 +105,7 @@ module.exports.fblistresp = fblistresp;
 //FB template for courosel
 
 
-var fbcourosel = function fbcourosel(title,imageUrl,subtitle,buttonType,buttonUrl,buttonTitle) {
+var fbcourosel = function fbcourosel(title, imageUrl, subtitle, buttonType, buttonUrl, buttonTitle) {
     var fbcourosel = {
         "messages": [
             {
@@ -125,7 +125,7 @@ var fbcourosel = function fbcourosel(title,imageUrl,subtitle,buttonType,buttonUr
                                         "buttons": [
                                             {
                                                 "type": buttonType, //"web_url",
-                                                "url":  buttonUrl, // "https://petersfancybrownhats.com",
+                                                "url": buttonUrl, // "https://petersfancybrownhats.com",
                                                 "title": buttonTitle // "View Website"
                                             }
                                             // {
@@ -221,36 +221,34 @@ var fbcard = function fbcard(title, subtitle, imageUrl, buttonText, buttonPostba
 module.exports.fbcard = fbcard;
 
 
-var fbbuttons=function fbbuttons(){
-var fbbuttons={
-"speech": "",
-"messages": [
-  {
-    "type": 4,
-    "platform": "facebook",
-    "payload": {
-      "facebook": {
-        "message": {
-          "attachment": {
-            "type": "template",
-            "payload": {
-              "template_type": "button",
-              "text": "What do you want to do next?",
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "https://www.messenger.com",
-                  "title": "Visit Messenger"
+var fbbuttons = function fbbuttons() {
+    var fbbuttons = {
+        "speech": "",
+        "messages": [
+            {
+                "type": 4,
+                "platform": "facebook",
+                "payload": {
+                    "facebook": {
+                        "attachment": {
+                            "type": "template",
+                            "payload": {
+                                "template_type": "button",
+                                "text": "What do you want to do next?",
+                                "buttons": [
+                                    {
+                                        "type": "web_url",
+                                        "url": "https://www.messenger.com",
+                                        "title": "Visit Messenger"
+                                    }
+                                ]
+                            }
+                        }
+                    }
                 }
-              ]
             }
-          }
-        }
-      }
+        ]
     }
-  }
-]
+    return fbbuttons;
 }
-return fbbuttons;
-}
-module.exports.fbbuttons=fbbuttons;
+module.exports.fbbuttons = fbbuttons;
