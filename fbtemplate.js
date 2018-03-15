@@ -284,7 +284,7 @@ var fbsharebutoon = function fbsharebutoon() {
                  {
                    "title": "Breaking News: Record Thunderstorms",
                  "subtitle": "The local area is due for record thunderstorms over the weekend.",
-                 "image_url": "https://thechangreport.com/img/lightning.png",
+                 "image_url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
                  "buttons": [
                     {
                     "type": "element_share",
@@ -297,15 +297,15 @@ var fbsharebutoon = function fbsharebutoon() {
                                     {
                                       "title": "I took the hat quiz",
                                       "subtitle": "My result: Fez",
-                                      "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
+                                      "image_url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
                                       "default_action": {
                                        "type": "web_url",
-                                      "url": "http://m.me/petershats?ref=invited_by_24601"
+                                      "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png"
                                         },
                                        "buttons": [
                                         {
                                        "type": "web_url",
-                                       "url": "http://m.me/petershats?ref=invited_by_24601",
+                                       "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
                                        "title": "Take Quiz"
                                    }
                                ]
