@@ -221,8 +221,12 @@ var fbcard = function fbcard(title, subtitle, imageUrl, buttonText, buttonPostba
 module.exports.fbcard = fbcard;
 
 
-var fbbuttons=function fbbuttonresponse(){
-var fbbuttonresponse = {
+
+//template for fb buttons //
+
+
+var fbbuttons=function fbbuttons(){
+var fbbuttons = {
     "speech": "",
     "messages": [
       {
@@ -251,6 +255,6 @@ var fbbuttonresponse = {
       }
     ]
   }
-  return fbbuttonresponse
+  return fbbuttons;
 }
 module.exports.fbbuttons = fbbuttons;
