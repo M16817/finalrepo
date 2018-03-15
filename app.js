@@ -197,7 +197,7 @@ app.post('/first', function (req, res) {
       return res.json(fbcourosel);
     }
 
-    if(req.body.result.action=="Fbbuttons"){
+    if(req.body.result.action=="fbbuttons"){
       console.log('fbbutton function calling');
       var fbbuttons=fbtemplate.fbbuttons(); //("Welcome!","https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14","This is courosel.","web_url","https://petersfancybrownhats.com","View Website");
       console.log('fbbutton function called');
