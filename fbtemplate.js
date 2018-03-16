@@ -59,12 +59,12 @@ var fblistresp = function fblist(title, subtitle, image_url, buttonTitle, button
                                         {
                                             "title": "Classic White T-Shirt",
                                             "subtitle": "See all our colors",
-                                            "image_url": "https://peterssendreceiveapp.ngrok.io/img/collection.png",
+                                            "image_url": image_url,
                                             "buttons": [
                                                 {
                                                     "title": "View",
                                                     "type": "web_url",
-                                                    "url": "https://peterssendreceiveapp.ngrok.io/collection"
+                                                    "url": image_url
                                                 }
                                             ]
                                         },
@@ -186,7 +186,7 @@ var fbcourosel = function fbcourosel(title, imageUrl, subtitle, buttonType, butt
 module.exports.fbcourosel = fbcourosel;
 
 
-///////////////////////////////////card///////////////////////////////////
+//fb card template //
 
 var fbcard = function fbcard(title, subtitle, imageUrl, buttonText, buttonPostback) {
 
@@ -291,27 +291,53 @@ var fbsharebutoon = function fbsharebutoon() {
                     "share_contents": {
                     "attachment": {
                         "type": "template",
+
                         "payload": {
-                              "template_type": "generic",
-                               "elements": [
-                                    {
-                                      "title": "I took the hat quiz",
-                                      "subtitle": "My result: Fez",
-                                      "image_url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
-                                      "default_action": {
-                                       "type": "web_url",
-                                      "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png"
-                                        },
-                                       "buttons": [
-                                        {
-                                       "type": "web_url",
-                                       "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
-                                       "title": "Take Quiz"
-                                   }
-                               ]
-                           }
-                       ]
-                   }
+                            "template_type": "generic",
+                            "elements": [
+                              {
+                                "title": "I took the hat quiz",
+                                "subtitle": "My result: Fez",
+                                "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
+                                "default_action": {
+                                  "type": "web_url",
+                                  "url": "http://m.me/petershats?ref=invited_by_24601"
+                                },
+                                "buttons": [
+                                  {
+                                    "type": "web_url",
+                                    "url": "http://m.me/petershats?ref=invited_by_24601",
+                                    "title": "Take Quiz"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+
+                       
+                //         "payload": {
+                //               "template_type": "generic",
+                //                "elements": [
+                //                     {
+                //                       "title": "I took the hat quiz",
+                //                       "subtitle": "My result: Fez",
+                //                       "image_url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
+                //                       "default_action": {
+                //                        "type": "web_url",
+                //                       "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png"
+                //                         },
+                //                        "buttons": [
+                //                         {
+                //                        "type": "web_url",
+                //                        "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
+                //                        "title": "Take Quiz"
+                //                    }
+                //                ]
+                //            }
+                //        ]
+                //    }
+
+
                }
            }
        }
@@ -333,3 +359,72 @@ var fbsharebutoon = function fbsharebutoon() {
     return sharebutton;
 }
 module.exports.fbsharebutoon = fbsharebutoon;
+
+
+var fbbuybutton=function fbbuybutton(){
+    var fbbuybutton={
+        "speech": "",
+        "messages": [
+          {
+            "type": 4,
+            "platform": "facebook",
+            "payload": {
+              "facebook": {
+                "attachment": {
+                  "type": "template",
+                  "payload": {
+                    "template_type": "generic",
+                    "elements": [
+                      {
+                        "title": "Breaking News: Record Thunderstorms",
+                        "subtitle": "The local area is due for record thunderstorms over the weekend.",
+                        "image_url": "https://thechangreport.com/img/lightning.png",
+                        "buttons": [
+                          {
+                            "type": "element_share",
+                            "share_contents": {
+                              "attachment": {
+                                "type": "template",
+                                
+                                "payload": {
+                                  "template_type": "generic",
+                                  "elements": [
+                                    {
+                                      "title": "I took the hat quiz",
+                                      "subtitle": "My result: Fez",
+                                      "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
+                                      "default_action": {
+                                        "type": "web_url",
+                                        "url": "http://m.me/petershats?ref=invited_by_24601"
+                                      },
+                                      "buttons": [
+                                        {
+                                          "type": "web_url",
+                                          "url": "http://m.me/petershats?ref=invited_by_24601",
+                                          "title": "Take Quiz"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                                
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": 0,
+            "speech": ""
+          }
+        ]
+    }
+    return fbbuybutton;
+}
+module.exports.fbbuybutton=fbbuybutton;
