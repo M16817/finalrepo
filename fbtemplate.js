@@ -40,6 +40,7 @@ var fblistresp = function fblist(title, subtitle, image_url, buttonTitle, button
                         "facebook": {
                             "attachment": {
                                 "type": "template",
+
                                 "payload": {
                                     "template_type": "list",
                                     "top_element_style": "compact",
@@ -89,6 +90,7 @@ var fblistresp = function fblist(title, subtitle, image_url, buttonTitle, button
                                         }
                                     ]
                                 }
+
                             }
                         }
                     }
@@ -293,41 +295,56 @@ var fbsharebutoon = function fbsharebutoon() {
                         "type": "template",
 
                         "payload": {
-                            "facebook": {
-                              "attachment": {
-                                "type": "template",
-                                "payload": {
-                                  "template_type": "button",
-                                  "text": "Try the buy button!",
-                                  "buttons": [
-                                    {
-                                      "type": "payment",
-                                      "title": "But Button",
-                                      "payload": "DEVELOPER_DEFINED_PAYLOAD",
-                                      "payment_summary": {
-                                        "currency": "USD",
-                                        "payment_type": "FIXED_AMOUNT",
-                                        "is_test_payment": true,
-                                        "merchant_name": "My Fake Business",
-                                        "requested_user_info": [
-                                          "shipping_address",
-                                          "contact_name",
-                                          "contact_phone",
-                                          "contact_email"
-                                        ],
-                                        "price_list": [
-                                          {
-                                            "label": "subtotal",
-                                            "amount": "12.75"
-                                          }
-                                        ]
-                                      }
-                                    }
-                                  ]
+                            "template_type": "list",
+                            "top_element_style": "compact",
+                            "elements": [
+                                {
+                                    "title": title,
+                                    "subtitle": subtitle,
+                                    "image_url": image_url,
+                                    "buttons": [
+                                        {
+                                            "title": buttonTitle,
+                                            "type": buttonType,
+                                            "url": buttonUrl
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Classic White T-Shirt",
+                                    "subtitle": "See all our colors",
+                                    "image_url": image_url,
+                                    "buttons": [
+                                        {
+                                            "title": "View",
+                                            "type": "web_url",
+                                            "url": image_url
+                                        }
+                                    ]
+                                },
+                                {
+                                    "title": "Classic Blue T-Shirt",
+                                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
+                                    "subtitle": "100% Cotton, 200% Comfortable",
+                                    "buttons": [
+                                        {
+                                            "title": "Shop Now",
+                                            "type": "web_url",
+                                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101"
+                                        }
+                                    ]
                                 }
-                              }
-                            }
-                          }
+                            ],
+                            "buttons": [
+                                {
+                                    "title": "View More",
+                                    "type": "postback",
+                                    "payload": "payload"
+                                }
+                            ]
+                        }
+
+                        
               
 
                     
