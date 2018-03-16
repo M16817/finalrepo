@@ -345,8 +345,6 @@ var fbbuybutton=function fbbuybutton(){
             "type": 4,
             "platform": "facebook",
             "payload": {
-              "facebook": {
-                "attachment": {
                   "type": "template",
                   "payload": {
                     "template_type": "button",
@@ -377,8 +375,7 @@ var fbbuybutton=function fbbuybutton(){
                       }
                     ]
                   }
-                }
-              }
+               
             }
 
           },
