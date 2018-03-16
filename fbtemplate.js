@@ -1,3 +1,5 @@
+import { type } from "os";
+
 // FB quick replies template
 
 var fbquickreplies = function fbquickrepl(title, firstreply, secondreply) {
@@ -227,7 +229,7 @@ module.exports.fbcard = fbcard;
 //template for fb buttons //
 
 
-var fbbuttons = function fbbuttons() {
+var fbbuttons = function fbbuttons(type,title,phone_number) {
     var fbbuttons = {
         "speech": "",
         "messages": [
@@ -252,9 +254,9 @@ var fbbuttons = function fbbuttons() {
                                         "title": "Web url button"
                                     },
                                     {
-                                        "type": "phone_number",
-                                        "title": "Call Representative",
-                                        "payload": "+917387355663"
+                                        "type": type,
+                                        "title": title,
+                                        "payload": phone_number
                                     }
                                 ]
                             }
