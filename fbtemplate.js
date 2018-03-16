@@ -1,5 +1,3 @@
-import { type } from "os";
-
 // FB quick replies template
 
 var fbquickreplies = function fbquickrepl(title, firstreply, secondreply) {
