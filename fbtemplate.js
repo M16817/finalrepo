@@ -292,90 +292,31 @@ var fbsharebutoon = function fbsharebutoon() {
                     "type": "element_share",
                     "share_contents": {
                     "attachment": {
-                        "type": "template",
-
+                        "type": "template",                       
                         "payload": {
-                            "template_type": "list",
-                            "top_element_style": "compact",
-                            "elements": [
-                                {
-                                    "title": "Red T-shirt",
-                                    "subtitle": "See all colors",
-                                    "image_url": "https://images-eu.ssl-images-amazon.com/images/I/81AsBRxCKiL._UL1500_.jpg",
-                                    "buttons": [
+                              "template_type": "generic",
+                               "elements": [
+                                    {
+                                      "title": "I took the hat quiz",
+                                      "subtitle": "My result: Fez",
+                                      "image_url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
+                                      "default_action": {
+                                       "type": "web_url",
+                                      "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png"
+                                        },
+                                       "buttons": [
                                         {
-                                            "title": "View",
-                                            "type": "web_url",
-                                            "url": "https://images-eu.ssl-images-amazon.com/images/I/81AsBRxCKiL._UL1500_.jpg"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "title": "Classic White T-Shirt",
-                                    "subtitle": "See all our colors",
-                                    "image_url": "https://images-eu.ssl-images-amazon.com/images/I/81AsBRxCKiL._UL1500_.jpg",
-                                    "buttons": [
-                                        {
-                                            "title": "View",
-                                            "type": "web_url",
-                                            "url": "https://images-eu.ssl-images-amazon.com/images/I/81AsBRxCKiL._UL1500_.jpg"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "title": "Classic Blue T-Shirt",
-                                    "image_url": "https://peterssendreceiveapp.ngrok.io/img/blue-t-shirt.png",
-                                    "subtitle": "100% Cotton, 200% Comfortable",
-                                    "buttons": [
-                                        {
-                                            "title": "Shop Now",
-                                            "type": "web_url",
-                                            "url": "https://peterssendreceiveapp.ngrok.io/shop?item=101"
-                                        }
-                                    ]
-                                }
-                            ],
-                            "buttons": [
-                                {
-                                    "title": "View More",
-                                    "type": "postback",
-                                    "payload": "payload"
-                                }
-                            ]
-                        }
-
-                        
-              
-
-                    
-
-                      
-                        
-
-                       
-                //         "payload": {
-                //               "template_type": "generic",
-                //                "elements": [
-                //                     {
-                //                       "title": "I took the hat quiz",
-                //                       "subtitle": "My result: Fez",
-                //                       "image_url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
-                //                       "default_action": {
-                //                        "type": "web_url",
-                //                       "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png"
-                //                         },
-                //                        "buttons": [
-                //                         {
-                //                        "type": "web_url",
-                //                        "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
-                //                        "title": "Take Quiz"
-                //                    }
-                //                ]
-                //            }
-                //        ]
-                //    }
-
-
+                                    //    "type": "web_url",
+                                    //    "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
+                                    //    "title": "Take Quiz"
+                                        "type": "phone_number",
+                                        "title": "Call Representative",
+                                        "payload": "+917387355663"
+                                   }
+                               ]
+                           }
+                       ]
+                   }
                }
            }
        }
