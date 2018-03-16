@@ -339,12 +339,15 @@ module.exports.fbsharebutoon = fbsharebutoon;
 
 var fbbuybutton=function fbbuybutton(){
     var fbbuybutton={
+       
         "speech": "",
         "messages": [
           {
             "type": 4,
             "platform": "facebook",
             "payload": {
+              "facebook": {
+                "attachment": {
                   "type": "template",
                   "payload": {
                     "template_type": "button",
@@ -375,15 +378,16 @@ var fbbuybutton=function fbbuybutton(){
                       }
                     ]
                   }
-               
+                }
+              }
             }
-
           },
           {
             "type": 0,
             "speech": ""
           }
         ]
+        
     }
     return fbbuybutton;
 }
