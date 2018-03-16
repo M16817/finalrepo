@@ -299,26 +299,26 @@ var fbsharebutoon = function fbsharebutoon() {
                             "top_element_style": "compact",
                             "elements": [
                                 {
-                                    "title": title,
-                                    "subtitle": subtitle,
-                                    "image_url": image_url,
+                                    "title": "Red T-shirt",
+                                    "subtitle": "See all colors",
+                                    "image_url": "https://images-eu.ssl-images-amazon.com/images/I/81AsBRxCKiL._UL1500_.jpg",
                                     "buttons": [
                                         {
-                                            "title": buttonTitle,
-                                            "type": buttonType,
-                                            "url": buttonUrl
+                                            "title": "View",
+                                            "type": "web_url",
+                                            "url": "https://images-eu.ssl-images-amazon.com/images/I/81AsBRxCKiL._UL1500_.jpg"
                                         }
                                     ]
                                 },
                                 {
                                     "title": "Classic White T-Shirt",
                                     "subtitle": "See all our colors",
-                                    "image_url": image_url,
+                                    "image_url": "https://images-eu.ssl-images-amazon.com/images/I/81AsBRxCKiL._UL1500_.jpg",
                                     "buttons": [
                                         {
                                             "title": "View",
                                             "type": "web_url",
-                                            "url": image_url
+                                            "url": "https://images-eu.ssl-images-amazon.com/images/I/81AsBRxCKiL._UL1500_.jpg"
                                         }
                                     ]
                                 },
