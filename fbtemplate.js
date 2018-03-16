@@ -306,12 +306,9 @@ var fbsharebutoon = function fbsharebutoon() {
                                         },
                                        "buttons": [
                                         {
-                                    //    "type": "web_url",
-                                    //    "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
-                                    //    "title": "Take Quiz"
-                                        "type": "phone_number",
-                                        "title": "Call Representative",
-                                        "payload": "+917387355663"
+                                       "type": "web_url",
+                                       "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
+                                       "title": "Take Quiz"
                                    }
                                ]
                            }
