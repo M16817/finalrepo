@@ -207,6 +207,10 @@ app.post('/first', function (req, res) {
       return res.json(fbsharebutton);
     }
 
+    if(req.body.result.action=="fbbuybutton"){
+      var fbbuybutton=fbtemplate.fbbuybutton();
+      return res.json(fbbuybutton);
+    }
     
   
        

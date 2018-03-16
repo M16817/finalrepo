@@ -293,26 +293,47 @@ var fbsharebutoon = function fbsharebutoon() {
                         "type": "template",
 
                         "payload": {
-                            "template_type": "generic",
-                            "elements": [
-                              {
-                                "title": "I took the hat quiz",
-                                "subtitle": "My result: Fez",
-                                "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
-                                "default_action": {
-                                  "type": "web_url",
-                                  "url": "http://m.me/petershats?ref=invited_by_24601"
-                                },
-                                "buttons": [
-                                  {
-                                    "type": "web_url",
-                                    "url": "http://m.me/petershats?ref=invited_by_24601",
-                                    "title": "Take Quiz"
-                                  }
-                                ]
+                            "facebook": {
+                              "attachment": {
+                                "type": "template",
+                                "payload": {
+                                  "template_type": "button",
+                                  "text": "Try the buy button!",
+                                  "buttons": [
+                                    {
+                                      "type": "payment",
+                                      "title": "But Button",
+                                      "payload": "DEVELOPER_DEFINED_PAYLOAD",
+                                      "payment_summary": {
+                                        "currency": "USD",
+                                        "payment_type": "FIXED_AMOUNT",
+                                        "is_test_payment": true,
+                                        "merchant_name": "My Fake Business",
+                                        "requested_user_info": [
+                                          "shipping_address",
+                                          "contact_name",
+                                          "contact_phone",
+                                          "contact_email"
+                                        ],
+                                        "price_list": [
+                                          {
+                                            "label": "subtotal",
+                                            "amount": "12.75"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
                               }
-                            ]
+                            }
                           }
+              
+
+                    
+
+                      
+                        
 
                        
                 //         "payload": {
@@ -373,51 +394,38 @@ var fbbuybutton=function fbbuybutton(){
                 "attachment": {
                   "type": "template",
                   "payload": {
-                    "template_type": "generic",
-                    "elements": [
+                    "template_type": "button",
+                    "text": "Try the buy button!",
+                    "buttons": [
                       {
-                        "title": "Breaking News: Record Thunderstorms",
-                        "subtitle": "The local area is due for record thunderstorms over the weekend.",
-                        "image_url": "https://thechangreport.com/img/lightning.png",
-                        "buttons": [
-                          {
-                            "type": "element_share",
-                            "share_contents": {
-                              "attachment": {
-                                "type": "template",
-                                
-                                "payload": {
-                                  "template_type": "generic",
-                                  "elements": [
-                                    {
-                                      "title": "I took the hat quiz",
-                                      "subtitle": "My result: Fez",
-                                      "image_url": "https://bot.peters-hats.com/img/hats/fez.jpg",
-                                      "default_action": {
-                                        "type": "web_url",
-                                        "url": "http://m.me/petershats?ref=invited_by_24601"
-                                      },
-                                      "buttons": [
-                                        {
-                                          "type": "web_url",
-                                          "url": "http://m.me/petershats?ref=invited_by_24601",
-                                          "title": "Take Quiz"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                                
-                              }
+                        "type": "payment",
+                        "title": "But Button",
+                        "payload": "DEVELOPER_DEFINED_PAYLOAD",
+                        "payment_summary": {
+                          "currency": "USD",
+                          "payment_type": "FIXED_AMOUNT",
+                          "is_test_payment": true,
+                          "merchant_name": "My Fake Business",
+                          "requested_user_info": [
+                            "shipping_address",
+                            "contact_name",
+                            "contact_phone",
+                            "contact_email"
+                          ],
+                          "price_list": [
+                            {
+                              "label": "subtotal",
+                              "amount": "12.75"
                             }
-                          }
-                        ]
+                          ]
+                        }
                       }
                     ]
                   }
                 }
               }
             }
+
           },
           {
             "type": 0,
