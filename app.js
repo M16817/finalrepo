@@ -207,11 +207,8 @@ app.post('/first', function (req, res) {
       return res.json(fbsharebutton);
     }
 
-    if(req.body.result.action=="fbbuybutton"){
-      var fbbuybutton=fbtemplate.fbbuybutton();
-      return res.json(fbbuybutton);
-    }
     
+
   
        
 
@@ -237,6 +234,21 @@ app.post('/first', function (req, res) {
           });
         })
     };*/
+
+    if(req.body.result.action=='fbprofile')
+    {
+      incident.userProfile(function(err,res2){
+         var obj = JSON.parse(res2);
+         console.log(obj);
+         result = 'Hi ' + obj.name + ' welcome to ServiceNow';
+
+         return res.json({
+          speech: result,
+          displayText: result,
+          source: ''
+        });
+    })
+  };
 
     if (req.body.result.action == 'auth') {
       // FBCALL.FBCALL(function (err, res2) {

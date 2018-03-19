@@ -227,7 +227,7 @@ module.exports.fbcard = fbcard;
 //template for fb buttons //
 
 
-var fbbuttons = function fbbuttons(type,title,phone_number) {
+var fbbuttons = function fbbuttons(type, title, phone_number) {
     var fbbuttons = {
         "speech": "",
         "messages": [
@@ -274,56 +274,56 @@ var fbsharebutoon = function fbsharebutoon() {
         "speech": "",
         "messages": [
             {
-        "type": 4,
-        "platform": "facebook",
-        "payload": {
-        "facebook": {
-        "attachment": {
-        "type": "template",
-          "payload": {
-              "template_type": "generic",
-              "elements": [
-                 {
-                   "title": "Breaking News: Record Thunderstorms",
-                 "subtitle": "The local area is due for record thunderstorms over the weekend.",
-                 "image_url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
-                 "buttons": [
-                    {
-                    "type": "element_share",
-                    "share_contents": {
-                    "attachment": {
-                        "type": "template",                       
-                        "payload": {
-                              "template_type": "generic",
-                               "elements": [
+                "type": 4,
+                "platform": "facebook",
+                "payload": {
+                    "facebook": {
+                        "attachment": {
+                            "type": "template",
+                            "payload": {
+                                "template_type": "generic",
+                                "elements": [
                                     {
-                                      "title": "I took the hat quiz",
-                                      "subtitle": "My result: Fez",
-                                      "image_url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
-                                      "default_action": {
-                                       "type": "web_url",
-                                      "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png"
-                                        },
-                                       "buttons": [
-                                        {
-                                       "type": "web_url",
-                                       "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
-                                       "title": "Take Quiz"
-                                   }
-                               ]
-                           }
-                       ]
-                   }
-               }
-           }
-       }
-   ]
-}
-]
-}
-}
-}
-                                                                            
+                                        "title": "Breaking News: Record Thunderstorms",
+                                        "subtitle": "The local area is due for record thunderstorms over the weekend.",
+                                        "image_url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
+                                        "buttons": [
+                                            {
+                                                "type": "element_share",
+                                                "share_contents": {
+                                                    "attachment": {
+                                                        "type": "template",
+                                                        "payload": {
+                                                            "template_type": "generic",
+                                                            "elements": [
+                                                                {
+                                                                    "title": "I took the hat quiz",
+                                                                    "subtitle": "My result: Fez",
+                                                                    "image_url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
+                                                                    "default_action": {
+                                                                        "type": "web_url",
+                                                                        "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png"
+                                                                    },
+                                                                    "buttons": [
+                                                                        {
+                                                                            "type": "web_url",
+                                                                            "url": "https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/lWB96Z8sFtt.png",
+                                                                            "title": "Take Quiz"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+
                 }
             },
             {
@@ -337,58 +337,37 @@ var fbsharebutoon = function fbsharebutoon() {
 module.exports.fbsharebutoon = fbsharebutoon;
 
 
-var fbbuybutton=function fbbuybutton(){
-    var fbbuybutton={
-       
+var fbmedia = function fbmedia() {
+    var fbmedia = {
         "speech": "",
         "messages": [
-          {
-            "type": 4,
-            "platform": "facebook",
-            "payload": {
-              "facebook": {
-                "attachment": {
-                  "type": "template",
-                  "payload": {
-                    "template_type": "button",
-                    "text": "Try the buy button!",
-                    "buttons": [
-                      {
-                        "type": "payment",
-                        "title": "But Button",
-                        "payload": "DEVELOPER_DEFINED_PAYLOAD",
-                        "payment_summary": {
-                          "currency": "USD",
-                          "payment_type": "FIXED_AMOUNT",
-                          "is_test_payment": true,
-                          "merchant_name": "My Fake Business",
-                          "requested_user_info": [
-                            "shipping_address",
-                            "contact_name",
-                            "contact_phone",
-                            "contact_email"
-                          ],
-                          "price_list": [
-                            {
-                              "label": "subtotal",
-                              "amount": "12.75"
+            {
+                "type": 4,
+                "platform": "facebook",
+                "payload": {
+                    "facebook": {
+                        "attachment": {
+                            "type": "template",
+                            "payload": {
+                                "template_type": "media",
+                                "elements": [
+                                    {
+                                        "media_type": "<image|video>",
+                                        "url": "<FACEBOOK_URL>"
+                                    }
+                                ]
                             }
-                          ]
                         }
-                      }
-                    ]
-                  }
+                    }
                 }
-              }
+            },
+            {
+                "type": 0,
+                "speech": ""
             }
-          },
-          {
-            "type": 0,
-            "speech": ""
-          }
         ]
-        
+
+
     }
-    return fbbuybutton;
+    return fbmedia;
 }
-module.exports.fbbuybutton=fbbuybutton;
