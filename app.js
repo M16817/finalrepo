@@ -238,7 +238,7 @@ app.post('/first', function (req, res) {
     if(req.body.result.action=='fbprofile')
     {
       console.log('res id is : '+ req.body.originalRequest.data.recipient.id);
-      incident.userProfile(req.body.originalRequest.data.recipient.id,function(err,res2){
+      incident.userProfile(function(err,res2){
          var obj = JSON.parse(res2);
          console.log(obj);
          result = 'Hi ' + obj.name + ' welcome to ServiceNow';
