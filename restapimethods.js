@@ -69,7 +69,7 @@ module.exports = {
       method: 'GET',
       url: 'https://graph.facebook.com/me',
       qs: { PSID : recid,
-         access_token : 'EAAKeoGj4A6MBAME63jlRCpMpPYyZCQZCDml5kK9ZChj07vhdvoZBWJPFLjci0fuVooYR0MRsrTDr5XfOoTXxeZBCIUZAr1r7KLiypeJPib1BylLbtyMnS8hrpdWGrWZBeveZAO5vZBwFd10EZAm4dN2bNM9nhdnZCZAr0BaX3sH497ppeAw4ZCuy3AbqVhC5vzpxI0CWWxo1vVF1FsAZDZD'}
+         access_token : '737361746461603|CIYfW6g0Aef1u4yxdUCXM5LWMcI'}
     };
 
     request(options, function (error, response, body) {
