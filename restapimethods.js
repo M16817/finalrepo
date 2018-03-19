@@ -71,7 +71,7 @@ module.exports = {
       
       url: 'https://graph.facebook.com/v2.12/me',
       qs: {fields: "first_name,last_name",
-         access_token : 'EAAKeoGj4A6MBAPv546fdf594AFPtmqmpLoOgV0OsSuqNZAehRju3oJZAhXIvtz1xbTahnQTylaYpUs43vSOKaF0V8ibni1g2dXNZCsLTXFYSl4hUWLYSiJpTt1KKFuZB6cB9gCK0tKGiSoZAgZBMVfuMS1JaAighnyy9loUcxKAIjzMpkGNia2MwOZA7mMDUWQZD'}
+         access_token : 'EAAKeoGj4A6MBAGLT7TkMpYERrpooQjIL4VRO0yKWzboFdf3sT06lZCw7ZClnDr0pC4ZBJkPLvSaZAsonxfCuL3Ja9aZB1i5BcZA1Vw97oGCP8yZCg67UBjsNqvXBDZBcQfEayuxRgL1ZCT4wMlGFvnBY4qDqJ5rRXjPTNzkZBhuPgAZC4wn2xZB0JaIWzhakXw5OErGqmDRJZChKZALAZDZD'}
     };
 
     request(options, function (error, response, body) {
