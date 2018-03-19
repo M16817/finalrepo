@@ -241,8 +241,8 @@ app.post('/first', function (req, res) {
       incident.userProfile(function(err,res2){
          var obj = JSON.parse(res2);
          console.log(obj);
-         result = 'Hi ' + obj.name + ' welcome to ServiceNow';
-
+         result = 'Hi ' + obj.first_name + ' welcome to ServiceNow';
+        console.log(result);
          return res.json({
           speech: result,
           displayText: result,
