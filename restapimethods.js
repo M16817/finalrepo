@@ -67,7 +67,7 @@ module.exports = {
     console.log("User profile");
     var options = {
       method: 'GET',
-      url: 'https://graph.facebook.com/v2.6/'+PSID+'/',
+      url: 'https://graph.facebook.com/v2.6/'+recid+'/',
       qs: {fields: "first_name,last_name,profile_pic",
          access_token : 'EAAKeoGj4A6MBAPv546fdf594AFPtmqmpLoOgV0OsSuqNZAehRju3oJZAhXIvtz1xbTahnQTylaYpUs43vSOKaF0V8ibni1g2dXNZCsLTXFYSl4hUWLYSiJpTt1KKFuZB6cB9gCK0tKGiSoZAgZBMVfuMS1JaAighnyy9loUcxKAIjzMpkGNia2MwOZA7mMDUWQZD'}
     };
