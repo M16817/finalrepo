@@ -237,6 +237,9 @@ app.post('/first', function (req, res) {
 
     if(req.body.result.action=='fbprofile')
     {
+
+      
+
       incident.userProfile(function(err,res2){
          var obj = JSON.parse(res2);
          console.log(obj);
