@@ -464,15 +464,21 @@ app.post('/first', function (req, res) {
 
         incident.chatLog(req.body.result.parameters.severity,resagent,req.body.sessionId);
 
-
-        return res.json({
-          followupEvent: {
-            "name": "mainmenuevent",
-            "data": {
-              "incnumber": success
-            }
-          }
+         return res.json({
+          speech: resagent,
+          displayText: resagent,
+          source: ''
         });
+
+
+        // return res.json({
+        //   followupEvent: {
+        //     "name": "mainmenuevent",
+        //     "data": {
+        //       "incnumber": success
+        //     }
+        //   }
+        // });
       });
     }
 

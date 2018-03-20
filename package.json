@@ -18,7 +18,8 @@
     "passport-google-oauth": "^1.0.0",
     "passport-google-oauth2": "^0.1.6",
     "passport-twitter": "^1.0.4",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "seriate": "^0.13.1"
   },
   "devDependencies": {},
   "scripts": {
