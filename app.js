@@ -453,11 +453,73 @@ app.post('/first', function (req, res) {
       var cat = req.body.result.contexts[0].parameters.Category;
       console.log(cat);
 
-      incident.chatLog(req.body.result.parameters.subcategory,'Please Enter Description',req.body.sessionId);
-      incident.chatLog(req.body.result.parameters.desc,'Please Enter Severity as High, low or medium',req.body.sessionId);
+       if(cat===''){
+      console.log('catgeory msg nodejs');
+      return res.json(
+        {
+          "speech": "",
+          "messages": [
+            
+            {
+              "type": 2,
+              "platform": "facebook",
+              "title": "Please choose category",
+              "replies": [
+                "Network",
+                "Hardware",
+                "Software"
+              ]
+            }
+          ]
+        }
+      )
+    }
 
+     if(req.body.result.parameters.subcategory===''){
+      console.log('subcatgeory msg nodejs');
+      return res.json(
+        {
+          "speech": "",
+          "messages": [
+            
+            {
+              "type": 1,
+              "platform": "facebook",
+              "title": "Please choose sub category",
+              "imageUrl": "https://i.vimeocdn.com/video/623460558_780x439.jpg",
+              "buttons": [
+                {
+                  "text": "DHCP",
+                  "postback": "DHCP"
+                },
+                {
+                  "text": "DNS",
+                  "postback": "DHCP"
+                },
+                {
+                  "text": "VPN",
+                  "postback": "DHCP"
+                }
+              ]
+            }
+          ]
+        }
+      )
+    }
+    
+    incident.chatLog(req.body.result.parameters.subcategory,'Please Enter Description',req.body.sessionId);
 
-      incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
+    var userdes='';
+    if (req.body.result.parameters.desc!=''){
+      userdes=req.body.result.parameters.desc;
+    }
+    else{
+      userdes= req.body.result.resolvedQuery; 
+    }
+
+      incident.chatLog(userdes,'Please Enter Severity as High, low or medium',req.body.sessionId);
+      
+      incident.logIncident(userdes, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
         console.log('incident value chk :' + resu);
         var success = 'INC2323'; //resu["result"]["number"];
         var resagent = "Your incident has been created with incident number:" + success + ".Note it down for further enquiry.";
