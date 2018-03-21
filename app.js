@@ -458,6 +458,7 @@ app.post('/first', function (req, res) {
 
 
       incident.logIncident(req.body.result.parameters.desc, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
+        console.log('incident value chk :' + resu);
         var success = resu["result"]["number"];
         var resagent = "Your incident has been created with incident number:" + success + ".Note it down for further enquiry.";
         console.log('This is incident number :' + success)
