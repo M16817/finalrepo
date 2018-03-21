@@ -158,21 +158,6 @@ app.post('/first', function (req, res) {
   if (req.body.originalRequest.source == 'facebook') {
     console.log('mahesh print action :' + req.body.result.action);
 
-    /* code for getting end user name */
-    //if (req.body.result.action == 'acthello') {
-
-    //};
-
-
-    //code for fb generic template card  
-    // if (req.body.result.action == 'fbgeneric') {
-    //   //var fblog=JSON.stringify(fbrichmsg.fbgeneric());  
-    //   var fbgen= fbrichmsg.fbgeneric();
-    //   console.log(fbgen);
-    //   return res.json(fbgen);
-    // }
-
-    //code for fb list template 
 
     if (req.body.result.action == 'fblist') {
       var fblist = fbtemplate.fblistresp('Title', 'Subtitle', 'http://www.naturephotographers.net/kt0101-1.jpg', 'View', 'web_url', 'http://www.naturephotographers.net/kt0101-1.jpg');
@@ -207,34 +192,6 @@ app.post('/first', function (req, res) {
       return res.json(fbsharebutton);
     }
 
-
-
-
-
-
-    /* check for google msg
-    if (req.body.result.action=='acthello'){
-      var glist=fbrichmsg.googlelist();
-      return res.json(glist);
-
-    }*/
-
-    /*to get username of end user
-
-    if (req.body.result.action == 'acthello') {
-      FBCALL.FBCALL(function (err, res2) {
-        //  console.log(res2.name);
-         // var obj = JSON.parse(res2);
-          result = 'Hi ' + res2.name + ' welcome to ServiceNow';
-    
-          return res.json({
-            speech: result,
-            displayText: result,
-            source: ''
-          });
-        })
-    };*/
-
     if (req.body.result.action == 'fbprofile') {
       console.log('res id is : ' + req.body.originalRequest.data.recipient.id);
       incident.userProfile(function (err, res2) {
@@ -251,15 +208,6 @@ app.post('/first', function (req, res) {
     };
 
     if (req.body.result.action == 'auth') {
-      // FBCALL.FBCALL(function (err, res2) {
-      //  console.log('value of res2' + JSON.parse(res2));
-      // console.log(res2.name);
-
-      // incident.userProfile(function(err,res2){
-      //  var obj = JSON.parse(res2);
-      //  console.log(obj);
-      //  result = 'Hi ' + obj.name + ' welcome to ServiceNow';
-
       var fbbuttonresponse = {
         "speech": "",
         "messages": [
