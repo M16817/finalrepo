@@ -1,8 +1,8 @@
 const ActionsSdkApp = require('actions-on-google').DialogflowApp;
 
 var fs = require('fs');
-var fbtemplate=require('./fbtemplate');
-var googletemplate=require('./googletemplate');
+var fbtemplate = require('./fbtemplate');
+var googletemplate = require('./googletemplate');
 var fbrichmsg = require('./Facebookrichmsg');
 var googleresp = require('./googlerichresponse');
 var request = require('http');
@@ -13,7 +13,7 @@ var portC = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var incident = require('./restapimethods');
-var FBCALL = require('./test');
+//var FBCALL = require('./test');
 
 var expressSession = require('express-session');
 // ********* code for facebook auth **************** // 
@@ -173,44 +173,44 @@ app.post('/first', function (req, res) {
     // }
 
     //code for fb list template 
-    
-    if(req.body.result.action=='fblist'){
-      var fblist=fbtemplate.fblistresp('Title','Subtitle','http://www.naturephotographers.net/kt0101-1.jpg','View','web_url','http://www.naturephotographers.net/kt0101-1.jpg');
+
+    if (req.body.result.action == 'fblist') {
+      var fblist = fbtemplate.fblistresp('Title', 'Subtitle', 'http://www.naturephotographers.net/kt0101-1.jpg', 'View', 'web_url', 'http://www.naturephotographers.net/kt0101-1.jpg');
       //console.log(fblist);
       return res.json(fblist);
     }
 
-    if(req.body.result.action=='fbquickreplies'){
-      var fbquickreplies=fbtemplate.fbquickreplies('title', 'firstreply', 'secondreply');
+    if (req.body.result.action == 'fbquickreplies') {
+      var fbquickreplies = fbtemplate.fbquickreplies('title', 'firstreply', 'secondreply');
       return res.json(fbquickreplies);
     }
 
-    if(req.body.result.action=="fbcard"){
-      var fbcard=fbtemplate.fbcard('title','subtitle','http://www.naturephotographers.net/kt0101-1.jpg','buttontext','buttonpostback');
+    if (req.body.result.action == "fbcard") {
+      var fbcard = fbtemplate.fbcard('title', 'subtitle', 'http://www.naturephotographers.net/kt0101-1.jpg', 'buttontext', 'buttonpostback');
       return res.json(fbcard);
     }
 
-    if(req.body.result.action=="fbcourosel"){
-      var fbcourosel=fbtemplate.fbcourosel("Welcome!","https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14","This is courosel.","web_url","https://petersfancybrownhats.com","View Website");
+    if (req.body.result.action == "fbcourosel") {
+      var fbcourosel = fbtemplate.fbcourosel("Welcome!", "https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14", "This is courosel.", "web_url", "https://petersfancybrownhats.com", "View Website");
       return res.json(fbcourosel);
     }
 
-    if(req.body.result.action=="fbbuttons"){
+    if (req.body.result.action == "fbbuttons") {
       console.log('fbbutton function calling');
-      var fbbuttons=fbtemplate.fbbuttons('phone_number','Call Representative','+917021954711'); //("Welcome!","https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14","This is courosel.","web_url","https://petersfancybrownhats.com","View Website");
+      var fbbuttons = fbtemplate.fbbuttons('phone_number', 'Call Representative', '+917021954711'); //("Welcome!","https://auto.ndtvimg.com/bike-images/colors/suzuki/intruder/suzuki-intruder-glass-sparkle-black.png?v=14","This is courosel.","web_url","https://petersfancybrownhats.com","View Website");
       console.log('fbbutton function called');
       return res.json(fbbuttons);
     }
-    
-    if(req.body.result.action=="fbsharebutton"){
-      var fbsharebutton=fbtemplate.fbsharebutoon();
+
+    if (req.body.result.action == "fbsharebutton") {
+      var fbsharebutton = fbtemplate.fbsharebutoon();
       return res.json(fbsharebutton);
     }
 
-    
 
-  
-       
+
+
+
 
     /* check for google msg
     if (req.body.result.action=='acthello'){
@@ -235,21 +235,20 @@ app.post('/first', function (req, res) {
         })
     };*/
 
-    if(req.body.result.action=='fbprofile')
-    {
-      console.log('res id is : '+ req.body.originalRequest.data.recipient.id);
-      incident.userProfile(function(err,res2){
-         var obj = JSON.parse(res2);
-         console.log(obj);
-         result = 'Hi ' + obj.first_name + ' welcome to ServiceNow';
+    if (req.body.result.action == 'fbprofile') {
+      console.log('res id is : ' + req.body.originalRequest.data.recipient.id);
+      incident.userProfile(function (err, res2) {
+        var obj = JSON.parse(res2);
+        console.log(obj);
+        result = 'Hi ' + obj.first_name + ' welcome to ServiceNow';
         console.log(result);
-         return res.json({
+        return res.json({
           speech: result,
           displayText: result,
           source: ''
         });
-    })
-  };
+      })
+    };
 
     if (req.body.result.action == 'auth') {
       // FBCALL.FBCALL(function (err, res2) {
@@ -447,108 +446,87 @@ app.post('/first', function (req, res) {
     //Rest Api Call started
 
     // if (req.body.result.action == "CreateIncident.CreateIncident-custom") {
+
+    var subcat = {
+      Network: ['internet', 'firewall', 'DNS', 'DHCP', 'IP', 'VPN'],
+      Hardware: ['mouse', 'keyboard', 'lcd', 'monitor']
+    }
+
     if (req.body.result.action == "makeincident") {
       console.log('make incident called');
       console.log(req.body.result);
       var cat = req.body.result.contexts[0].parameters.Category;
       console.log(cat);
 
-       if(cat===''){
-      console.log('catgeory msg nodejs');
-      return res.json(
-        {
-          "speech": "",
-          "messages": [
-            
-            {
-              "type": 2,
-              "platform": "facebook",
-              "title": "Please choose category",
-              "replies": [
-                "Network",
-                "Hardware",
-                "Software"
-              ]
-            }
-          ]
+      if (req.body.result.contexts[0].parameters.Category == '' && req.body.result.parameters.subcategory != '') {
+        var Networkcategory = '';
+        var desc = req.body.result.resolvedQuery;
+
+        for (i = 0; i < subcat.Network.length; i++) {
+          if (req.body.result.parameters.subcategory == subcat.Network[i]) {
+            console.log('set cat as network');
+            Networkcategory = 'Network'
+            break;
+          }
         }
-      )
-    }
 
-     if(req.body.result.parameters.subcategory===''){
-      console.log('subcatgeory msg nodejs');
-      return res.json(
-        {
-          "speech": "",
-          "messages": [
-            
-            {
-              "type": 1,
-              "platform": "facebook",
-              "title": "Please choose sub category",
-              "imageUrl": "https://i.vimeocdn.com/video/623460558_780x439.jpg",
-              "buttons": [
-                {
-                  "text": "DHCP",
-                  "postback": "DHCP"
-                },
-                {
-                  "text": "DNS",
-                  "postback": "DHCP"
-                },
-                {
-                  "text": "VPN",
-                  "postback": "DHCP"
-                }
-              ]
+        if (req.body.result.parameters.severity === '') {
+          console.log('severity msg nodejs');
+          return res.json({
+            "followupEvent": {
+              "name": "set-severity",
+              "data": {
+                "Description": desc,
+                "category": Networkcategory,
+                "subcategory": req.body.result.parameters.subcategory,
+                "severity": "severity"
+              }
             }
-          ]
+          })
         }
-      )
-    }
-    
-    incident.chatLog(req.body.result.parameters.subcategory,'Please Enter Description',req.body.sessionId);
 
-    var userdes='';
-    if (req.body.result.parameters.desc!=''){
-      userdes=req.body.result.parameters.desc;
-    }
-    else{
-      userdes= req.body.result.resolvedQuery; 
-    }
+        incident.logIncident(desc, req.body.result.parameters.severity, Networkcategory, req.body.result.parameters.subcategory, function (err, resu) {
 
-      incident.chatLog(userdes,'Please Enter Severity as High, low or medium',req.body.sessionId);
-      
-      incident.logIncident(userdes, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
-        console.log('incident value chk :' + resu);
+          var resagent = "Your incident has been created with incident number:" + success + ".Note it down for further enquiry.";
+
+          return res.json({
+            speech: resagent,
+            displayText: resagent,
+            source: ''
+          });
+        })
+      }
+
+
+      //   //   incident.chatLog(req.body.result.parameters.subcategory, 'Please Enter Description', req.body.sessionId);
+
+      else {
+
+
+        console.log("else part called");
+        // incident.chatLog(userdes, 'Please Enter Severity as High, low or medium', req.body.sessionId);
+        //incident.logIncident(userdes, req.body.result.parameters.severity, cat, req.body.result.parameters.subcategory, function (err, resu) {
+
         var success = 'INC2323'; //resu["result"]["number"];
         var resagent = "Your incident has been created with incident number:" + success + ".Note it down for further enquiry.";
-        console.log('This is incident number :' + success)
 
-        incident.chatLog(req.body.result.parameters.severity,resagent,req.body.sessionId);
+        // incident.chatLog(req.body.result.parameters.severity, resagent, req.body.sessionId);
 
-         return res.json({
-          speech: resagent,
-          displayText: resagent,
-          source: ''
-        });
+        incident.logIncident(req.body.result.resolvedQuery, req.body.result.parameters.severity, Networkcategory, req.body.result.parameters.subcategory, function (err, resu) {
+
+          var resagent = "Your incident has been created with incident number:" + success + ".Note it down for further enquiry.";
 
 
-        // return res.json({
-        //   followupEvent: {
-        //     "name": "mainmenuevent",
-        //     "data": {
-        //       "incnumber": success
-        //     }
-        //   }
-        // });
-      });
+          return res.json({
+            speech: resagent,
+            displayText: resagent,
+            source: ''
+          });
+        })
+      }
     }
 
-
     if (req.body.result.action == "getincident") {
-
-      console.log("TESTING GET INCIDENT :");
 
       incident.statusIncident(req.body.result.parameters.incidentno, function (err, resul) {
 
@@ -591,13 +569,13 @@ app.post('/first', function (req, res) {
     //   googleresp.basicCard(req,res);
     // }
 
-    if(req.body.result.action=='googlesuggesion'){
+    if (req.body.result.action == 'googlesuggesion') {
       console.log('call googleresponse : ');
-      var googlesuggesion= googletemplate.googlesuggesion('textToSpeech','firstsuggestion','secondsuggestion','thirdsuggestion');
+      var googlesuggesion = googletemplate.googlesuggesion('textToSpeech', 'firstsuggestion', 'secondsuggestion', 'thirdsuggestion');
       return res.json(googlesuggesion);
       console.log('googleresponse : ');
     }
-    
+
 
 
 
