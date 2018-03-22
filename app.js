@@ -440,7 +440,7 @@ app.post('/first', function (req, res) {
 
         //incident.logIncident(desc, req.body.result.parameters.severity, Networkcategory, req.body.result.parameters.subcategory, function (err, resu) {
           var success = 'INC2323';
-          var resagent = "Your incident has been created with incident number:" + success + ".Note it down for further enquiry.";
+          var resagent = "Your incident has been created in "+ Networkcategory +" category with incident number:" + success + " and priority is "+ req.body.result.parameters.severity+". Note it down for further enquiry.";
 
           console.log('final result'+success, 'andcategoryis'+ Networkcategory);
 
