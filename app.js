@@ -406,6 +406,7 @@ app.post('/first', function (req, res) {
       console.log('make incident called');
       var cat = req.body.result.contexts[0].parameters.Category;
       console.log('get category :' + cat);
+      console.log('get subcategory :' + req.body.result.parameters.subcategory);
 
       if (req.body.result.contexts[0].parameters.Category == '' && req.body.result.parameters.subcategory != '') {
         var Networkcategory = '';
