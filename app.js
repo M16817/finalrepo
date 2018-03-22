@@ -408,7 +408,8 @@ app.post('/first', function (req, res) {
       console.log('get category :' + cat);
       console.log('get subcategory :' + req.body.result.parameters.Networksubcategory);
 
-      if (req.body.result.contexts[0].parameters.Category == '' && req.body.result.parameters.Networksubcategory != '') {
+      if (req.body.result.contexts[0].parameters.Category == '' && req.body.result.parameters.Networksubcategory != '') 
+      {
         var Networkcategory = '';
         var desc = req.body.result.resolvedQuery;
 
@@ -466,7 +467,7 @@ app.post('/first', function (req, res) {
 
         // incident.chatLog(req.body.result.parameters.severity, resagent, req.body.sessionId);
 
-        incident.logIncident(req.body.result.resolvedQuery, req.body.result.parameters.severity, Networkcategory, req.body.result.parameters.subcategory, function (err, resu) {
+       // incident.logIncident(req.body.result.resolvedQuery, req.body.result.parameters.severity, Networkcategory, req.body.result.parameters.subcategory, function (err, resu) {
 
           var resagent = "Your incident has been created with incident number:" + success + ".Note it down for further enquiry.";
 
@@ -476,7 +477,6 @@ app.post('/first', function (req, res) {
             displayText: resagent,
             source: ''
           });
-        })
       }
     }
 
