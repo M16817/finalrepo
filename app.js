@@ -406,17 +406,17 @@ app.post('/first', function (req, res) {
       console.log('make incident called');
       var cat = req.body.result.contexts[0].parameters.Category;
       console.log('get category :' + cat);
-      console.log('get subcategory :' + req.body.result.parameters.subcategory);
+      console.log('get subcategory :' + req.body.result.parameters.Networksubcategory);
 
-      if (req.body.result.contexts[0].parameters.Category == '' && req.body.result.parameters.subcategory != '') {
+      if (req.body.result.contexts[0].parameters.Category == '' && req.body.result.parameters.Networksubcategory != '') {
         var Networkcategory = '';
         var desc = req.body.result.resolvedQuery;
 
         for (i = 0; i < subcat.Network.length; i++) {
-          if (req.body.result.parameters.subcategory.toUpperCase() == subcat.Network[i].toUpperCase()) {
-            console.log('Print both values :'+ req.body.result.parameters.subcategory.toUpperCase() +'2.' + subcat.Network[i].toUpperCase() )
+          if (req.body.result.parameters.Networksubcategory.toUpperCase() == subcat.Network[i].toUpperCase()) {
+            console.log('Print both values :'+ req.body.result.parameters.Networksubcategory.toUpperCase() +'2.' + subcat.Network[i].toUpperCase() )
             console.log('set cat as network');
-            Networkcategory = 'Network'
+            Networkcategory = 'Network';
             break;
           }
         }
@@ -429,7 +429,7 @@ app.post('/first', function (req, res) {
               "data": {
                 "Description": desc,
                 "category": Networkcategory,
-                "subcategory": req.body.result.parameters.subcategory,
+                "subcategory": req.body.result.parameters.Networksubcategory,
                 "severity": "severity"
               }
             }
