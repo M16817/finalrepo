@@ -400,6 +400,7 @@ app.post('/first', function (req, res) {
       Hardware: ['mouse', 'keyboard', 'lcd', 'monitor']
     }
     console.log(subcat);
+    console.log('action is :'+ req.body.result.action);
 
     if (req.body.result.action == "makeincident") {
       console.log('make incident called');
