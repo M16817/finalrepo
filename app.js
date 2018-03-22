@@ -404,16 +404,16 @@ app.post('/first', function (req, res) {
 
     if (req.body.result.action == "makeincident") {
       console.log('make incident called');
-      console.log(req.body.result);
       var cat = req.body.result.contexts[0].parameters.Category;
-      console.log(cat);
+      console.log('get category :' + cat);
 
       if (req.body.result.contexts[0].parameters.Category == '' && req.body.result.parameters.subcategory != '') {
         var Networkcategory = '';
         var desc = req.body.result.resolvedQuery;
 
         for (i = 0; i < subcat.Network.length; i++) {
-          if (req.body.result.parameters.subcategory == subcat.Network[i]) {
+          if (req.body.result.parameters.subcategory.toUpperCase() == subcat.Network[i].toUpperCase()) {
+            console.log('Print both values :'+ req.body.result.parameters.subcategory.toUpperCase() +'2.' + subcat.Network[i].toUpperCase() )
             console.log('set cat as network');
             Networkcategory = 'Network'
             break;
@@ -435,17 +435,20 @@ app.post('/first', function (req, res) {
           })
         }
 
-        incident.logIncident(desc, req.body.result.parameters.severity, Networkcategory, req.body.result.parameters.subcategory, function (err, resu) {
+        //console.log(desc,)
+
+        //incident.logIncident(desc, req.body.result.parameters.severity, Networkcategory, req.body.result.parameters.subcategory, function (err, resu) {
           var success = 'INC2323';
           var resagent = "Your incident has been created with incident number:" + success + ".Note it down for further enquiry.";
+
+          console.log('final result'+success, 'andcategoryis'+ Networkcategory);
 
           return res.json({
             speech: resagent,
             displayText: resagent,
             source: ''
           });
-        })
-      }
+        }
 
 
       //   //   incident.chatLog(req.body.result.parameters.subcategory, 'Please Enter Description', req.body.sessionId);
