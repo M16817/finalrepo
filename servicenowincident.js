@@ -170,9 +170,6 @@ app.post('/first', function (req, res) {
       return res.json(fbquickreplies);
     }
 
-
-    
-
     if (req.body.result.action == "fbcard") {
       var fbcard = fbtemplate.fbcard('title', 'subtitle', 'http://www.naturephotographers.net/kt0101-1.jpg', 'buttontext', 'buttonpostback');
       return res.json(fbcard);
